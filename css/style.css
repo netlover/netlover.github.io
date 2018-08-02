@@ -342,7 +342,7 @@ a {
 }
 #container .left-col {
   background: #fff;
-  width: 300px;
+  width: 240px;
   position: fixed;
   opacity: 1;
   -webkit-transition: all 0.2s ease-in;
@@ -360,7 +360,7 @@ a {
 }
 #container .left-col .intrude-less {
   width: 76%;
-  top: 67px;
+  top: 50px;
   position: absolute;
 }
 #container .mid-col {
@@ -368,7 +368,7 @@ a {
   right: 0;
   min-height: 100%;
   background-color: #efefef;
-  left: 300px;
+  left: 240px;
   width: auto;
 }
 @media screen and (max-width: 800px) {
