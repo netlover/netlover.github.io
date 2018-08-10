@@ -360,7 +360,7 @@ a {
 }
 #container .left-col .intrude-less {
   width: 76%;
-  top: 0;
+  top: -8px;
   position: absolute;
 }
 #container .mid-col {
@@ -573,7 +573,7 @@ a {
 }
 .header-author {
   text-align: center;
-  margin: 0.67em 0;
+  margin: 1.5em 0 0.67em 0;
   font-size: 30px;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
