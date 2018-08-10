@@ -360,7 +360,7 @@ a {
 }
 #container .left-col .intrude-less {
   width: 76%;
-  top: 50px;
+  top: 0;
   position: absolute;
 }
 #container .mid-col {
@@ -698,7 +698,7 @@ a {
   zoom: 1;
   *display: inline;
   text-indent: -9999px;
-  margin: 0 8px 15px 8px;
+  margin: 0 3px 15px 3px;
   opacity: 0.7;
   width: 28px;
   height: 28px;
@@ -782,6 +782,20 @@ a {
 }
 #header .header-nav .social a.mail:hover {
   border: 1px solid #006b98;
+}
+#header .header-nav .social a.jianshu {
+  background: url("/img/jianshu.png") center no-repeat #e45e46;
+  border: 1px solid #e45e46;
+}
+#header .header-nav .social a.jianshu:hover {
+  border: 1px solid #c33d25;
+}
+#header .header-nav .gongzhonghao {
+  text-align: center;
+}
+#header .header-nav .gongzhonghao img {
+  width: 150px;
+  height: 150px;
 }
 #header .switch-part {
   width: 100%;
@@ -1047,7 +1061,7 @@ a {
 }
 .article-header {
   border-left: 5px solid;
-  padding: 15px 0 15px 30px;
+  padding: 15px 0 15px 20px;
 }
 .article-info.info-on-right {
   margin: 10px 0 0 0;
@@ -1055,18 +1069,18 @@ a {
 }
 .article-info-index.article-info {
   padding-top: 20px;
-  margin: 30px 30px 0 30px;
+  margin: 30px 20px 0 20px;
   border-top: 1px solid #ddd;
 }
 .article-info-post.article-info {
   padding: 0;
   border: none;
-  margin: -30px 0 20px 30px;
+  margin: -30px 0 20px 20px;
 }
 .article-entry {
   line-height: 2;
-  padding-right: 30px;
-  padding-left: 30px;
+  padding-right: 20px;
+  padding-left: 20px;
   font-family: '微软雅黑';
 }
 .article-entry p {
@@ -1236,7 +1250,7 @@ a {
   padding-bottom: 10px;
 }
 #article-nav .article-nav-link-wrap {
-  margin: 0px 30px 0px 30px;
+  margin: 0px 20px 0px 20px;
   font-size: 14px;
   color: #333;
 }
