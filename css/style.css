@@ -383,7 +383,7 @@ a {
   }
   #container .header-author.fixed {
     position: fixed;
-    top: -13px;
+    top: -38px;
     width: 100%;
     color: #ddd;
   }
@@ -570,6 +570,21 @@ a {
   }
   #container #footer {
     margin: 10px;
+  }
+  #container .donate {
+    margin-top: 6px;
+  }
+  #container #QR img {
+    width: 140px;
+    max-width: 100%;
+    display: inline-block;
+    margin: 0.8em 0.5em 0 0.5em;
+  }
+  #container .socialShare {
+    z-index: 9999999;
+  }
+  #container .socialShare .wemcn {
+    left: 60px;
   }
 }
 .header-author {
