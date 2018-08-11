@@ -389,6 +389,7 @@ a {
   }
   #container .overlay .slider-trigger {
     position: absolute;
+    display: none;
     z-index: 101;
     bottom: 0;
     left: 0;
