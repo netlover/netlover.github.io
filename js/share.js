@@ -8,8 +8,8 @@
     function init(target, options) {
         var settings = $.extend({}, $.fn.socialShare.defaults, options);
         //初始化各个组件
-        var $msb_main = "<a class='msb_main'><img title='分享' src='http://kiritor.github.io/img/share_core_square.jpg'></a>";
-        var $social_group = "<div class='social_group'>" + "<a target='_blank' class='msb_network_button sina'>sina</a>" + "<a target='_blank' class='msb_network_button tQQ'>tQQ</a>" + "<a target='_blank' class='msb_network_button qZone'>qZone</a>" + "<a target='_blank' class='msb_network_button douban'>douban</a>" + "<a target='_blank' class='msb_network_button weixin'>weixin</a>" + "</div>";
+        var $msb_main = "<a class='msb_main'><img title='分享' src='/img/share_core_square.jpg'></a>";
+        var $social_group = "<div class='social_group'>" + "<a target='_blank' class='msb_network_button sina'>sina</a>" + "<a target='_blank' class='msb_network_button qZone'>qZone</a>" + "<a target='_blank' class='msb_network_button douban'>douban</a>" + "<a target='_blank' class='msb_network_button weixin'>weixin</a>" + "</div>";
 
         var $wemcn = "<div id='wemcn' class='wemcn'>" + "<div id='ewmDiv' class='ewmDiv'>" + "</div>"
 			  +"</div>" ;
@@ -20,9 +20,6 @@
 
 
         //添加腾讯微博分享事件
-        $(document).on("click", ".msb_network_button.tQQ", function() {
-            tQQ(this, settings);
-        });
         //添加QQ空间分享事件
         $(document).on("click", ".msb_network_button.qZone", function() {
             qZone(this, settings);
@@ -83,7 +80,7 @@
                 $(this).parent().find(".msb_network_button").each(function() {
                     $(this).stop().delay(t * o).animate({
                         left: p,
-                        top: d
+                        top: 0
                     }, e);
                     o--
                 })
@@ -101,12 +98,6 @@
         api = api.replace('{pic}', options.pic);
 
         return api;
-    }
-
-    function tQQ(target, options) {
-        var options = $.extend({}, $.fn.socialShare.defaults, options);
-
-        window.open(replaceAPI(tqq, options));
     }
 
     function qZone(target, options) {
@@ -129,13 +120,14 @@
         //window.open(replaceAPI(weixin, $.extend({}, $.fn.socialShare.defaults, options)));
         $("#ewmDiv").empty();
         $("#ewmDiv").qrcode({
-            width: 60,
-            height: 60,
+            width: 180,
+            height: 180,
             text: window.location.href
         });
-        $("#wemcn").css({
-            marginLeft: ($(".msb_network_button.weixin").offset().left - 320 + 40)+ "px"
-        });
+        /* $("#wemcn").css({
+            marginLeft: ($(".msb_network_button.weixin").offset().left - 240 + 40)+ "px",
+            marginTop: "-30px"
+        }); */
 		$("#wemcn").fadeToggle(1000);
     }
 
@@ -165,11 +157,6 @@
                 init(this, options);
             });
         },
-        tQQ: function(jq, options) {
-            return jq.each(function() {
-                tQQ(this, options);
-            })
-        },
         qZone: function(jq, options) {
             return jq.each(function() {
                 qZone(this, options);
@@ -196,7 +183,6 @@
     //分享地址
     var qzone = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={url}&title={title}&pics={pic}&summary={content}';
     var sina = 'http://service.weibo.com/share/share.php?url={url}&title={title}&pic={pic}&searchPic=false';
-    var tqq = 'http://share.v.t.qq.com/index.php?c=share&a=index&url={url}&title={title}&appkey=801cf76d3cfc44ada52ec13114e84a96';
     var douban = 'http://www.douban.com/share/service?href={url}&name={title}&text={content}&image={pic}';
     var weixin = 'http://qr.liantu.com/api.php?text={url}';
 

@@ -360,7 +360,7 @@ a {
 }
 #container .left-col .intrude-less {
   width: 76%;
-  top: -8px;
+  top: -12px;
   position: absolute;
 }
 #container .mid-col {
@@ -574,7 +574,7 @@ a {
 }
 .header-author {
   text-align: center;
-  margin: 1.5em 0 0.67em 0;
+  margin: 1.5em 0 0.2em 0;
   font-size: 30px;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
@@ -676,6 +676,34 @@ a {
   -moz-transform: translate(-100%, 0);
   -ms-transform: translate(-100%, 0);
   transform: translate(-100%, 0);
+}
+#header .site-state {
+  overflow: hidden;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-align: center;
+}
+#header .site-state .site-state-item {
+  display: inline-block;
+  padding: 0 15px;
+  border-left: 1px solid #eee;
+}
+#header .site-state .site-state-item a {
+  border-bottom: none;
+}
+#header .site-state .site-state-item a .site-state-item-count {
+  display: block;
+  text-align: center;
+  color: inherit;
+  font-weight: 600;
+  font-size: 16px;
+}
+#header .site-state .site-state-item a .site-state-item-name {
+  font-size: 13px;
+  color: #999;
+}
+#header .site-state .site-state-item:first-child {
+  border-left: none;
 }
 #header .header-nav {
   width: 100%;
@@ -839,15 +867,15 @@ a {
 }
 .archives-wrap {
   position: relative;
-  margin-left: 40px;
-  margin-right: 40px;
-  padding-right: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-right: 30px;
   border-bottom: 1px solid #eee;
   background: #fff;
 }
 .archives-wrap .archive-year-wrap {
   line-height: 35px;
-  width: 200px;
+  width: 120px;
   position: absolute;
   padding-top: 15px;
   font-size: 1.8em;
@@ -855,7 +883,7 @@ a {
 .archives-wrap .archive-year-wrap a {
   color: #666;
   font-weight: bold;
-  padding-left: 48px;
+  padding-left: 30px;
 }
 .archives {
   position: relative;
@@ -866,9 +894,10 @@ a {
 }
 .archives .article-info {
   border: none;
+  width: 100%;
 }
 .archives .archive-article {
-  margin-left: 200px;
+  margin-left: 120px;
   padding: 20px 0;
   border-bottom: 1px solid #eee;
   border-top: 1px solid #fff;
@@ -1424,15 +1453,15 @@ a {
 }
 .archives-wrap {
   position: relative;
-  margin-left: 40px;
-  margin-right: 40px;
-  padding-right: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-right: 30px;
   border-bottom: 1px solid #eee;
   background: #fff;
 }
 .archives-wrap .archive-year-wrap {
   line-height: 35px;
-  width: 200px;
+  width: 120px;
   position: absolute;
   padding-top: 15px;
   font-size: 1.8em;
@@ -1440,7 +1469,7 @@ a {
 .archives-wrap .archive-year-wrap a {
   color: #666;
   font-weight: bold;
-  padding-left: 48px;
+  padding-left: 30px;
 }
 .archives {
   position: relative;
@@ -1451,9 +1480,10 @@ a {
 }
 .archives .article-info {
   border: none;
+  width: 100%;
 }
 .archives .archive-article {
-  margin-left: 200px;
+  margin-left: 120px;
   padding: 20px 0;
   border-bottom: 1px solid #eee;
   border-top: 1px solid #fff;
@@ -1749,17 +1779,11 @@ pre .javascript .function {
 @charset "utf-8";
 .socialShare {
   display: block;
-  width: 54px;
-  height: 54px;
   position: relative;
-  line-height: 54px;
   z-index: 1;
 }
 .socialShare .msb_main {
   display: block;
-  width: 46px;
-  height: 46px;
-  line-height: 46px;
   position: absolute;
   top: 0;
   left: 0;
@@ -1776,8 +1800,8 @@ pre .javascript .function {
   box-shadow: 0 0 5px #bbb;
 }
 .socialShare .msb_main img {
-  width: 46px;
-  height: 46px;
+  width: 36px;
+  height: 36px;
   cursor: pointer;
   border-radius: 23px;
   border: none;
@@ -1820,16 +1844,15 @@ pre .javascript .function {
   border: 6px solid #eee;
 }
 .wemcn {
-  width: 64px;
-  height: 64px;
+  position: absolute;
+  bottom: 10px;
+  left: 170px;
   display: none;
   background: #fff none repeat scroll 0 0;
   border: 0;
 }
 .ewmDiv {
   float: left;
-  width: 60px;
-  height: 60px;
   border: 6px solid #f5f5f5;
 }
 .ewmDiv:hover {
@@ -2270,7 +2293,7 @@ pre .javascript .function {
   float: left;
 }
 .article-tag {
-  float: left;
+  float: right;
 }
 .article-tag .article-tag-list {
   float: left;
@@ -3635,10 +3658,10 @@ img.ug-sepia-effect {
   margin: 20px auto;
   width: 90%;
   text-align: center;
+  position: relative;
 }
 .donate {
   cursor: pointer;
-  margin-top: 16px;
   width: 80px;
   height: 35px;
   line-height: 35px;
@@ -3651,7 +3674,11 @@ img.ug-sepia-effect {
   background: #f44336;
 }
 #QR {
-  padding-top: 20px;
+  display: block;
+  position: absolute;
+  bottom: 60px;
+  width: 100%;
+  margin: 0px auto;
 }
 #QR img {
   width: 180px;

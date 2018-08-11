@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Net Lover</title>
+  <icon>https://www.gravatar.com/avatar/65b1cd02da88a159ba8fb10984d24e1b</icon>
+  <subtitle>.Net Lover or Net Lover</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://netlover.cn/"/>
+  <updated>2018-08-11T18:29:24.994Z</updated>
+  <id>https://netlover.cn/</id>
+  
+  <author>
+    <name>Net Lover</name>
+    <email>netlover@vip.qq.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>初步接触hexo</title>
+    <link href="https://netlover.cn/2018/08/01/hexo-begin.html"/>
+    <id>https://netlover.cn/2018/08/01/hexo-begin.html</id>
+    <published>2018-08-01T15:47:44.000Z</published>
+    <updated>2018-08-11T18:29:24.994Z</updated>
+    
+    <summary type="html">
+    
+      初步接触hexo
+    
+    </summary>
+    
+      <category term="Hexo" scheme="https://netlover.cn/categories/Hexo/"/>
+    
+    
+      <category term="hexo" scheme="https://netlover.cn/tags/hexo/"/>
+    
+      <category term="github" scheme="https://netlover.cn/tags/github/"/>
+    
+      <category term="blog" scheme="https://netlover.cn/tags/blog/"/>
+    
+  </entry>
+  
+</feed>

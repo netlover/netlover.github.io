@@ -4,19 +4,20 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="/css/github.css?2018.08.01">
 
-<title>Net Lover</title>
+<title>初步接触hexo | Net Lover</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="DotNet技术和网络技术爱好者，专注于前端框架、微服务、架构、开源技术，提供优质系列文章服务同道者！">
-<meta name="keywords" content=".Net,Net,微服务,架构,框架,开源,前端技术">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Net Lover">
-<meta property="og:url" content="https://netlover.cn/index.html">
+<meta name="description" content="初步接触hexo">
+<meta name="keywords" content="hexo,github,blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初步接触hexo">
+<meta property="og:url" content="https://netlover.cn/2018/08/01/hexo-begin.html">
 <meta property="og:site_name" content="Net Lover">
-<meta property="og:description" content="DotNet技术和网络技术爱好者，专注于前端框架、微服务、架构、开源技术，提供优质系列文章服务同道者！">
+<meta property="og:description" content="初步接触hexo">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-11T18:29:24.994Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Net Lover">
-<meta name="twitter:description" content="DotNet技术和网络技术爱好者，专注于前端框架、微服务、架构、开源技术，提供优质系列文章服务同道者！">
+<meta name="twitter:title" content="初步接触hexo">
+<meta name="twitter:description" content="初步接触hexo">
 
 <link rel="alternative" href="/atom.xml" title="Net Lover" type="application/atom+xml">
 
@@ -177,12 +178,7 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><!-- 是否开启微简历 -->
-
-
-
-  
-    <article id="post-hexo.begin.html" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-hexo.begin.html" class="article article-type-post" itemscope itemprop="blogPost">
     <script>
         $("html").niceScroll({
             cursorcolor: "#2a2929",
@@ -210,14 +206,30 @@
                             <header class="article-header">
                                 
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/hexo-begin.html">初步接触hexo</a>
+    <h1 class="article-title" itemprop="name">
+      初步接触hexo
     </h1>
   
 
 
                             </header>
                             
+                                <div class="article-info article-info-post">
+                                    
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+	</div>
+
+
+                                    
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+	</div>
+
+
+                                    <div class="clearfix"></div>
+                                </div>
+                                
                                     
 
                                         <div class="article-entry" itemprop="articleBody">
@@ -246,41 +258,57 @@
                                         </div>
 
                                         
-                                            <div class="article-info article-info-index">
-                                                
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-	</div>
-
-
-                                                    
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Hexo/">Hexo</a>
-	</div>
-
-
-                                                        
-                                                                <div class="clearfix"></div>
-                                            </div>
-                                            
             </div>
             
+                <div id="socialShare" style="margin-left:10px;display:none;">
+                </div>
+                <script>
+                    $(function() {
+                        var width = document.body.scrollWidth;
+                        if (width > 550) {
+                            $("#socialShare").css("display", "block");
+                            $("#socialShare").socialShare({
+                                content: 'Nice!不错的资源...',
+                                url: window.location.href,
+                                titile: ''
+                            });
+                        }
+                    });
+                </script>
+                
                     
+                        <div class="donateContainer">
+                            <span id="donate" class="donate" onclick="donate()">打赏</span>
+                            <div id="QR" style="display: none;">
+                                <div id="alipay" style="display: inline-block">
+                                    <a href="/img/weixin.jpg" target="_blank" class="fancybox fancybox.image" rel="group">
+                                        <img id="alipay_qr" src="/img/weixin.jpg">
+                                    </a>
+                                </div>
+                                <div id="wechat" style="display: inline-block">
+                                    <a href="/img/zhifubao.jpg" target="_blank" class="fancybox fancybox.image" rel="group">
+                                        <img id="wechat_qr" src="/img/zhifubao.jpg">
+                                    </a>
+                                </div>
+                            </div>
+                            <script>
+                                function donate() {
+                                    var qr = document.getElementById('QR');
+                                    if (qr.style.display === 'none') {
+                                        qr.style.display = 'block';
+                                    } else {
+                                        qr.style.display = 'none'
+                                    }
+                                };
+                            </script>
+                        </div>
+                        
+                            
+                                
+
                             
                                         
 </article>
-  
-  
-
-
-<script>
-    $(function(){
-	    var width = document.body.scrollWidth;
-		if(width<=550){
-		    $("#recentComments").css("display","none");
-		}
-	})
-</script>
 </div>
     </div>
     
