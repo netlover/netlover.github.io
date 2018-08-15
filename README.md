@@ -1,4 +1,4 @@
-# .Net Lover or Net Lover #
+# .Net Lover & Net Lover #
 
 网址：https://netlover.cn
 
