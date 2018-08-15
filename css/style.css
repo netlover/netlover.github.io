@@ -1622,11 +1622,11 @@ a {
 }
 .article-entry pre,
 .article-entry .highlight {
-  background: #2d2d2d;
+  background: #eee;
   margin: 0 0;
   padding: 15px 20px;
   overflow: auto;
-  color: #fff;
+  color: #4d4d4c;
   line-height: 22.400000000000002px;
 }
 .article-entry .highlight .gutter pre,
@@ -1692,7 +1692,7 @@ a {
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
-  background: #2d2d2d;
+  background: #eee;
   padding: 15px 20px 15px 0;
 }
 .article-entry .gist .gist-file {
@@ -1718,7 +1718,7 @@ a {
   border: none;
 }
 .article-entry .gist .gist-file .gist-meta {
-  background: #2d2d2d;
+  background: #eee;
   color: #a6e22e;
   font: 0.85em "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-shadow: 0 0;
@@ -1759,12 +1759,12 @@ pre .built_in,
 pre .literal,
 pre .params,
 pre .constant {
-  color: #66d9ef;
+  color: #f5871f;
 }
 pre .class,
 pre .ruby .class .title,
 pre .css .rules .attribute {
-  color: #e6db74;
+  color: #718c00;
 }
 pre .string,
 pre .value,
@@ -1772,7 +1772,7 @@ pre .inheritance,
 pre .header,
 pre .ruby .symbol,
 pre .xml .cdata {
-  color: #e6db74;
+  color: #718c00;
 }
 pre .css .hexcolor {
   color: #6cc;
