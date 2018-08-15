@@ -729,7 +729,6 @@ a {
   transition: transform 0.3s ease-in;
 }
 #header .header-nav .social {
-  margin-right: 15px;
   margin-top: 10px;
   text-align: center;
 }
