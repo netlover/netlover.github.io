@@ -895,8 +895,6 @@ a {
   padding: 10px 8px 6px 8px;
   color: #fff;
   border: 4px solid #fff;
-  -webkit-box-shadow: 0 0 8px #ddd;
-  box-shadow: 0 0 8px #ddd;
 }
 #totop img {
   width: 27px;
@@ -923,8 +921,6 @@ a {
 }
 .archives {
   position: relative;
-  -webkit-box-shadow: 1px 2px 3px #ddd;
-  box-shadow: 1px 2px 3px #ddd;
   border-radius: 1px;
   border: 0;
 }
@@ -1147,7 +1143,6 @@ a {
   line-height: 2;
   padding-right: 20px;
   padding-left: 20px;
-  font-family: '微软雅黑';
 }
 .article-entry p {
   margin-top: 10px;
@@ -1508,8 +1503,6 @@ a {
 }
 .archives {
   position: relative;
-  -webkit-box-shadow: 1px 2px 3px #ddd;
-  box-shadow: 1px 2px 3px #ddd;
   border-radius: 1px;
   border: 0;
 }
@@ -1639,13 +1632,11 @@ a {
 }
 .article-entry code {
   background: #eee;
-  text-shadow: 0 1px #fff;
   padding: 0 0.3em;
   border: none;
 }
 .article-entry pre code {
   background: none;
-  text-shadow: none;
   padding: 0;
 }
 .article-entry .highlight pre {
@@ -1720,7 +1711,6 @@ a {
   background: #eee;
   color: #a6e22e;
   font: 0.85em "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-shadow: 0 0;
   padding: 0;
   margin-top: 1em;
   margin-left: 20px;
@@ -1793,7 +1783,6 @@ pre .javascript .function {
 #footer {
   font-size: 12px;
   font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
-  text-shadow: 0 1px #fff;
   margin: 20px auto auto auto;
   padding-bottom: 20px;
   text-align: center;
@@ -1826,13 +1815,7 @@ pre .javascript .function {
   cursor: pointer;
   text-indent: -9999px;
   border: 4px solid #fff;
-  -webkit-box-shadow: 0 0 5px #ddd;
-  box-shadow: 0 0 5px #ddd;
   border-radius: 36px;
-}
-.socialShare .msb_main:hover {
-  -webkit-box-shadow: 0 0 5px #bbb;
-  box-shadow: 0 0 5px #bbb;
 }
 .socialShare .msb_main img {
   width: 36px;
@@ -1977,10 +1960,6 @@ pre .javascript .function {
 .instagram .album div.img-box {
   position: relative;
   margin: 0 20px 10px;
-  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.4), 0 1px 0 1px rgba(255,255,255,0.1);
-  -moz-box-shadow: 0 1px 0 rgba(255,255,255,0.4), 0 1px 0 1px rgba(255,255,255,0.1);
-  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.4), 0 1px 0 1px rgba(255,255,255,0.1);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.4), 0 1px 0 1px rgba(255,255,255,0.1);
 }
 .instagram .album div.img-box .img-bg {
   position: absolute;
@@ -1991,10 +1970,6 @@ pre .javascript .function {
   margin: -5px;
   padding: 5px;
   background: rgba(204,204,204,0.8);
-  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 1px 5px rgba(0,0,0,0.1);
-  -moz-box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 1px 5px rgba(0,0,0,0.1);
-  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 1px 5px rgba(0,0,0,0.1);
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 1px 5px rgba(0,0,0,0.1);
   -webkit-transition: all 0.15s ease-out 0.1s;
   -moz-transition: all 0.15s ease-out 0.1s;
   -o-transition: all 0.15s ease-out 0.1s;
@@ -2288,8 +2263,6 @@ pre .javascript .function {
   height: 4px;
   background-color: #fff;
   border-radius: 4px;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3);
-  box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3);
   position: absolute;
   top: 7px;
   left: 2px;
@@ -3798,8 +3771,6 @@ img.ug-sepia-effect {
   border: 1px solid #eee;
   padding: 10px 20px;
   background: #fff;
-  -webkit-box-shadow: 1px 2px 4px #ccc;
-  box-shadow: 1px 2px 4px #ccc;
 }
 .local-search-result-cls ul li {
   text-align: left;

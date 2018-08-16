@@ -1119,7 +1119,6 @@ a.gitment-editor-footer-tip:hover {
   border: solid 1px #c6cbd1;
   border-bottom-color: #959da5;
   border-radius: 0;
-  box-shadow: inset 0 -1px 0 #959da5;
 }
 
 .gitment-markdown :checked+.radio-label {
