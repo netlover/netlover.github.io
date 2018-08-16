@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://netlover.cn/"/>
-  <updated>2018-08-15T14:53:32.109Z</updated>
+  <updated>2018-08-16T13:44:55.753Z</updated>
   <id>https://netlover.cn/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ExceptionLess本地部署</title>
+    <link href="https://netlover.cn/2018/08/16/ExceptionLess-local.html"/>
+    <id>https://netlover.cn/2018/08/16/ExceptionLess-local.html</id>
+    <published>2018-08-16T15:12:44.000Z</published>
+    <updated>2018-08-16T13:44:55.753Z</updated>
+    
+    <summary type="html">
+    
+      ExceptionLess是一套免费开源分布式系统日志收集框架，本文主要介绍本地化实现。
+    
+    </summary>
+    
+      <category term="Framework" scheme="https://netlover.cn/categories/Framework/"/>
+    
+    
+      <category term="ExceptionLess" scheme="https://netlover.cn/tags/ExceptionLess/"/>
+    
+      <category term="本地部署" scheme="https://netlover.cn/tags/%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2/"/>
+    
+      <category term="日志框架" scheme="https://netlover.cn/tags/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于vue生态的UI框架推荐</title>
+    <link href="https://netlover.cn/2018/08/16/vue-ui-recommend.html"/>
+    <id>https://netlover.cn/2018/08/16/vue-ui-recommend.html</id>
+    <published>2018-08-16T14:47:44.000Z</published>
+    <updated>2018-08-16T13:44:30.938Z</updated>
+    
+    <summary type="html">
+    
+      本文主要介绍实际应用中涉及到的几款vue ui，个人觉得不错，特此推荐！
+    
+    </summary>
+    
+      <category term="vue" scheme="https://netlover.cn/categories/vue/"/>
+    
+    
+      <category term="vue" scheme="https://netlover.cn/tags/vue/"/>
+    
+      <category term="ui" scheme="https://netlover.cn/tags/ui/"/>
+    
+  </entry>
   
   <entry>
     <title>常用meta标签的作用以及全面整理</title>

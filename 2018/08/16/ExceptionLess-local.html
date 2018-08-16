@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/css/github.css?2018.08.01">
+
+<title>ExceptionLess本地部署 | Net Lover</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="ExceptionLess是一套免费开源分布式系统日志收集框架，本文主要介绍本地化实现。">
+<meta name="keywords" content="ExceptionLess,本地部署,日志框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ExceptionLess本地部署">
+<meta property="og:url" content="https://netlover.cn/2018/08/16/ExceptionLess-local.html">
+<meta property="og:site_name" content="Net Lover">
+<meta property="og:description" content="ExceptionLess是一套免费开源分布式系统日志收集框架，本文主要介绍本地化实现。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/7w35SaL.png">
+<meta property="og:image" content="https://i.imgur.com/7lvCAKk.png">
+<meta property="og:image" content="https://i.imgur.com/J4tuI6y.png">
+<meta property="og:updated_time" content="2018-08-16T13:44:55.753Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ExceptionLess本地部署">
+<meta name="twitter:description" content="ExceptionLess是一套免费开源分布式系统日志收集框架，本文主要介绍本地化实现。">
+<meta name="twitter:image" content="https://i.imgur.com/7w35SaL.png">
+
+<link rel="alternative" href="/atom.xml" title="Net Lover" type="application/atom+xml">
+
+
+<link rel="icon" href="/img/netlover.ico?2018.08.01">
+
+<link rel="stylesheet" href="/css/style.css?2018.08.01">
+<script src="/js/jquery1.8.2.min.js?2018.08.01"></script>
+<script src="/js/jquery.nicescroll.js?2018.08.01"></script>
+<script src="/js/jquery.qrcode.min.js?2018.08.01"></script>
+<script src="/js/search.js?2018.08.01"></script>
+<script src="/js/ug-theme-default.js?2018.08.01"></script>
+<script src="/js/unitegallery.js?2018.08.01"></script>
+<script src="/js/gitment.browser.js?2018.08.01"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/img/netlover.jpg" class="js-avatar">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Net Lover</a></h1>
+		</hgroup>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/categories">分类</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/tags">标签</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="site-state motion-element">
+						<div class="site-state-item site-state-posts">
+							<a href="/archives">
+							<span class="site-state-item-count">4</span>
+							<span class="site-state-item-name">日志</span>
+							</a>
+						</div>
+						<div class="site-state-item site-state-categories">
+							<a href="/categories/index.html">
+							<span class="site-state-item-count">4</span>
+							<span class="site-state-item-name">分类</span>
+							</a>
+						</div>
+						<div class="site-state-item site-state-tags">
+							<a href="/tags/index.html">
+							<span class="site-state-item-count">11</span>
+							<span class="site-state-item-name">标签</span>
+							</a>
+						</div>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								
+									<a class="github" target="_blank" href="https://github.com/Netlover" title="github">github</a>
+								
+					        
+								
+									<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+								
+					        
+								
+									<a class="zhihu" target="_blank" href="https://zhuanlan.zhihu.com/netlover" title="zhihu">zhihu</a>
+								
+					        
+								
+									<a class="jianshu" target="_blank" href="https://www.jianshu.com/u/c86d7c57dd6d" title="jianshu">jianshu</a>
+								
+					        
+						</div>
+						<div class="gongzhonghao"><img src="/img/gongzhonghao.jpg"></div>
+					</nav>
+				</section>
+
+				
+
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">网络爱好者，.Net爱好者...</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Net Lover</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/img/netlover.jpg" class="js-avatar">
+				<hgroup>
+				  <h1 class="header-author">Net Lover</h1>
+				</hgroup>
+			</div>
+			
+			<p class="header-subtitle">.Net Lover &amp; Net Lover</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/categories">分类</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/tags">标签</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Netlover" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://zhuanlan.zhihu.com/netlover" title="zhihu">zhihu</a>
+			        
+						<a class="jianshu" target="_blank" href="https://www.jianshu.com/u/c86d7c57dd6d" title="jianshu">jianshu</a>
+			        
+				</div>
+			</nav>
+		</header>
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-ExceptionLess本地部署" class="article article-type-post" itemscope itemprop="blogPost">
+    <script>
+        $("html").niceScroll({
+            cursorcolor: "#2a2929",
+            cursoropacitymax: 1,
+            touchbehavior: false,
+            cursorwidth: "6px",
+            cursorborder: "5",
+            cursorborderradius: "0px",
+            autohidemode: true
+        });
+    </script>
+    
+        <div class="article-meta">
+            <a href="/2018/08/16/ExceptionLess-local.html" class="article-date">
+  	<time datetime="2018-08-16T15:12:44.000Z" itemprop="datePublished">2018-08-16</time>
+</a>
+
+        </div>
+        
+            <div class="article-inner">
+                
+                    <input type="hidden" class="isFancy" />
+                    
+                        
+                            <header class="article-header">
+                                
+  
+    <h1 class="article-title" itemprop="name">
+      ExceptionLess本地部署
+    </h1>
+  
+
+
+                            </header>
+                            <div class="article-info article-info-post">
+                                    
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Framework/">Framework</a>
+	</div>
+
+
+                                    <div class="clearfix"></div>
+                                </div>
+                                    
+                                        <div class="article-entry" itemprop="articleBody">
+                                            
+                                            
+                                            
+                                                        <p><strong>ExceptionLess是一套免费开源分布式系统日志收集框架</strong></p>
+<p><strong>参考资料</strong></p>
+<p>官方wiki文档 <a href="https://github.com/exceptionless/Exceptionless/wiki/Self-Hosting" title="官方wiki文档" target="_blank" rel="noopener">https://github.com/exceptionless/Exceptionless/wiki/Self-Hosting</a></p>
+<p><strong>搭建步骤：</strong></p>
+<ol>
+<li>.NET 4.6.1。如果已安装过VS请忽略。</li>
+<li>安装<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" title="官当下载JDK" target="_blank" rel="noopener">JDK</a>并<a href="https://jingyan.baidu.com/article/6dad5075d1dc40a123e36ea3.html" title="百度经验配置环境变量" target="_blank" rel="noopener">配置环境变量</a>。</li>
+<li>下载 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/zip-windows.html" title="官方下载页面" target="_blank" rel="noopener">Elasticsearch</a></li>
+<li>下载 <a href="https://github.com/exceptionless/Exceptionless/releases" title="Exceptionless官方最新版本" target="_blank" rel="noopener">ExceptionLess</a></li>
+</ol>
+<p>第一步，安装JDK并配置环境变量。</p>
+<p>第二步，解压Elasticsearch，进入bin目录，运行elasticsearch.bat。</p>
+<p>第三步，解压 Exceptionless，运行Start.bat。</p>
+<p><img src="https://i.imgur.com/7w35SaL.png" alt=""></p>
+<p>在执行Start.bat的时候，如果出现以下错误，请<a href="https://www.jb51.net/article/95022.htm" title="PowerShell因为在此系统中禁止执行脚本的解决方法" target="_blank" rel="noopener">参考PowerShell设置</a>。</p>
+<blockquote>
+<p>powershell Set-ExecutionPolicy Unrestricted</p>
+</blockquote>
+<p><img src="https://i.imgur.com/7lvCAKk.png" alt=""></p>
+<p>如果没有报错，会出现”正在请求写入流“。</p>
+<p><img src="https://i.imgur.com/J4tuI6y.png" alt=""></p>
+<p>等待安装完成，会自动打开<a href="http://localhost:50000/这个页面。" target="_blank" rel="noopener">http://localhost:50000/这个页面。</a><br>在低版本的安装过程中，需要修改各种配置文件，在最新版本已经不需要手动去修改了，完全是傻瓜式安装。<br>到此为止，安装流程已经全部完成了。</p>
+
+                                                            <p>本文链接：
+                                                                <a href="https://netlover.cn/2018/08/16/ExceptionLess-local.html">
+                                                                    https://netlover.cn/2018/08/16/ExceptionLess-local.html
+                                                                </a>
+                                                            </p>
+                                                            
+                                        </div>
+                                        <div class="article-info article-info-index">
+                                                
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ExceptionLess/">ExceptionLess</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日志框架/">日志框架</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/本地部署/">本地部署</a></li></ul>
+	</div>
+
+
+                                                    
+                                                        
+                                                                <div class="clearfix"></div>
+                                            </div>
+            </div>
+            
+                <div id="socialShare" style="margin-left:10px;display:none;">
+                </div>
+                <script>
+                    $(function() {
+                        var width = document.body.scrollWidth;
+                        if (width > 550) {
+                            $("#socialShare").css("display", "block");
+                            $("#socialShare").socialShare({
+                                content: 'Nice!不错的资源...',
+                                url: window.location.href,
+                                titile: ''
+                            });
+                        }
+                    });
+                </script>
+                
+                    
+                        <div class="donateContainer">
+                            <span id="donate" class="donate" onclick="donate()">打赏</span>
+                            <div id="QR" style="display: none;">
+                                <div id="alipay" style="display: inline-block">
+                                    <a href="/img/weixin.jpg" target="_blank" class="fancybox fancybox.image" rel="group">
+                                        <img id="alipay_qr" src="/img/weixin.jpg">
+                                    </a>
+                                </div>
+                                <div id="wechat" style="display: inline-block">
+                                    <a href="/img/zhifubao.jpg" target="_blank" class="fancybox fancybox.image" rel="group">
+                                        <img id="wechat_qr" src="/img/zhifubao.jpg">
+                                    </a>
+                                </div>
+                            </div>
+                            <script>
+                                function donate() {
+                                    var qr = document.getElementById('QR');
+                                    if (qr.style.display === 'none') {
+                                        qr.style.display = 'block';
+                                    } else {
+                                        qr.style.display = 'none'
+                                    }
+                                };
+                            </script>
+                        </div>
+                        
+                            
+                                
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/16/vue-ui-recommend.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基于vue生态的UI框架推荐</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+                            
+                                        
+</article>
+</div>
+    </div>
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css?2018.08.01">
+<script src="/fancybox/jquery.fancybox.pack.js?2018.08.01"></script>
+
+<script src="/js/mobile.js?2018.08.01"></script>
+<script src="/js/main.js?2018.08.01"></script>
+<script src="/js/prefixfree.js?2018.08.01"></script>
+
+
+
+<div id="totop">
+    <a title="返回顶部">
+        <img src="/img/gotop.png" />
+    </a>
+</div>
+
+<script src="/js/totop.js?2018.08.01"></script>
+<script src="/js/share.js?2018.08.01"></script>
+  </div>
+</body>
+</html>
