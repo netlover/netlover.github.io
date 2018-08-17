@@ -601,7 +601,7 @@ a.gitment-editor-footer-tip:hover {
 }
 
 .gitment-markdown strong {
-  font-weight: inherit;
+  font-weight: normal;
 }
 
 .gitment-markdown strong {

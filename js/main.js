@@ -121,7 +121,7 @@ var Main = (function(){
 		}
 
 		//article
-		function showArticle(){
+		/* function showArticle(){
 			$(".article").each(function(){
 				if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && !$(this).hasClass('show') ) {
 					$(this).addClass("show");
@@ -134,7 +134,7 @@ var Main = (function(){
 		$(window).on('scroll', function(){
 			showArticle();
 		});
-		showArticle();
+		showArticle(); */
 	}
 
 	return {

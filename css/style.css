@@ -302,6 +302,65 @@ a {
 #work h3 {
   background: url("../img/work.png") no-repeat #fff;
 }
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  font-weight: normal;
+}
 #container {
   position: relative;
   min-height: 100%;
@@ -1035,8 +1094,6 @@ a {
   border: 1px solid #fff;
   margin: 4px 10px 20px 10px;
   background: #fff;
-  visibility: hidden;
-  -webkit-transition: all 0.2s ease-in;
 }
 .article.show {
   visibility: visible;
