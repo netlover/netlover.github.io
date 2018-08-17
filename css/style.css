@@ -1326,9 +1326,8 @@ td {
   font-size: 14;
   text-align: right;
   position: absolute;
-  right: 0;
+  right: 20px;
   top: 23px;
-  text-align: center;
   z-index: 1;
 }
 .article-meta time {
