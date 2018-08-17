@@ -584,7 +584,7 @@
                                         
 </article>
   
-    <article id="post-如何成为一个合格的架构师？" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ExceptionLess本地部署" class="article article-type-post" itemscope itemprop="blogPost">
     
         <div class="article-meta">
             <a href="/2018/08/16/ExceptionLess-local.html" class="article-date">
@@ -602,7 +602,93 @@
                                 
   
     <h1 class="article-title" itemprop="name">
-      <a href="/2018/08/16/ExceptionLess-local.html">如何成为一个合格的架构师？</a>
+      <a href="/2018/08/16/ExceptionLess-local.html">ExceptionLess本地部署</a>
+    </h1>
+  
+
+
+                            </header>
+                            <div class="article-info article-info-post">
+                                    
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Framework/">Framework</a>
+	</div>
+
+
+                                    <div class="clearfix"></div>
+                                </div>
+                                    
+                                        <div class="article-entry" itemprop="articleBody">
+                                            
+                                            
+                                            
+                                                        <p><strong>ExceptionLess是一套免费开源分布式系统日志收集框架</strong></p>
+<p><strong>参考资料</strong></p>
+<p>官方wiki文档 <a href="https://github.com/exceptionless/Exceptionless/wiki/Self-Hosting" title="官方wiki文档" target="_blank" rel="noopener">https://github.com/exceptionless/Exceptionless/wiki/Self-Hosting</a></p>
+<p><strong>搭建步骤：</strong></p>
+<ol>
+<li>.NET 4.6.1。如果已安装过VS请忽略。</li>
+<li>安装<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" title="官当下载JDK" target="_blank" rel="noopener">JDK</a>并<a href="https://jingyan.baidu.com/article/6dad5075d1dc40a123e36ea3.html" title="百度经验配置环境变量" target="_blank" rel="noopener">配置环境变量</a>。</li>
+<li>下载 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/zip-windows.html" title="官方下载页面" target="_blank" rel="noopener">Elasticsearch</a></li>
+<li>下载 <a href="https://github.com/exceptionless/Exceptionless/releases" title="Exceptionless官方最新版本" target="_blank" rel="noopener">ExceptionLess</a></li>
+</ol>
+<p>第一步，安装JDK并配置环境变量。</p>
+<p>第二步，解压Elasticsearch，进入bin目录，运行elasticsearch.bat。</p>
+<p>第三步，解压 Exceptionless，运行Start.bat。</p>
+<p><img src="https://i.imgur.com/7w35SaL.png" alt=""></p>
+<p>在执行Start.bat的时候，如果出现以下错误，请<a href="https://www.jb51.net/article/95022.htm" title="PowerShell因为在此系统中禁止执行脚本的解决方法" target="_blank" rel="noopener">参考PowerShell设置</a>。</p>
+<blockquote>
+<p>powershell Set-ExecutionPolicy Unrestricted</p>
+</blockquote>
+<p><img src="https://i.imgur.com/7lvCAKk.png" alt=""></p>
+<p>如果没有报错，会出现”正在请求写入流“。</p>
+<p><img src="https://i.imgur.com/J4tuI6y.png" alt=""></p>
+<p>等待安装完成，会自动打开<a href="http://localhost:50000/这个页面。" target="_blank" rel="noopener">http://localhost:50000/这个页面。</a><br>在低版本的安装过程中，需要修改各种配置文件，在最新版本已经不需要手动去修改了，完全是傻瓜式安装。<br>到此为止，安装流程已经全部完成了。</p>
+
+                                                            <p>本文链接：
+                                                                <a href="https://netlover.cn/2018/08/16/ExceptionLess-local.html">
+                                                                    https://netlover.cn/2018/08/16/ExceptionLess-local.html
+                                                                </a>
+                                                            </p>
+                                                            
+                                        </div>
+                                        <div class="article-info article-info-index">
+                                                
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ExceptionLess/">ExceptionLess</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日志框架/">日志框架</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/本地部署/">本地部署</a></li></ul>
+	</div>
+
+
+                                                    
+                                                        
+                                                                <div class="clearfix"></div>
+                                            </div>
+            </div>
+            
+                    
+                            
+                                        
+</article>
+  
+    <article id="post-如何成为一个合格的架构师？" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <div class="article-meta">
+            <a href="/2018/08/16/do-jiagoushi.html" class="article-date">
+  	<time datetime="2018-08-16T15:12:44.000Z" itemprop="datePublished">2018-08-16</time>
+</a>
+
+        </div>
+        
+            <div class="article-inner">
+                
+                    <input type="hidden" class="isFancy" />
+                    
+                        
+                            <header class="article-header">
+                                
+  
+    <h1 class="article-title" itemprop="name">
+      <a href="/2018/08/16/do-jiagoushi.html">如何成为一个合格的架构师？</a>
     </h1>
   
 
@@ -795,8 +881,8 @@
 <p>当你做的正确的事情多了，才会与团队磨合，获得大家的信任，而不是怨念，逐步树立自己的权威，从此可以跟小伙伴们一起愉快地玩耍了。</p>
 
                                                             <p>本文链接：
-                                                                <a href="https://netlover.cn/2018/08/16/ExceptionLess-local.html">
-                                                                    https://netlover.cn/2018/08/16/ExceptionLess-local.html
+                                                                <a href="https://netlover.cn/2018/08/16/do-jiagoushi.html">
+                                                                    https://netlover.cn/2018/08/16/do-jiagoushi.html
                                                                 </a>
                                                             </p>
                                                             
@@ -805,92 +891,6 @@
                                                 
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/架构/">架构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/架构师/">架构师</a></li></ul>
-	</div>
-
-
-                                                    
-                                                        
-                                                                <div class="clearfix"></div>
-                                            </div>
-            </div>
-            
-                    
-                            
-                                        
-</article>
-  
-    <article id="post-ExceptionLess本地部署" class="article article-type-post" itemscope itemprop="blogPost">
-    
-        <div class="article-meta">
-            <a href="/2018/08/16/ExceptionLess-local.html" class="article-date">
-  	<time datetime="2018-08-16T15:12:44.000Z" itemprop="datePublished">2018-08-16</time>
-</a>
-
-        </div>
-        
-            <div class="article-inner">
-                
-                    <input type="hidden" class="isFancy" />
-                    
-                        
-                            <header class="article-header">
-                                
-  
-    <h1 class="article-title" itemprop="name">
-      <a href="/2018/08/16/ExceptionLess-local.html">ExceptionLess本地部署</a>
-    </h1>
-  
-
-
-                            </header>
-                            <div class="article-info article-info-post">
-                                    
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Framework/">Framework</a>
-	</div>
-
-
-                                    <div class="clearfix"></div>
-                                </div>
-                                    
-                                        <div class="article-entry" itemprop="articleBody">
-                                            
-                                            
-                                            
-                                                        <p><strong>ExceptionLess是一套免费开源分布式系统日志收集框架</strong></p>
-<p><strong>参考资料</strong></p>
-<p>官方wiki文档 <a href="https://github.com/exceptionless/Exceptionless/wiki/Self-Hosting" title="官方wiki文档" target="_blank" rel="noopener">https://github.com/exceptionless/Exceptionless/wiki/Self-Hosting</a></p>
-<p><strong>搭建步骤：</strong></p>
-<ol>
-<li>.NET 4.6.1。如果已安装过VS请忽略。</li>
-<li>安装<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" title="官当下载JDK" target="_blank" rel="noopener">JDK</a>并<a href="https://jingyan.baidu.com/article/6dad5075d1dc40a123e36ea3.html" title="百度经验配置环境变量" target="_blank" rel="noopener">配置环境变量</a>。</li>
-<li>下载 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/zip-windows.html" title="官方下载页面" target="_blank" rel="noopener">Elasticsearch</a></li>
-<li>下载 <a href="https://github.com/exceptionless/Exceptionless/releases" title="Exceptionless官方最新版本" target="_blank" rel="noopener">ExceptionLess</a></li>
-</ol>
-<p>第一步，安装JDK并配置环境变量。</p>
-<p>第二步，解压Elasticsearch，进入bin目录，运行elasticsearch.bat。</p>
-<p>第三步，解压 Exceptionless，运行Start.bat。</p>
-<p><img src="https://i.imgur.com/7w35SaL.png" alt=""></p>
-<p>在执行Start.bat的时候，如果出现以下错误，请<a href="https://www.jb51.net/article/95022.htm" title="PowerShell因为在此系统中禁止执行脚本的解决方法" target="_blank" rel="noopener">参考PowerShell设置</a>。</p>
-<blockquote>
-<p>powershell Set-ExecutionPolicy Unrestricted</p>
-</blockquote>
-<p><img src="https://i.imgur.com/7lvCAKk.png" alt=""></p>
-<p>如果没有报错，会出现”正在请求写入流“。</p>
-<p><img src="https://i.imgur.com/J4tuI6y.png" alt=""></p>
-<p>等待安装完成，会自动打开<a href="http://localhost:50000/这个页面。" target="_blank" rel="noopener">http://localhost:50000/这个页面。</a><br>在低版本的安装过程中，需要修改各种配置文件，在最新版本已经不需要手动去修改了，完全是傻瓜式安装。<br>到此为止，安装流程已经全部完成了。</p>
-
-                                                            <p>本文链接：
-                                                                <a href="https://netlover.cn/2018/08/16/ExceptionLess-local.html">
-                                                                    https://netlover.cn/2018/08/16/ExceptionLess-local.html
-                                                                </a>
-                                                            </p>
-                                                            
-                                        </div>
-                                        <div class="article-info article-info-index">
-                                                
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ExceptionLess/">ExceptionLess</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日志框架/">日志框架</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/本地部署/">本地部署</a></li></ul>
 	</div>
 
 
