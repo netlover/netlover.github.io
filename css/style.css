@@ -1039,6 +1039,7 @@ td {
   background: none;
   text-align: right;
   width: auto;
+  right: 0;
 }
 .archive-article-inner .article-meta .article-date time {
   color: #aaa;
@@ -1626,6 +1627,7 @@ td {
   background: none;
   text-align: right;
   width: auto;
+  right: 0;
 }
 .archive-article-inner .article-meta .article-date time {
   color: #aaa;
