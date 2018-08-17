@@ -1403,6 +1403,14 @@ td {
 #article-nav #article-nav-older {
   float: right;
 }
+.article-description {
+  margin: 15px 25px 0 0;
+  line-height: 1.5;
+  color: #999;
+  background: #f7f7f9;
+  border-radius: 5px;
+  padding: 10px;
+}
 @-moz-keyframes cd-bounce-1 {
   0% {
     opacity: 0;
