@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://netlover.cn/"/>
-  <updated>2018-08-17T14:31:04.990Z</updated>
+  <updated>2018-08-18T10:48:28.362Z</updated>
   <id>https://netlover.cn/</id>
   
   <author>
@@ -15,6 +15,136 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C#设计模式(5) - 原型模式(Prototype Pattern)</title>
+    <link href="https://netlover.cn/2018/08/18/csharp-prototype-pattern.html"/>
+    <id>https://netlover.cn/2018/08/18/csharp-prototype-pattern.html</id>
+    <published>2018-08-18T10:47:44.000Z</published>
+    <updated>2018-08-18T10:48:28.362Z</updated>
+    
+    <summary type="html">
+    
+      在软件系统中，经常面临着“某些结构复杂的对象”的创建工作；由于需求的变化，这些对象经常面临着剧烈的变化，但是它们却拥有比较稳定一致的接口。如何应对这种变化？如何向“客户程序（使用这些对象的程序）”隔离出“这些易变对象”，从而使得“依赖这些易变对象的客户程序”不随着需求改变而改变？
+    
+    </summary>
+    
+      <category term="C#设计模式" scheme="https://netlover.cn/categories/C-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="C#" scheme="https://netlover.cn/tags/C/"/>
+    
+      <category term="设计模式" scheme="https://netlover.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="原型模式" scheme="https://netlover.cn/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="Prototype Pattern" scheme="https://netlover.cn/tags/Prototype-Pattern/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#设计模式(4) - 建造者模式(Builder Pattern)</title>
+    <link href="https://netlover.cn/2018/08/18/csharp-builder-pattern.html"/>
+    <id>https://netlover.cn/2018/08/18/csharp-builder-pattern.html</id>
+    <published>2018-08-18T10:47:44.000Z</published>
+    <updated>2018-08-18T10:36:09.468Z</updated>
+    
+    <summary type="html">
+    
+      今天我们要讲讲Builder模式，也就是建造者模式，当然也有叫生成器模式的，英文名称是Builder Pattern。在现实生活中，我们经常会遇到一些构成比较复杂的物品，比如：电脑，它就是一个复杂的物品，它主要是由CPU、主板、硬盘、显卡、机箱等组装而成的。手机当然也是复杂物品，由主板，各种芯片，RAM 和ROM  摄像头之类的东西组成。但是无论是电脑还是手机，他们的组装过程是固定的，就拿手机来说，组装流水线是固定的，不变的，但是把不同的主板和其他组件组装在一起就会生产出不同型号的手机。那么在软件系统中是不是也会存在这样的对象呢？答案是肯定的。在软件系统中我们也会遇到类似的复杂对象，并且这个复杂对象的各个部分按照一定的算法组合在一起，此时该对象的创建工作就可以使用Builder模式了，下面我就来详细看看这个模式吧。
+    
+    </summary>
+    
+      <category term="C#设计模式" scheme="https://netlover.cn/categories/C-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="C#" scheme="https://netlover.cn/tags/C/"/>
+    
+      <category term="设计模式" scheme="https://netlover.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="建造者模式" scheme="https://netlover.cn/tags/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="Builder Pattern" scheme="https://netlover.cn/tags/Builder-Pattern/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#设计模式(2) - 工厂方法模式(Factory Method Pattern)</title>
+    <link href="https://netlover.cn/2018/08/18/csharp-factory-method-pattern.html"/>
+    <id>https://netlover.cn/2018/08/18/csharp-factory-method-pattern.html</id>
+    <published>2018-08-18T08:47:44.000Z</published>
+    <updated>2018-08-18T10:45:22.543Z</updated>
+    
+    <summary type="html">
+    
+      如果有新的需求就需要修改工厂类里面创建产品对象实例的那个方法的实现代码，在面向对象设计一个原则就是哪里有变化，我就封装哪里。还有另外两个大的原则，其一是：面向抽象编程，细节和高层实现都要依赖抽象，第二个原则是：多组合，少继承。这三个原则是最根本的原则，学习设计模式必须以这三个原则为基点，否则都是枉然。
+    
+    </summary>
+    
+      <category term="C#设计模式" scheme="https://netlover.cn/categories/C-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="C#" scheme="https://netlover.cn/tags/C/"/>
+    
+      <category term="设计模式" scheme="https://netlover.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="工厂方法模式" scheme="https://netlover.cn/tags/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="Factory Method Pattern" scheme="https://netlover.cn/tags/Factory-Method-Pattern/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#设计模式(1) - 单例模式(Singleton Pattern)</title>
+    <link href="https://netlover.cn/2018/08/18/csharp-singleton-pattern.html"/>
+    <id>https://netlover.cn/2018/08/18/csharp-singleton-pattern.html</id>
+    <published>2018-08-18T08:47:44.000Z</published>
+    <updated>2018-08-18T09:14:59.428Z</updated>
+    
+    <summary type="html">
+    
+      看了李建忠老师的讲的设计模式已经有一段时间了（这段时间大概有一年多了），自己还没有写过自己的、有关设计模式的文章。这次想写一些关于设计模式的文章，用自己的理解和代码来写，算是复习一遍。写作的过程中也会多看看其他大牛的文章，争取让自己的理解正确，否则把大家带跑偏了，就是我的过错了。今天就开始我们第一个设计模式，该模式是：【单例模式】，英文名称：Singleton Pattern，这个模式很简单，一个类型只需要一个实例，他是创建型的设计模式。为什么叫“创建型”设计模式呢，因为他们有分类。当然了分类的方式不一样，分类的结果也就不一样。
+    
+    </summary>
+    
+      <category term="C#设计模式" scheme="https://netlover.cn/categories/C-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="C#" scheme="https://netlover.cn/tags/C/"/>
+    
+      <category term="设计模式" scheme="https://netlover.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="单例模式" scheme="https://netlover.cn/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="Singleton Pattern" scheme="https://netlover.cn/tags/Singleton-Pattern/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#设计模式(3) - 抽象工厂模式(Abstract Factory Pattern)</title>
+    <link href="https://netlover.cn/2018/08/18/csharp-abstract-factory-pattern.html"/>
+    <id>https://netlover.cn/2018/08/18/csharp-abstract-factory-pattern.html</id>
+    <published>2018-08-18T08:47:44.000Z</published>
+    <updated>2018-08-18T10:30:36.122Z</updated>
+    
+    <summary type="html">
+    
+      在软件系统中，经常面临着&quot;一系统相互依赖的对象&quot;的创建工作：同时，由于需求的变化，往往存在更多系列对象的创建工作。如何应对这种变化？如何绕过常规的对象创建方法（new)，提供一种&quot;封装机制&quot;来避免客户程序和这种&quot;多系列具体对象创建工作&quot;的紧耦合？
+    
+    </summary>
+    
+      <category term="C#设计模式" scheme="https://netlover.cn/categories/C-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="C#" scheme="https://netlover.cn/tags/C/"/>
+    
+      <category term="设计模式" scheme="https://netlover.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="抽象工厂模式" scheme="https://netlover.cn/tags/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="Abstract Factory Pattern" scheme="https://netlover.cn/tags/Abstract-Factory-Pattern/"/>
+    
+  </entry>
   
   <entry>
     <title>中国未来真正的30个商业模式</title>
@@ -61,6 +191,28 @@
   </entry>
   
   <entry>
+    <title>如何成为一个合格的架构师？</title>
+    <link href="https://netlover.cn/2018/08/16/do-jiagoushi.html"/>
+    <id>https://netlover.cn/2018/08/16/do-jiagoushi.html</id>
+    <published>2018-08-16T15:12:44.000Z</published>
+    <updated>2018-08-17T14:13:14.512Z</updated>
+    
+    <summary type="html">
+    
+      在互联网圈，架构师这个名号的火热程度堪比产品经理，它在产品经理没火之前就已经风生水起。
+    
+    </summary>
+    
+      <category term="架构" scheme="https://netlover.cn/categories/%E6%9E%B6%E6%9E%84/"/>
+    
+    
+      <category term="架构" scheme="https://netlover.cn/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+      <category term="架构师" scheme="https://netlover.cn/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ExceptionLess本地部署</title>
     <link href="https://netlover.cn/2018/08/16/ExceptionLess-local.html"/>
     <id>https://netlover.cn/2018/08/16/ExceptionLess-local.html</id>
@@ -81,28 +233,6 @@
       <category term="本地部署" scheme="https://netlover.cn/tags/%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2/"/>
     
       <category term="日志框架" scheme="https://netlover.cn/tags/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何成为一个合格的架构师？</title>
-    <link href="https://netlover.cn/2018/08/16/do-jiagoushi.html"/>
-    <id>https://netlover.cn/2018/08/16/do-jiagoushi.html</id>
-    <published>2018-08-16T15:12:44.000Z</published>
-    <updated>2018-08-17T14:13:14.512Z</updated>
-    
-    <summary type="html">
-    
-      在互联网圈，架构师这个名号的火热程度堪比产品经理，它在产品经理没火之前就已经风生水起。
-    
-    </summary>
-    
-      <category term="架构" scheme="https://netlover.cn/categories/%E6%9E%B6%E6%9E%84/"/>
-    
-    
-      <category term="架构" scheme="https://netlover.cn/tags/%E6%9E%B6%E6%9E%84/"/>
-    
-      <category term="架构师" scheme="https://netlover.cn/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
     
   </entry>
   

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/css/github.css?2018.08.01">
+
+<title>C#设计模式(2) - 工厂方法模式(Factory Method Pattern) | Net Lover</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="如果有新的需求就需要修改工厂类里面创建产品对象实例的那个方法的实现代码，在面向对象设计一个原则就是哪里有变化，我就封装哪里。还有另外两个大的原则，其一是：面向抽象编程，细节和高层实现都要依赖抽象，第二个原则是：多组合，少继承。这三个原则是最根本的原则，学习设计模式必须以这三个原则为基点，否则都是枉然。">
+<meta name="keywords" content="C#,设计模式,工厂方法模式,Factory Method Pattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#设计模式(2) - 工厂方法模式(Factory Method Pattern)">
+<meta property="og:url" content="https://netlover.cn/2018/08/18/csharp-factory-method-pattern.html">
+<meta property="og:site_name" content="Net Lover">
+<meta property="og:description" content="如果有新的需求就需要修改工厂类里面创建产品对象实例的那个方法的实现代码，在面向对象设计一个原则就是哪里有变化，我就封装哪里。还有另外两个大的原则，其一是：面向抽象编程，细节和高层实现都要依赖抽象，第二个原则是：多组合，少继承。这三个原则是最根本的原则，学习设计模式必须以这三个原则为基点，否则都是枉然。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/OydX8mx.png">
+<meta property="og:image" content="https://i.imgur.com/9oQmDee.jpg">
+<meta property="og:updated_time" content="2018-08-18T10:45:22.543Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C#设计模式(2) - 工厂方法模式(Factory Method Pattern)">
+<meta name="twitter:description" content="如果有新的需求就需要修改工厂类里面创建产品对象实例的那个方法的实现代码，在面向对象设计一个原则就是哪里有变化，我就封装哪里。还有另外两个大的原则，其一是：面向抽象编程，细节和高层实现都要依赖抽象，第二个原则是：多组合，少继承。这三个原则是最根本的原则，学习设计模式必须以这三个原则为基点，否则都是枉然。">
+<meta name="twitter:image" content="https://i.imgur.com/OydX8mx.png">
+
+<link rel="alternative" href="/atom.xml" title="Net Lover" type="application/atom+xml">
+
+
+<link rel="icon" href="/img/netlover.ico?2018.08.01">
+
+<link rel="stylesheet" href="/css/style.css?2018.08.01">
+<script src="/js/jquery1.8.2.min.js?2018.08.01"></script>
+<script src="/js/jquery.qrcode.min.js?2018.08.01"></script>
+<script src="/js/search.js?2018.08.01"></script>
+<script src="/js/ug-theme-default.js?2018.08.01"></script>
+<script src="/js/unitegallery.js?2018.08.01"></script>
+<script src="/js/gitment.browser.js?2018.08.01"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/img/netlover.jpg" class="js-avatar">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Net Lover</a></h1>
+		</hgroup>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/categories">分类</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/tags">标签</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="site-state motion-element">
+						<div class="site-state-item site-state-posts">
+							<a href="/archives">
+							<span class="site-state-item-count">12</span>
+							<span class="site-state-item-name">日志</span>
+							</a>
+						</div>
+						<div class="site-state-item site-state-categories">
+							<a href="/categories/index.html">
+							<span class="site-state-item-count">8</span>
+							<span class="site-state-item-name">分类</span>
+							</a>
+						</div>
+						<div class="site-state-item site-state-tags">
+							<a href="/tags/index.html">
+							<span class="site-state-item-count">29</span>
+							<span class="site-state-item-name">标签</span>
+							</a>
+						</div>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								
+									<a class="github" target="_blank" href="https://github.com/Netlover" title="github">github</a>
+								
+					        
+								
+									<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+								
+					        
+								
+									<a class="zhihu" target="_blank" href="https://zhuanlan.zhihu.com/netlover" title="zhihu">zhihu</a>
+								
+					        
+								
+									<a class="jianshu" target="_blank" href="https://www.jianshu.com/u/c86d7c57dd6d" title="jianshu">jianshu</a>
+								
+					        
+						</div>
+						<div class="gongzhonghao"><img src="/img/gongzhonghao.jpg"></div>
+					</nav>
+				</section>
+
+				
+
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">网络爱好者，.Net爱好者...</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Net Lover</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/img/netlover.jpg" class="js-avatar">
+				<hgroup>
+				  <h1 class="header-author">Net Lover</h1>
+				</hgroup>
+			</div>
+			
+			<p class="header-subtitle">.Net Lover &amp; Net Lover</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/categories">分类</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/tags">标签</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Netlover" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://zhuanlan.zhihu.com/netlover" title="zhihu">zhihu</a>
+			        
+						<a class="jianshu" target="_blank" href="https://www.jianshu.com/u/c86d7c57dd6d" title="jianshu">jianshu</a>
+			        
+				</div>
+			</nav>
+		</header>
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-C#设计模式/C#设计模式(2) - 工厂方法模式(Factory Method Pattern)" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <div class="article-meta">
+            <a href="/2018/08/18/csharp-factory-method-pattern.html" class="article-date">
+  	<time datetime="2018-08-18T08:47:44.000Z" itemprop="datePublished">2018-08-18 16:47</time>
+</a>
+
+        </div>
+        
+            <div class="article-inner">
+                
+                    <input type="hidden" class="isFancy" />
+                    
+                        
+                            <header class="article-header">
+                                
+  
+    <h1 class="article-title" itemprop="name">
+      C#设计模式(2) - 工厂方法模式(Factory Method Pattern)
+    </h1>
+  
+
+
+                            </header>
+                            <div class="article-info article-info-post">
+                                    
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/C-设计模式/">C#设计模式</a>
+	</div>
+
+
+                                    <div class="clearfix"></div>
+                                </div>
+                                    
+                                        <div class="article-entry" itemprop="articleBody">
+                                            
+                                            
+                                            
+                                                        <h2 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h2><p>在上一篇文章中我们讲解了过渡的一种模式叫做【简单工厂】，也有叫【静态工厂】的，通过对简单工厂模式得了解，我们也发现了它的缺点，就是随着需求的变化我们要不停地修改工厂里面的方法的代码，需求变化越多，里面的If–Else–也越多，这样就会造成简单工厂的实现逻辑过于复杂。设计模式是遵循一定原则而得来的，比如，我们要怎么增加代码，怎么修改代码，不是想怎么来就怎么来的，其中一个原则就是OCP原则，中文是【开放关闭原则】，对增加代码开发，对修改代码关闭，所以我们就不能总是这样修改简单工厂里面的方法。本章介绍的工厂方法模式可以解决简单工厂模式中存在的这个问题，下面就具体看看工厂方法模式是如何解决该问题的。</p>
+<h2 id="二、工厂方法模式的胡介绍"><a href="#二、工厂方法模式的胡介绍" class="headerlink" title="二、工厂方法模式的胡介绍"></a>二、工厂方法模式的胡介绍</h2><h5 id="2-1、动机（Motivate）"><a href="#2-1、动机（Motivate）" class="headerlink" title="2.1、动机（Motivate）"></a>2.1、动机（Motivate）</h5><p>在软件系统的构建过程中，经常面临着“某个对象”的创建工作：由于需求的变化，这个对象（的具体实现）经常面临着剧烈的变化，但是它却拥有比较稳定的接口。</p>
+<p>如何应对这种变化？如何提供一种“封装机制”来隔离出“这个易变对象”的变化，从而保持系统中“其他依赖对象的对象”不随着需求改变而改变？</p>
+<h5 id="2-2、意图（Intent）"><a href="#2-2、意图（Intent）" class="headerlink" title="2.2、意图（Intent）"></a>2.2、意图（Intent）</h5><p>定义一个用于创建对象的接口，让子类决定实例化哪一个类。Factory Method使得一个类的实例化延迟到子类。                                        –《设计模式》GoF</p>
+<h5 id="2-3、结构图（Structure）"><a href="#2-3、结构图（Structure）" class="headerlink" title="2.3、结构图（Structure）"></a>2.3、结构图（Structure）</h5><p><img src="https://i.imgur.com/OydX8mx.png" alt=""></p>
+<h5 id="2-4、模式的组成"><a href="#2-4、模式的组成" class="headerlink" title="2.4、模式的组成"></a>2.4、模式的组成</h5><p>可以看出，在工厂方法模式的结构图有以下角色：</p>
+<ol>
+<li>抽象工厂角色（Creator）: 充当抽象工厂角色，定义工厂类所具有的基本的操作，任何具体工厂都必须继承该抽象类。</li>
+<li>具体工厂角色（ConcreteCreator）：充当具体工厂角色，该类必须继承抽象工厂角色，实现抽象工厂定义的方法，用来创建具体产品。</li>
+<li>抽象产品角色（Product）：充当抽象产品角色，定义了产品类型所有具有的基本操作，具体产品必须继承该抽象类。</li>
+<li>具体产品角色（ConcreteProduct）：充当具体产品角色，实现抽象产品类对定义的抽象方法，由具体工厂类创建，它们之间有一一对应的关系。</li>
+</ol>
+<h5 id="2-5、工厂方法模式的代码实现"><a href="#2-5、工厂方法模式的代码实现" class="headerlink" title="2.5、工厂方法模式的代码实现"></a>2.5、工厂方法模式的代码实现</h5><p>【简单工厂模式】的问题是：如果有新的需求就需要修改工厂类里面创建产品对象实例的那个方法的实现代码，在面向对象设计一个原则就是哪里有变化，我就封装哪里。还有另外两个大的原则，其一是：面向抽象编程，细节和高层实现都要依赖抽象，第二个原则是：多组合，少继承。这三个原则是最根本的原则，学习设计模式必须以这三个原则为基点，否则都是枉然。根据这三大原则又衍生出来6个具体的原则，分别是【单一职责原则】，【里氏替换原则】，【依赖倒置原则】，【接口隔离原则】、【迪米特法则】和【开闭原则】，既然工厂类有变化，我们就封装它，面向抽象编程，我们先抽象出一个工厂基类，然后，每个需求就实现一个具体的工厂类，这样我们就符合了【开闭原则OCP】，让一个工厂生产一款产品，并一一对应。我们把具体产品的创建推迟到子类中，此时工厂类（这类是基类了）不再负责所有产品的创建，而只是给出具体工厂必须实现的接口，这样工厂方法模式就可以允许系统不修改工厂类逻辑的情况下来添加新产品，这样也就克服了简单工厂模式中缺点。下面就是工厂方法模式的实现代码：</p>
+<pre><code>namespace 设计模式之工厂方法模式
+{
+    /// &lt;summary&gt;
+    /// 汽车抽象类
+    /// &lt;/summary&gt;
+    public abstract class Car
+    {
+        // 开始行驶
+        public abstract void Go();
+    }
+
+    /// &lt;summary&gt;
+    /// 红旗汽车
+    /// &lt;/summary&gt;
+    public class HongQiCar : Car
+    {
+        public override void Go()
+        {
+            Console.WriteLine(&quot;红旗汽车开始行驶了！&quot;);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// 奥迪汽车
+    /// &lt;/summary&gt;
+    public class AoDiCar : Car
+    {
+        public override void Go()
+        {
+            Console.WriteLine(&quot;奥迪汽车开始行驶了&quot;);
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// 抽象工厂类
+    /// &lt;/summary&gt;
+    public abstract class Factory
+    {
+        // 工厂方法
+        public abstract Car CreateCar();
+    }
+
+    /// &lt;summary&gt;
+    /// 红旗汽车工厂类
+    /// &lt;/summary&gt;
+    public class HongQiCarFactory:Factory
+    {
+        /// &lt;summary&gt;
+        /// 负责生产红旗汽车
+        /// &lt;/summary&gt;
+        /// &lt;returns&gt;&lt;/returns&gt;
+        public override Car CreateCar()
+        {
+            return new HongQiCar();
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// 奥迪汽车工厂类
+    /// &lt;/summary&gt;
+    public class AoDiCarFactory:Factory
+    {
+        /// &lt;summary&gt;
+        /// 负责创建奥迪汽车
+        /// &lt;/summary&gt;
+        /// &lt;returns&gt;&lt;/returns&gt;
+        public override Car CreateCar()
+        {
+            return new AoDiCar();
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// 客户端调用
+    /// &lt;/summary&gt;
+    class Client
+    {
+        static void Main(string[] args)
+        {
+            // 初始化创建汽车的两个工厂
+            Factory hongQiCarFactory = new HongQiCarFactory();
+            Factory aoDiCarFactory = new AoDiCarFactory();
+
+            // 生产一辆红旗汽车
+            Car hongQi = hongQiCarFactory.CreateCar();
+            hongQi.Go();
+
+            //生产一辆奥迪汽车
+            Car aoDi = aoDiCarFactory.CreateCar();
+            aoDi.Go();
+
+            Console.Read();
+        }
+    }  
+}
+</code></pre><p>在【工厂方法模式】中，我们同样也把汽车的类抽象出来一个抽象的基类，这里正好符合了【面向抽象编程】，客户端在使用的时候不会依赖具体的什么汽车。使用工厂方法实现的系统，如果系统需要添加新产品时，我们可以利用多态性来完成系统的扩展，对于抽象工厂类和具体工厂中的代码都不需要做任何改动。例如，我们想增加一辆奔驰车，我们只需从Car抽象类下继承一个BenChiCar类，同时在从Factory抽象基类下继承一个“奔驰”的工厂类BenChinaCarFactory就可以了，这样扩展符合OCP的原则。具体代码为：</p>
+<pre><code>/// &lt;summary&gt;
+/// 奔驰车
+/// &lt;/summary&gt;
+public class BenChiCar : Car
+{
+    /// &lt;summary&gt;
+    /// 重写抽象类中的方法
+    /// &lt;/summary&gt;
+    public override void Go()
+    {
+        Console.WriteLine(&quot;奔驰车开始行驶了！&quot;);
+    }
+}
+
+/// &lt;summary&gt;
+/// 奔驰车的工厂类
+/// &lt;/summary&gt;
+public class BenChiCarFactory : Factory
+{
+    /// &lt;summary&gt;
+    /// 负责生产奔驰车
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    public override Car CreateCar()
+    {
+        return new BenChiCar();
+    }
+}
+
+/// &lt;summary&gt;
+/// 客户端调用
+/// &lt;/summary&gt;
+class Client
+{
+    static void Main(string[] args)
+    {
+
+        // 如果客户又生产一辆奔驰车
+        // 再另外初始化一个奔驰车的工厂
+        Factory benChiCarFactory = new BenChiCarFactory();
+
+        // 利用奔驰车的工厂生产奔驰车
+        Car benChi = benChiCarFactory.CreateCar();
+        benChi.Go();
+
+        Console.Read();
+    }
+}
+</code></pre><p>三、Factory Method模式的几个要点</p>
+<p>Factory Method模式主要用于隔离类对象的使用者和具体类型之间的耦合关系。面对一个经常变化的具体类型，紧耦合关系会导致软件的脆弱。</p>
+<p>Factory Method模式通过面向对象的手法，将所要创建的具体对象工作延迟到子类，从而实现一种扩展（而非更改）的策略，较好地解决了这种紧耦合关系。</p>
+<ul>
+<li>Factory Method模式解决“单个对象”的需求变化；</li>
+<li>AbstractFactory模式解决“系列对象”的需求变化；</li>
+<li>Builder模式解决“对象部分”的需求变化；</li>
+</ul>
+<p><strong>工厂方法模式的优点：</strong></p>
+<ol>
+<li>在工厂方法中，用户只需要知道所要产品的具体工厂，无须关系具体的创建过程，甚至不需要具体产品类的类名。</li>
+<li>在系统增加新的产品时，我们只需要添加一个具体产品类和对应的实现工厂，无需对原工厂进行任何修改，很好地符合了“开闭原则”。</li>
+</ol>
+<p><strong>工厂方法模式的缺点：</strong></p>
+<p>每次增加一个产品时，都需要增加一个具体类和对象实现工厂，是的系统中类的个数成倍增加，在一定程度上增加了系统的复杂度，同时也增加了系统具体类的依赖。这并不是什么好事。</p>
+<p><strong>工厂方法模式使用的场景：</strong></p>
+<ol>
+<li>一个类不知道它所需要的对象的类。在工厂方法模式中，我们不需要具体产品的类名，我们只需要知道创建它的具体工厂即可。</li>
+<li>一个类通过其子类来指定创建那个对象。在工厂方法模式中，对于抽象工厂类只需要提供一个创建产品的接口，而由其子类来确定具体要创建的对象，在程序运行时，子类对象将覆盖父类对象，从而使得系统更容易扩展。</li>
+<li>将创建对象的任务委托给多个工厂子类中的某一个，客户端在使用时可以无须关心是哪一个工厂子类创建产品子类，需要时再动态指定。</li>
+</ol>
+<p>四、.NET中实现了工厂方法的类</p>
+<p>.NET 类库中也有很多实现了工厂方法的类，例如Asp.net中，处理程序对象是具体用来处理请求，当我们请求一个<em>.aspx的文件时，此时会映射到System.Web.UI.PageHandlerFactory类上进行处理，而对</em>.ashx的请求将映射到System.Web.UI.SimpleHandlerFactory类中（这两个类都是继承于IHttpHandlerFactory接口的），关于这点说明我们可以在“C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\Web.Config”文件中找到相关定义，具体定义如下：</p>
+<pre><code>&lt;add path=&quot;*.axd&quot; verb=&quot;*&quot; type=&quot;System.Web.HttpNotFoundHandler&quot; validate=&quot;True&quot;/&gt;
+&lt;add path=&quot;*.aspx&quot; verb=&quot;*&quot; type=&quot;System.Web.UI.PageHandlerFactory&quot; validate=&quot;True&quot;/&gt;
+&lt;add path=&quot;*.ashx&quot; verb=&quot;*&quot; type=&quot;System.Web.UI.SimpleHandlerFactory&quot; validate=&quot;True&quot;/&gt;
+</code></pre><p>配置文件截图了一部分，有时间大家可以自己去研究一下。<br>下面我们就具体看下工厂方法模式在Asp.net中是如何实现的，如果对一个Index.aspx页面发出请求时，将会调用PageHandlerFactory中GetHandler方法来创建一个Index.aspx对象，它们之间的类图关系如下：</p>
+<p><img src="https://i.imgur.com/9oQmDee.jpg" alt=""></p>
+<h2 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h2><p>每种模式都有自己的使用场合，切记，如果使用错误，还不如不用。工厂方法模式通过面向对象编程中的多态性来将对象的创建延迟到具体工厂中，从而解决了简单工厂模式中存在的问题，也很好地符合了开放封闭原则（即对扩展开发，对修改封闭）。</p>
+<blockquote>
+<p>学习设计模式我们一定要谨记设计模式的几大原则，否则是徒劳无功的。就像学务工一样，我们要记心法。6大原则就像孤独求败的独孤九剑的剑诀，学会了，变化无穷。</p>
+</blockquote>
+
+                                                            <p>本文链接：
+                                                                <a href="https://netlover.cn/2018/08/18/csharp-factory-method-pattern.html">
+                                                                    https://netlover.cn/2018/08/18/csharp-factory-method-pattern.html
+                                                                </a>
+                                                            </p>
+                                                            
+                                        </div>
+                                        <div class="article-info article-info-index">
+                                                
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Factory-Method-Pattern/">Factory Method Pattern</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工厂方法模式/">工厂方法模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+	</div>
+
+
+                                                    
+                                                        
+                                                                <div class="clearfix"></div>
+                                            </div>
+            </div>
+            
+                <div id="socialShare" style="margin-left:10px;display:none;">
+                </div>
+                <script>
+                    $(function() {
+                        var width = document.body.scrollWidth;
+                        if (width > 550) {
+                            $("#socialShare").css("display", "block");
+                            $("#socialShare").socialShare({
+                                content: 'Nice!不错的资源...',
+                                url: window.location.href,
+                                titile: ''
+                            });
+                        }
+                    });
+                </script>
+                
+                    
+                        <div class="donateContainer">
+                            <span id="donate" class="donate" onclick="donate()">打赏</span>
+                            <div id="QR" style="display: none;">
+                                <div id="alipay" style="display: inline-block">
+                                    <a href="/img/weixin.jpg" target="_blank" class="fancybox fancybox.image" rel="group">
+                                        <img id="alipay_qr" src="/img/weixin.jpg">
+                                    </a>
+                                </div>
+                                <div id="wechat" style="display: inline-block">
+                                    <a href="/img/zhifubao.jpg" target="_blank" class="fancybox fancybox.image" rel="group">
+                                        <img id="wechat_qr" src="/img/zhifubao.jpg">
+                                    </a>
+                                </div>
+                            </div>
+                            <script>
+                                function donate() {
+                                    var qr = document.getElementById('QR');
+                                    if (qr.style.display === 'none') {
+                                        qr.style.display = 'block';
+                                    } else {
+                                        qr.style.display = 'none'
+                                    }
+                                };
+                            </script>
+                        </div>
+                        
+                            
+                                
+<nav id="article-nav">
+  
+    <a href="/2018/08/18/csharp-builder-pattern.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          C#设计模式(4) - 建造者模式(Builder Pattern)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/18/csharp-singleton-pattern.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C#设计模式(1) - 单例模式(Singleton Pattern)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+                            
+                                        
+</article>
+</div>
+    </div>
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css?2018.08.01">
+<script src="/fancybox/jquery.fancybox.pack.js?2018.08.01"></script>
+
+<script src="/js/mobile.js?2018.08.01"></script>
+<script src="/js/main.js?2018.08.01"></script>
+<script src="/js/prefixfree.js?2018.08.01"></script>
+
+
+
+<div id="totop">
+    <a title="返回顶部">
+        <img src="/img/gotop.png" />
+    </a>
+</div>
+
+<script src="/js/totop.js?2018.08.01"></script>
+<script src="/js/share.js?2018.08.01"></script>
+  </div>
+</body>
+</html>

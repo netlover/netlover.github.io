@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/css/github.css?2018.08.01">
+
+<title>C#设计模式(3) - 抽象工厂模式(Abstract Factory Pattern) | Net Lover</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="在软件系统中，经常面临着&quot;一系统相互依赖的对象&quot;的创建工作：同时，由于需求的变化，往往存在更多系列对象的创建工作。如何应对这种变化？如何绕过常规的对象创建方法（new)，提供一种&quot;封装机制&quot;来避免客户程序和这种&quot;多系列具体对象创建工作&quot;的紧耦合？">
+<meta name="keywords" content="C#,设计模式,抽象工厂模式,Abstract Factory Pattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#设计模式(3) - 抽象工厂模式(Abstract Factory Pattern)">
+<meta property="og:url" content="https://netlover.cn/2018/08/18/csharp-abstract-factory-pattern.html">
+<meta property="og:site_name" content="Net Lover">
+<meta property="og:description" content="在软件系统中，经常面临着&quot;一系统相互依赖的对象&quot;的创建工作：同时，由于需求的变化，往往存在更多系列对象的创建工作。如何应对这种变化？如何绕过常规的对象创建方法（new)，提供一种&quot;封装机制&quot;来避免客户程序和这种&quot;多系列具体对象创建工作&quot;的紧耦合？">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/gcPs3RB.png">
+<meta property="og:updated_time" content="2018-08-18T10:30:36.122Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C#设计模式(3) - 抽象工厂模式(Abstract Factory Pattern)">
+<meta name="twitter:description" content="在软件系统中，经常面临着&quot;一系统相互依赖的对象&quot;的创建工作：同时，由于需求的变化，往往存在更多系列对象的创建工作。如何应对这种变化？如何绕过常规的对象创建方法（new)，提供一种&quot;封装机制&quot;来避免客户程序和这种&quot;多系列具体对象创建工作&quot;的紧耦合？">
+<meta name="twitter:image" content="https://i.imgur.com/gcPs3RB.png">
+
+<link rel="alternative" href="/atom.xml" title="Net Lover" type="application/atom+xml">
+
+
+<link rel="icon" href="/img/netlover.ico?2018.08.01">
+
+<link rel="stylesheet" href="/css/style.css?2018.08.01">
+<script src="/js/jquery1.8.2.min.js?2018.08.01"></script>
+<script src="/js/jquery.qrcode.min.js?2018.08.01"></script>
+<script src="/js/search.js?2018.08.01"></script>
+<script src="/js/ug-theme-default.js?2018.08.01"></script>
+<script src="/js/unitegallery.js?2018.08.01"></script>
+<script src="/js/gitment.browser.js?2018.08.01"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/img/netlover.jpg" class="js-avatar">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Net Lover</a></h1>
+		</hgroup>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/categories">分类</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/tags">标签</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="site-state motion-element">
+						<div class="site-state-item site-state-posts">
+							<a href="/archives">
+							<span class="site-state-item-count">12</span>
+							<span class="site-state-item-name">日志</span>
+							</a>
+						</div>
+						<div class="site-state-item site-state-categories">
+							<a href="/categories/index.html">
+							<span class="site-state-item-count">8</span>
+							<span class="site-state-item-name">分类</span>
+							</a>
+						</div>
+						<div class="site-state-item site-state-tags">
+							<a href="/tags/index.html">
+							<span class="site-state-item-count">29</span>
+							<span class="site-state-item-name">标签</span>
+							</a>
+						</div>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								
+									<a class="github" target="_blank" href="https://github.com/Netlover" title="github">github</a>
+								
+					        
+								
+									<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+								
+					        
+								
+									<a class="zhihu" target="_blank" href="https://zhuanlan.zhihu.com/netlover" title="zhihu">zhihu</a>
+								
+					        
+								
+									<a class="jianshu" target="_blank" href="https://www.jianshu.com/u/c86d7c57dd6d" title="jianshu">jianshu</a>
+								
+					        
+						</div>
+						<div class="gongzhonghao"><img src="/img/gongzhonghao.jpg"></div>
+					</nav>
+				</section>
+
+				
+
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">网络爱好者，.Net爱好者...</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Net Lover</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/img/netlover.jpg" class="js-avatar">
+				<hgroup>
+				  <h1 class="header-author">Net Lover</h1>
+				</hgroup>
+			</div>
+			
+			<p class="header-subtitle">.Net Lover &amp; Net Lover</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/categories">分类</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/tags">标签</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Netlover" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://zhuanlan.zhihu.com/netlover" title="zhihu">zhihu</a>
+			        
+						<a class="jianshu" target="_blank" href="https://www.jianshu.com/u/c86d7c57dd6d" title="jianshu">jianshu</a>
+			        
+				</div>
+			</nav>
+		</header>
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-C#设计模式/C#设计模式(3) - 抽象工厂模式(Abstract Factory Pattern)" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <div class="article-meta">
+            <a href="/2018/08/18/csharp-abstract-factory-pattern.html" class="article-date">
+  	<time datetime="2018-08-18T08:47:44.000Z" itemprop="datePublished">2018-08-18 16:47</time>
+</a>
+
+        </div>
+        
+            <div class="article-inner">
+                
+                    <input type="hidden" class="isFancy" />
+                    
+                        
+                            <header class="article-header">
+                                
+  
+    <h1 class="article-title" itemprop="name">
+      C#设计模式(3) - 抽象工厂模式(Abstract Factory Pattern)
+    </h1>
+  
+
+
+                            </header>
+                            <div class="article-info article-info-post">
+                                    
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/C-设计模式/">C#设计模式</a>
+	</div>
+
+
+                                    <div class="clearfix"></div>
+                                </div>
+                                    
+                                        <div class="article-entry" itemprop="articleBody">
+                                            
+                                            
+                                            
+                                                        <h2 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h2><p>上一篇文章我们讲了【工厂方法】模式，它是为了解决【简单工厂】模式所面对的问题，它的问题就是：如果我们增加新的产品，工厂类的方法就要修改本身的代码，增加产品越多，其逻辑越复杂，同时这样的修改也是不符合【开放关闭原则OCP】，对修改代码关闭，对增加代码开放。为了解决【简单工厂】的问题，我们引出了【工厂方法】模式，通过子类化工厂类，解决了工厂类责任的划分，产品和相应的工厂一一对应，符合了OCP。如果我们要设计一套房子，当然我们知道房子是由房顶、地板、窗户、房门组成的，别的组件暂时省略，先设计一套古典风格的房子，再创建一套现代风格的房子，再创建一套欧式风格的房子，这么多套房子，我们该怎么办呢？今天我们要讲的【抽象工厂】模式可以很好的解决多套变化的问题。</p>
+<h2 id="二、抽象工厂详细介绍"><a href="#二、抽象工厂详细介绍" class="headerlink" title="二、抽象工厂详细介绍"></a>二、抽象工厂详细介绍</h2><h5 id="2-1、动机-Motivate-："><a href="#2-1、动机-Motivate-：" class="headerlink" title="2.1、动机(Motivate)："></a>2.1、动机(Motivate)：</h5><p>在软件系统中，经常面临着”一系统相互依赖的对象”的创建工作：同时，由于需求的变化，往往存在更多系列对象的创建工作。如何应对这种变化？如何绕过常规的对象创建方法（new)，提供一种”封装机制”来避免客户程序和这种”多系列具体对象创建工作”的紧耦合？</p>
+<h5 id="2-2、意图-Intent"><a href="#2-2、意图-Intent" class="headerlink" title="2.2、意图(Intent):"></a>2.2、意图(Intent):</h5><p>提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。                            ——《设计模式》GoF</p>
+<h5 id="2-3、结构图（Structure）"><a href="#2-3、结构图（Structure）" class="headerlink" title="2.3、结构图（Structure）"></a>2.3、结构图（Structure）</h5><p><img src="https://i.imgur.com/gcPs3RB.png" alt=""></p>
+<p>该图是抽象工厂的UML图，结合抽象工厂的意图、动机和图示来理解该模式，今天我们就以建设房子为例来说明抽象工厂的实现机理。</p>
+<h5 id="2-4、模式的组成"><a href="#2-4、模式的组成" class="headerlink" title="2.4、模式的组成"></a>2.4、模式的组成</h5><p>可以看出，在抽象工厂模式的结构图有以下角色：</p>
+<ol>
+<li>抽象产品类角色（AbstractProduct）：为抽象工厂中相互依赖的每种产品定义抽象接口对象，也可以这样说，有几种产品，就要声明几个抽象角色，每一个抽象产品角色和一种具体的产品相匹配。</li>
+<li>具体产品类（ConcreteProduct）：具体产品类实现了抽象产品类，是针对某个具体产品的实现的类型。</li>
+<li>抽象工厂类角色（Abstract Factory）：定义了创建一组相互依赖的产品对象的接口操作，每种操作和每种产品一一对应。</li>
+<li>具体工厂类角色（ConcreteFactory）：实现抽象类里面的所有抽象接口操作，可以创建某系列具体的产品，这些具体的产品是“抽象产品类角色”的子类。</li>
+</ol>
+<h5 id="2-5、抽象工厂的具体代码实现"><a href="#2-5、抽象工厂的具体代码实现" class="headerlink" title="2.5、抽象工厂的具体代码实现"></a>2.5、抽象工厂的具体代码实现</h5><p>随着我们年龄的增大，我们也到了结婚的年龄。结婚首要的问题就是房子的问题，假设我有一个很有钱的爸爸，哈哈，有钱可以解决很多问题。作为长子的我，希望能有一套欧式风格的房子，再加上田园风光，此生足矣。我弟弟就不一样了，他想要一套现代样式的房子，如果兄弟姊妹再多年一点，那就有更多的要求了。由于房子由房顶、地板、窗户和房门组成，其他组件暂时省略，有这么多套房子要建设，每套房子的房顶、地板、窗户和房门都是一个体系的，那就让我们看看如何使用【抽象工厂】模式来实现不同房屋的建造。</p>
+<pre><code>/// &lt;summary&gt;
+/// 下面以不同系列房屋的建造为例子演示抽象工厂模式
+/// 因为每个人的喜好不一样，我喜欢欧式的，我弟弟就喜欢现代的
+/// 客户端调用
+/// &lt;/summary&gt;
+class Client
+{
+    static void Main(string[] args)
+    {
+        // 哥哥的欧式风格的房子
+        AbstractFactory europeanFactory= new EuropeanFactory();
+        europeanFactory.CreateRoof().Create();
+        europeanFactory.CreateFloor().Create();
+        europeanFactory.CreateWindow().Create();
+        europeanFactory.CreateDoor().Create(); 
+
+
+        //弟弟的现代风格的房子
+        AbstractFactory modernizationFactory = new ModernizationFactory();
+         modernizationFactory.CreateRoof().Create();
+        modernizationFactory.CreateFloor().Create();
+        modernizationFactory.CreateWindow().Create();
+        modernizationFactory.CreateDoor().Create();
+        Console.Read();
+    }
+}
+
+/// &lt;summary&gt;
+/// 抽象工厂类，提供创建不同类型房子的接口
+/// &lt;/summary&gt;
+public abstract class AbstractFactory
+{
+    // 抽象工厂提供创建一系列产品的接口，这里作为例子，只给出了房顶、地板、窗户和房门创建接口
+    public abstract Roof CreateRoof();
+    public abstract Floor CreateFloor();
+    public abstract Window CreateWindow();
+    public abstract Door CreateDoor();
+}
+
+/// &lt;summary&gt;
+/// 欧式风格房子的工厂，负责创建欧式风格的房子
+/// &lt;/summary&gt;
+public class EuropeanFactory : AbstractFactory
+{
+    // 制作欧式房顶
+    public override Roof CreateRoof()
+    {
+        return new EuropeanRoof();
+    }
+
+    // 制作欧式地板
+    public override Floor CreateFloor()
+    {
+        return new EuropeanFloor();
+    }
+
+    // 制作欧式窗户
+    public override Window CreateWindow()
+    {
+        return new EuropeanWindow();
+    }
+
+    // 制作欧式房门
+    public override Door CreateDoor()
+    {
+        return new EuropeanDoor();
+    }
+}
+
+/// &lt;summary&gt;
+/// 现在风格房子的工厂，负责创建现代风格的房子
+/// &lt;/summary&gt;
+public class ModernizationFactory : AbstractFactory
+{
+    // 制作现代房顶
+    public override Roof CreateRoof()
+    {
+        return new ModernizationRoof();
+    }
+
+    // 制作现代地板
+    public override Floor CreateFloor()
+    {
+        return new ModernizationFloor();
+    }
+
+    // 制作现代窗户
+    public override Window CreateWindow()
+    {
+        return new ModernizationWindow();
+    }
+
+    // 制作现代房门
+    public override Door CreateDoor()
+    {
+        return new ModernizationDoor();
+    }
+}
+
+/// &lt;summary&gt;
+/// 房顶抽象类，子类的房顶必须继承该类
+/// &lt;/summary&gt;
+public abstract class Roof
+{
+    /// &lt;summary&gt;
+    /// 创建房顶
+    /// &lt;/summary&gt;
+    public abstract void Create();
+}
+
+/// &lt;summary&gt;
+/// 地板抽象类，子类的地板必须继承该类
+/// &lt;/summary&gt;
+public abstract class Floor
+{
+    /// &lt;summary&gt;
+    /// 创建地板
+    /// &lt;/summary&gt;
+    public abstract void Create();
+}
+
+/// &lt;summary&gt;
+/// 窗户抽象类，子类的窗户必须继承该类
+/// &lt;/summary&gt;
+public abstract class Window
+{
+    /// &lt;summary&gt;
+    /// 创建窗户
+    /// &lt;/summary&gt;
+    public abstract void Create();
+}
+
+/// &lt;summary&gt;
+/// 房门抽象类，子类的房门必须继承该类
+/// &lt;/summary&gt;
+public abstract class Door
+{
+    /// &lt;summary&gt;
+    /// 创建房门
+    /// &lt;/summary&gt;
+    public abstract void Create();
+}
+
+/// &lt;summary&gt;
+/// 欧式地板类
+/// &lt;/summary&gt;
+public class EuropeanFloor : Floor
+{
+    public override void Create()
+    {
+        Console.WriteLine(&quot;创建欧式的地板&quot;);
+    }
+}
+
+
+/// &lt;summary&gt;
+/// 欧式的房顶
+/// &lt;/summary&gt;
+public class EuropeanRoof : Roof
+{
+     public override void Create()
+    {
+        Console.WriteLine(&quot;创建欧式的房顶&quot;);
+    }
+}
+
+
+/// &lt;summary&gt;
+///欧式的窗户
+/// &lt;/summary&gt;
+public class EuropeanWindow : Window
+{
+     public override void Create()
+     {
+         Console.WriteLine(&quot;创建欧式的窗户&quot;);
+     }
+}
+
+
+/// &lt;summary&gt;
+/// 欧式的房门
+/// &lt;/summary&gt;
+public class EuropeanDoor : Door
+{
+    public override void Create()
+    {
+        Console.WriteLine(&quot;创建欧式的房门&quot;);
+    }
+}
+
+/// &lt;summary&gt;
+/// 现代的房顶
+/// &lt;/summary&gt;
+public class ModernizationRoof : Roof
+ {
+     public override void Create()
+    {
+         Console.WriteLine(&quot;创建现代的房顶&quot;);
+    }
+}
+
+/// &lt;summary&gt;
+/// 现代的地板
+/// &lt;/summary&gt;
+public class ModernizationFloor : Floor
+{
+    public override void Create()
+    {
+         Console.WriteLine(&quot;创建现代的地板&quot;);
+    }
+}
+
+/// &lt;summary&gt;
+/// 现代的窗户
+/// &lt;/summary&gt;
+public class ModernizationWindow : Window
+{
+      public override void Create()
+     {
+          Console.WriteLine(&quot;创建现代的窗户&quot;);
+     }
+}
+
+/// &lt;summary&gt;
+/// 现代的房门
+/// &lt;/summary&gt;
+public class ModernizationDoor : Door
+{
+    public override void Create()
+    {
+        Console.WriteLine(&quot;创建现代的房门&quot;);
+    }
+}
+</code></pre><h5 id="2-6、-抽象工厂应对需求变更"><a href="#2-6、-抽象工厂应对需求变更" class="headerlink" title="2.6、 抽象工厂应对需求变更"></a>2.6、 抽象工厂应对需求变更</h5><p>让我们看看该模式如何应对需求的变化，假设我的表弟一看我们的房子很好，他也想要一套古典风格的房子（哈哈，这个家伙事挺多的，有好事总是落不下他）。</p>
+<pre><code>/// &lt;summary&gt;
+///先为表弟的房子来建立一个工厂类吧
+/// &lt;/summary&gt;
+public class ClassicalFactory : AbstractFactory
+{
+    //创建房顶
+    public override Roof CreateRoof()
+    {
+        return new  ClassicalRoof();
+    }
+
+    // 创建地板
+    public override Floor CreateFloor()
+    {
+        return new  ClassicalFloor();
+    }
+
+    // 创建窗户
+    public override Window CreateWindow()
+    {
+        return new  ClassicalWindow();
+    }
+
+    // 创建房门
+    public override Door CreateDoor()
+    {
+        return new  ClassicalDoor();
+    }
+}
+
+/// &lt;summary&gt;
+///古典的房顶
+/// &lt;/summary&gt;
+public class  ClassicalRoof : Roof
+{
+    public override void Create()
+    {
+        Console.WriteLine(&quot;创建古典的房顶&quot;);
+    }
+}
+
+/// &lt;summary&gt;
+/// 古典的地板
+/// &lt;/summary&gt;
+public class  ClassicalFloor : Floor
+{
+    public override void Create()
+    {
+        Console.WriteLine(&quot;创建古典的地板&quot;);
+    }
+}
+
+/// &lt;summary&gt;
+/// 古典的窗户
+/// &lt;/summary&gt;
+public class  ClassicalWindow : Window
+{
+    public override void Create()
+    {
+        Console.WriteLine(&quot;创建古典的窗户&quot;);
+    }
+}
+
+/// &lt;summary&gt;
+/// 古典的房门
+/// &lt;/summary&gt;
+public class  ClassicalDoor: Door
+{
+    public override void Create()
+    {
+        Console.WriteLine(&quot;创建古典的房门&quot;);
+    }
+}
+</code></pre><p>此时，只需要添加五个类：一个是古典风格工厂类，负责创建古典风格的房子，另外几个类是具有古典风格的房顶、地板、窗户和房门的具体产品。从上面代码看出，抽象工厂对于系列产品的变化支持 “开放——封闭”原则（指的是要求系统对扩展开放，对修改封闭），扩展起来非常简便，但是，抽象工厂对于增加新产品这种情况就不支持”开放——封闭 “原则，因为要修改创建系列产品的抽象基类AbstractFactory，增加相应产品的创建方法，这也是抽象工厂的缺点所在。</p>
+<h2 id="三、抽象工厂的实现要点"><a href="#三、抽象工厂的实现要点" class="headerlink" title="三、抽象工厂的实现要点"></a>三、抽象工厂的实现要点</h2><ol>
+<li>如果没有应对“多系列对象创建”的需求变化，则没有必要使用AbstractFactory模式，这时候使用简单的静态工厂完全可以。</li>
+<li>“系列对象”指的是这些对象之间有相互依赖、或作用的关系，例如游戏开发场景中“道路”与“房屋”的依赖，“道路”与“地道”的依赖。</li>
+<li>AbstractFactory模式主要在于应对“新系列”的需求变动。其缺点在于难以应对“新对象”的需求变动。</li>
+<li>AbstractFactory模式经常喝FactoryMethod模式共同组合来应对“对象创建”的需求变化。</li>
+</ol>
+<p><strong>抽象工厂模式的优点：</strong></p>
+<p>【抽象工厂】模式将系列产品的创建工作延迟到具体工厂的子类中，我们声明工厂类变量的时候是使用的抽象类型，同理，我们使用产品类型也是抽象类型，这样做就尽可能的可以减少客户端代码与具体产品类之间的依赖，从而降低了系统的耦合度。耦合度降低了，对于后期的维护和扩展就更有利，这也就是【抽象工厂】模式的优点所在。可能有人会说在Main方法里面（这里的代码就是客户端的使用方）还是会使用具体的工厂类，对的。这个其实我们通过Net的配置，把这部分移出去，最后把依赖关系放到配置文件中。如果有新的需求我们只需要修改配置文件，根本就不需要修改代码了，让客户代码更稳定。依赖关系肯定会存在，我们要做的就是降低依赖，想完全去除很难，也不现实。</p>
+<p><strong>抽象工厂模式的缺点：</strong></p>
+<p>有优点肯定就有缺点，因为每种模式都有他的使用范围，或者说要解决的问题，不能解决的问题就是缺点了，其实也不能叫缺点了。【抽象工厂】模式很难支持增加新产品的变化，这是因为抽象工厂接口中已经确定了可以被创建的产品集合，如果需要添加新产品，此时就必须去修改抽象工厂的接口，这样就涉及到抽象工厂类的以及所有子类的改变，这样也就违背了“开发——封闭”原则。</p>
+<p><strong>抽象工厂模式的使用场景：</strong></p>
+<p>如果系统需要多套的代码解决方案，并且每套的代码方案中又有很多相互关联的产品类型，并且在系统中我们可以相互替换的使用一套产品的时候可以使用该模式，客户端不需要依赖具体实现。</p>
+<h2 id="四、-NET中抽象工厂模式实现"><a href="#四、-NET中抽象工厂模式实现" class="headerlink" title="四、.NET中抽象工厂模式实现"></a>四、.NET中抽象工厂模式实现</h2><p>微软的类库发展了这么多年，设计模式在里面有大量的应用，【抽象工厂】模式在.NET类库中也存在着大量的使用，比如和操作数据库有关的类型，这个类就是System.Data.Common.DbProviderFactory，这个类位于System.Data.dll程序集中。该类扮演抽象工厂模式中抽象工厂的角色，我们可以用ILSpy反编译工具查看该类的实现：</p>
+<pre><code>/// 扮演抽象工厂的角色
+/// 创建连接数据库时所需要的对象集合，
+/// 这个对象集合包括有 DbConnection对象（这个是抽象产品类,如绝味例子中的YaBo类）、DbCommand类、DbDataAdapter类，针对不同的具体工厂都需要实现该抽象类中方法，
+public abstract class DbProviderFactory
+{
+    public virtual bool CanCreateDataSourceEnumerator
+    {
+        get
+        {
+            return false;
+        }
+    }
+
+    public virtual DbCommand CreateCommand()
+    {
+        return null;
+    }
+
+    public virtual DbCommandBuilder CreateCommandBuilder()
+    {
+        return null;
+    }
+
+    public virtual DbConnection CreateConnection()
+    {
+        return null;
+    }
+
+    public virtual DbConnectionStringBuilder CreateConnectionStringBuilder()
+    {
+        return null;
+    }
+
+    public virtual DbDataAdapter CreateDataAdapter()
+    {
+        return null;
+    }
+
+    public virtual DbParameter CreateParameter()
+    {
+        return null;
+    }
+
+    public virtual CodeAccessPermission CreatePermission(PermissionState state)
+    {
+        return null;
+    }
+
+    public virtual DbDataSourceEnumerator CreateDataSourceEnumerator()
+    {
+        return null;
+    }
+}
+</code></pre><p>DbProviderFactory类是一个抽象工厂类，该类提供了创建数据库连接时所需要的对象集合的接口，实际创建的工作在其子类工厂中进行，微软使用的是SQL Server数据库，因此提供了连接SQL Server数据的具体工厂实现，具体代码可以用反编译工具查看，具体代码如下：</p>
+<p>SqlClientFactory扮演着具体工厂的角色，用来创建连接SQL Server数据所需要的对象</p>
+<pre><code>public sealed class SqlClientFactory : DbProviderFactory, IServiceProvider
+{
+    public static readonly SqlClientFactory Instance = new SqlClientFactory();
+
+    public override bool CanCreateDataSourceEnumerator
+    {
+        get
+        {
+            return true;
+        }
+    }
+
+    private SqlClientFactory()
+    {
+    }
+
+    public override DbCommand CreateCommand()
+    {
+        return new SqlCommand();
+    }
+
+    public override DbCommandBuilder CreateCommandBuilder()
+    {
+        return new SqlCommandBuilder();
+    }
+
+    public override DbConnection CreateConnection()
+    {
+        return new SqlConnection();
+    }
+
+    public override DbConnectionStringBuilder CreateConnectionStringBuilder()
+    {
+        return new SqlConnectionStringBuilder();
+    }
+
+    public override DbDataAdapter CreateDataAdapter()
+    {
+        return new SqlDataAdapter();
+    }
+
+    public override DbParameter CreateParameter()
+    {
+        return new SqlParameter();
+    }
+
+    public override CodeAccessPermission CreatePermission(PermissionState state)
+    {
+        return new SqlClientPermission(state);
+    }
+
+    public override DbDataSourceEnumerator CreateDataSourceEnumerator()
+    {
+        return SqlDataSourceEnumerator.Instance;
+    }
+
+    object IServiceProvider.GetService(Type serviceType)
+    {
+        object result = null;
+        if (serviceType == GreenMethods.SystemDataCommonDbProviderServices_Type)
+        {
+            result = GreenMethods.SystemDataSqlClientSqlProviderServices_Instance();
+        }
+        return result;
+    }
+}
+</code></pre><p>OdbcFactory也是具体工厂类</p>
+<pre><code>public sealed class OdbcFactory : DbProviderFactory
+{
+    public static readonly OdbcFactory Instance = new OdbcFactory();
+
+    private OdbcFactory()
+    {
+    }
+
+    public override DbCommand CreateCommand()
+    {
+        return new OdbcCommand();
+    }
+
+    public override DbCommandBuilder CreateCommandBuilder()
+    {
+        return new OdbcCommandBuilder();
+    }
+
+    public override DbConnection CreateConnection()
+    {
+        return new OdbcConnection();
+    }
+
+    public override DbConnectionStringBuilder CreateConnectionStringBuilder()
+    {
+        return new OdbcConnectionStringBuilder();
+    }
+
+    public override DbDataAdapter CreateDataAdapter()
+    {
+        return new OdbcDataAdapter();
+    }
+
+    public override DbParameter CreateParameter()
+    {
+        return new OdbcParameter();
+    }
+
+    public override CodeAccessPermission CreatePermission(PermissionState state)
+    {
+        return new OdbcPermission(state);
+    }
+}
+</code></pre><p>当然，我们也有OleDbFactory 类型，都是负责具体的数据库操作。DbProviderFactory就是【抽象工厂】模式UML里面AbstractFactory类型。其他具体的工厂类型继承DbProviderFactory类型，这个结构很简单，我就不画图了。</p>
+<h2 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h2><p>终于写完了，写了3个小时，学习设计模式不能死学，要把握核心点和使用场景。关键点第一是，面向对象设计模式的基本原则，有了原则，考虑问题就不会跑偏，然后再仔细把握每种模式的使用场景和要解决的问题，多写写代码，多看看Net的类库，它是最好的教材。</p>
+
+                                                            <p>本文链接：
+                                                                <a href="https://netlover.cn/2018/08/18/csharp-abstract-factory-pattern.html">
+                                                                    https://netlover.cn/2018/08/18/csharp-abstract-factory-pattern.html
+                                                                </a>
+                                                            </p>
+                                                            
+                                        </div>
+                                        <div class="article-info article-info-index">
+                                                
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Abstract-Factory-Pattern/">Abstract Factory Pattern</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/抽象工厂模式/">抽象工厂模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+	</div>
+
+
+                                                    
+                                                        
+                                                                <div class="clearfix"></div>
+                                            </div>
+            </div>
+            
+                <div id="socialShare" style="margin-left:10px;display:none;">
+                </div>
+                <script>
+                    $(function() {
+                        var width = document.body.scrollWidth;
+                        if (width > 550) {
+                            $("#socialShare").css("display", "block");
+                            $("#socialShare").socialShare({
+                                content: 'Nice!不错的资源...',
+                                url: window.location.href,
+                                titile: ''
+                            });
+                        }
+                    });
+                </script>
+                
+                    
+                        <div class="donateContainer">
+                            <span id="donate" class="donate" onclick="donate()">打赏</span>
+                            <div id="QR" style="display: none;">
+                                <div id="alipay" style="display: inline-block">
+                                    <a href="/img/weixin.jpg" target="_blank" class="fancybox fancybox.image" rel="group">
+                                        <img id="alipay_qr" src="/img/weixin.jpg">
+                                    </a>
+                                </div>
+                                <div id="wechat" style="display: inline-block">
+                                    <a href="/img/zhifubao.jpg" target="_blank" class="fancybox fancybox.image" rel="group">
+                                        <img id="wechat_qr" src="/img/zhifubao.jpg">
+                                    </a>
+                                </div>
+                            </div>
+                            <script>
+                                function donate() {
+                                    var qr = document.getElementById('QR');
+                                    if (qr.style.display === 'none') {
+                                        qr.style.display = 'block';
+                                    } else {
+                                        qr.style.display = 'none'
+                                    }
+                                };
+                            </script>
+                        </div>
+                        
+                            
+                                
+<nav id="article-nav">
+  
+    <a href="/2018/08/18/csharp-singleton-pattern.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          C#设计模式(1) - 单例模式(Singleton Pattern)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/17/30shangyemoshi.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">中国未来真正的30个商业模式</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+                            
+                                        
+</article>
+</div>
+    </div>
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css?2018.08.01">
+<script src="/fancybox/jquery.fancybox.pack.js?2018.08.01"></script>
+
+<script src="/js/mobile.js?2018.08.01"></script>
+<script src="/js/main.js?2018.08.01"></script>
+<script src="/js/prefixfree.js?2018.08.01"></script>
+
+
+
+<div id="totop">
+    <a title="返回顶部">
+        <img src="/img/gotop.png" />
+    </a>
+</div>
+
+<script src="/js/totop.js?2018.08.01"></script>
+<script src="/js/share.js?2018.08.01"></script>
+  </div>
+</body>
+</html>
