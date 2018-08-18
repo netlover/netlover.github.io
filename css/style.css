@@ -430,6 +430,31 @@ td {
   left: 240px;
   width: auto;
 }
+#container .aside {
+  position: fixed;
+  left: 250px;
+  top: 50%;
+  margin-top: -45px;
+  width: 16px;
+  height: 45px;
+}
+#container .aside a {
+  display: block;
+}
+#container .aside .close:before {
+  color: #999;
+  content: "\f0d9";
+  font: 45px FontAwesome;
+  margin-left: -2px;
+}
+#container .aside .open {
+  display: none;
+}
+#container .aside .open:before {
+  color: #999;
+  content: "\f0da";
+  font: 45px FontAwesome;
+}
 @media screen and (max-width: 800px) {
   #container .left-col {
     display: none;
@@ -606,7 +631,7 @@ td {
     padding: 10px;
   }
   #container .archives-wrap .archive-article-title {
-    font-size: 14px;
+    font-size: 15px;
   }
   #container .archives-wrap .archive-year-wrap {
     position: relative;
@@ -644,6 +669,12 @@ td {
   }
   #container .socialShare .wemcn {
     left: 60px;
+  }
+  #container .aside {
+    display: none;
+  }
+  #container .article-description {
+    margin-right: 0;
   }
 }
 .header-author {
@@ -959,6 +990,9 @@ td {
   width: 27px;
   opacity: 100%;
 }
+.hide {
+  display: none;
+}
 .archives-wrap {
   position: relative;
   margin-left: 10px;
@@ -1061,11 +1095,11 @@ td {
   margin-top: -10px;
 }
 .archive-article-inner .article-meta .archive-article-date time:before {
-  content: "\f073";
+  content: "\f274";
   color: #999;
   position: relative;
   margin-right: 10px;
-  font: 16px FontAwesome;
+  font: 15px FontAwesome;
 }
 .archive-article-inner .article-meta .article-category:before {
   float: left;
@@ -1341,8 +1375,8 @@ td {
 }
 .article-meta time:before {
   color: #999;
-  content: "\f073";
-  font: 17px FontAwesome;
+  content: "\f274";
+  font: 15px FontAwesome;
   margin-right: 10px;
 }
 .article-more-link {
@@ -1655,11 +1689,11 @@ td {
   margin-top: -10px;
 }
 .archive-article-inner .article-meta .archive-article-date time:before {
-  content: "\f073";
+  content: "\f274";
   color: #999;
   position: relative;
   margin-right: 10px;
-  font: 16px FontAwesome;
+  font: 15px FontAwesome;
 }
 .archive-article-inner .article-meta .article-category:before {
   float: left;
@@ -1975,15 +2009,16 @@ pre .params .keyword {
   text-align: center;
 }
 #page-nav .page-number {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   background: #4d4d4d;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
   display: inline-block;
   color: #fff;
-  line-height: 20px;
+  font-size: 18px;
+  line-height: 30px;
   margin: 0 3px 30px;
 }
 #page-nav .page-number:hover {
@@ -2403,11 +2438,11 @@ pre .params .keyword {
 .article-tag:before {
   float: left;
   color: #999;
-  content: "\f06c";
+  content: "\f02c";
   font: 16px FontAwesome;
   float: left;
   margin-right: 10px;
-  margin-top: 9px;
+  margin-top: 7px;
 }
 .article-tag:after {
   float: left;
@@ -2426,7 +2461,7 @@ pre .params .keyword {
   font: 16px FontAwesome;
   float: left;
   margin-right: 10px;
-  margin-top: 9px;
+  margin-top: 7px;
 }
 .article-category:after {
   float: left;

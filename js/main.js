@@ -33,6 +33,39 @@ var Main = (function(){
 		}
 	}
 
+	var aside = function(){
+		var $left = $(".left-col"),
+			$aside = $(".aside"),
+			$close = $aside.find("a.close"),
+			$open = $aside.find("a.open"),
+			$main = $(".mid-col"),
+			speed = 300,
+			count = 0;
+		$close.off("click").on("click",function(){
+			if(count === 0){
+				$left.animate({ left: "-240px" }, speed);
+			}else{
+				$left.animate({ left: "-240px" }, 0);
+			}
+			count++;
+			$aside.animate({ left: "10px" }, speed, function(){
+				$close.hide();
+				$open.show();
+			});
+			$main.animate({ left: 0}, speed);
+			//aside();
+		});
+		$open.off("click").on("click",function(){
+			$left.animate({ left: 0 }, 0);
+			$aside.animate({ left: "250px" }, speed, function(){
+				$close.show();
+				$open.hide();
+			});
+			$main.animate({ left: "240px"}, speed);
+			//aside();
+		});
+	}
+
 	var slide = function(idx){
 		var $wrap = $(".switch-wrap");
 		$wrap.css({
@@ -141,6 +174,7 @@ var Main = (function(){
 		init: function(){
 			resetTags();
 			bind();
+			aside();
 			enterAnm();
 			fancyInit();
 			Tips.init();

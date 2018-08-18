@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://netlover.cn/"/>
-  <updated>2018-08-18T13:33:46.922Z</updated>
+  <updated>2018-08-18T13:31:58.310Z</updated>
   <id>https://netlover.cn/</id>
   
   <author>
@@ -15,32 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>C#设计模式(5) - 原型模式(Prototype Pattern)</title>
-    <link href="https://netlover.cn/2018/08/18/csharp-prototype-pattern.html"/>
-    <id>https://netlover.cn/2018/08/18/csharp-prototype-pattern.html</id>
-    <published>2018-08-18T10:47:44.000Z</published>
-    <updated>2018-08-18T13:33:46.922Z</updated>
-    
-    <summary type="html">
-    
-      在软件系统中，经常面临着“某些结构复杂的对象”的创建工作；由于需求的变化，这些对象经常面临着剧烈的变化，但是它们却拥有比较稳定一致的接口。如何应对这种变化？如何向“客户程序（使用这些对象的程序）”隔离出“这些易变对象”，从而使得“依赖这些易变对象的客户程序”不随着需求改变而改变？
-    
-    </summary>
-    
-      <category term="C#设计模式" scheme="https://netlover.cn/categories/C-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="C#" scheme="https://netlover.cn/tags/C/"/>
-    
-      <category term="设计模式" scheme="https://netlover.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="原型模式" scheme="https://netlover.cn/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="Prototype Pattern" scheme="https://netlover.cn/tags/Prototype-Pattern/"/>
-    
-  </entry>
   
   <entry>
     <title>C#设计模式(4) - 建造者模式(Builder Pattern)</title>
@@ -69,15 +43,15 @@
   </entry>
   
   <entry>
-    <title>C#设计模式(3) - 抽象工厂模式(Abstract Factory Pattern)</title>
-    <link href="https://netlover.cn/2018/08/18/csharp-abstract-factory-pattern.html"/>
-    <id>https://netlover.cn/2018/08/18/csharp-abstract-factory-pattern.html</id>
-    <published>2018-08-18T08:47:44.000Z</published>
-    <updated>2018-08-18T13:28:58.255Z</updated>
+    <title>C#设计模式(5) - 原型模式(Prototype Pattern)</title>
+    <link href="https://netlover.cn/2018/08/18/csharp-prototype-pattern.html"/>
+    <id>https://netlover.cn/2018/08/18/csharp-prototype-pattern.html</id>
+    <published>2018-08-18T10:47:44.000Z</published>
+    <updated>2018-08-18T13:33:46.922Z</updated>
     
     <summary type="html">
     
-      在软件系统中，经常面临着&quot;一系统相互依赖的对象&quot;的创建工作：同时，由于需求的变化，往往存在更多系列对象的创建工作。如何应对这种变化？如何绕过常规的对象创建方法（new)，提供一种&quot;封装机制&quot;来避免客户程序和这种&quot;多系列具体对象创建工作&quot;的紧耦合？
+      在软件系统中，经常面临着“某些结构复杂的对象”的创建工作；由于需求的变化，这些对象经常面临着剧烈的变化，但是它们却拥有比较稳定一致的接口。如何应对这种变化？如何向“客户程序（使用这些对象的程序）”隔离出“这些易变对象”，从而使得“依赖这些易变对象的客户程序”不随着需求改变而改变？
     
     </summary>
     
@@ -88,9 +62,9 @@
     
       <category term="设计模式" scheme="https://netlover.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
-      <category term="抽象工厂模式" scheme="https://netlover.cn/tags/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+      <category term="原型模式" scheme="https://netlover.cn/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
     
-      <category term="Abstract Factory Pattern" scheme="https://netlover.cn/tags/Abstract-Factory-Pattern/"/>
+      <category term="Prototype Pattern" scheme="https://netlover.cn/tags/Prototype-Pattern/"/>
     
   </entry>
   
@@ -117,6 +91,32 @@
       <category term="单例模式" scheme="https://netlover.cn/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="Singleton Pattern" scheme="https://netlover.cn/tags/Singleton-Pattern/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#设计模式(3) - 抽象工厂模式(Abstract Factory Pattern)</title>
+    <link href="https://netlover.cn/2018/08/18/csharp-abstract-factory-pattern.html"/>
+    <id>https://netlover.cn/2018/08/18/csharp-abstract-factory-pattern.html</id>
+    <published>2018-08-18T08:47:44.000Z</published>
+    <updated>2018-08-18T13:28:58.255Z</updated>
+    
+    <summary type="html">
+    
+      在软件系统中，经常面临着&quot;一系统相互依赖的对象&quot;的创建工作：同时，由于需求的变化，往往存在更多系列对象的创建工作。如何应对这种变化？如何绕过常规的对象创建方法（new)，提供一种&quot;封装机制&quot;来避免客户程序和这种&quot;多系列具体对象创建工作&quot;的紧耦合？
+    
+    </summary>
+    
+      <category term="C#设计模式" scheme="https://netlover.cn/categories/C-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="C#" scheme="https://netlover.cn/tags/C/"/>
+    
+      <category term="设计模式" scheme="https://netlover.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="抽象工厂模式" scheme="https://netlover.cn/tags/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="Abstract Factory Pattern" scheme="https://netlover.cn/tags/Abstract-Factory-Pattern/"/>
     
   </entry>
   
@@ -191,28 +191,6 @@
   </entry>
   
   <entry>
-    <title>如何成为一个合格的架构师？</title>
-    <link href="https://netlover.cn/2018/08/16/do-jiagoushi.html"/>
-    <id>https://netlover.cn/2018/08/16/do-jiagoushi.html</id>
-    <published>2018-08-16T15:12:44.000Z</published>
-    <updated>2018-08-17T14:13:14.512Z</updated>
-    
-    <summary type="html">
-    
-      在互联网圈，架构师这个名号的火热程度堪比产品经理，它在产品经理没火之前就已经风生水起。
-    
-    </summary>
-    
-      <category term="架构" scheme="https://netlover.cn/categories/%E6%9E%B6%E6%9E%84/"/>
-    
-    
-      <category term="架构" scheme="https://netlover.cn/tags/%E6%9E%B6%E6%9E%84/"/>
-    
-      <category term="架构师" scheme="https://netlover.cn/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
-    
-  </entry>
-  
-  <entry>
     <title>ExceptionLess本地部署</title>
     <link href="https://netlover.cn/2018/08/16/ExceptionLess-local.html"/>
     <id>https://netlover.cn/2018/08/16/ExceptionLess-local.html</id>
@@ -233,6 +211,28 @@
       <category term="本地部署" scheme="https://netlover.cn/tags/%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2/"/>
     
       <category term="日志框架" scheme="https://netlover.cn/tags/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何成为一个合格的架构师？</title>
+    <link href="https://netlover.cn/2018/08/16/do-jiagoushi.html"/>
+    <id>https://netlover.cn/2018/08/16/do-jiagoushi.html</id>
+    <published>2018-08-16T15:12:44.000Z</published>
+    <updated>2018-08-17T14:13:14.512Z</updated>
+    
+    <summary type="html">
+    
+      在互联网圈，架构师这个名号的火热程度堪比产品经理，它在产品经理没火之前就已经风生水起。
+    
+    </summary>
+    
+      <category term="架构" scheme="https://netlover.cn/categories/%E6%9E%B6%E6%9E%84/"/>
+    
+    
+      <category term="架构" scheme="https://netlover.cn/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+      <category term="架构师" scheme="https://netlover.cn/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
     
   </entry>
   
