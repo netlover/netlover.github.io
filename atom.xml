@@ -69,15 +69,15 @@
   </entry>
   
   <entry>
-    <title>C#设计模式(2) - 工厂方法模式(Factory Method Pattern)</title>
-    <link href="https://netlover.cn/2018/08/18/csharp-factory-method-pattern.html"/>
-    <id>https://netlover.cn/2018/08/18/csharp-factory-method-pattern.html</id>
+    <title>C#设计模式(3) - 抽象工厂模式(Abstract Factory Pattern)</title>
+    <link href="https://netlover.cn/2018/08/18/csharp-abstract-factory-pattern.html"/>
+    <id>https://netlover.cn/2018/08/18/csharp-abstract-factory-pattern.html</id>
     <published>2018-08-18T08:47:44.000Z</published>
-    <updated>2018-08-18T13:21:21.163Z</updated>
+    <updated>2018-08-18T13:28:58.255Z</updated>
     
     <summary type="html">
     
-      如果有新的需求就需要修改工厂类里面创建产品对象实例的那个方法的实现代码，在面向对象设计一个原则就是哪里有变化，我就封装哪里。还有另外两个大的原则，其一是：面向抽象编程，细节和高层实现都要依赖抽象，第二个原则是：多组合，少继承。这三个原则是最根本的原则，学习设计模式必须以这三个原则为基点，否则都是枉然。
+      在软件系统中，经常面临着&quot;一系统相互依赖的对象&quot;的创建工作：同时，由于需求的变化，往往存在更多系列对象的创建工作。如何应对这种变化？如何绕过常规的对象创建方法（new)，提供一种&quot;封装机制&quot;来避免客户程序和这种&quot;多系列具体对象创建工作&quot;的紧耦合？
     
     </summary>
     
@@ -88,9 +88,9 @@
     
       <category term="设计模式" scheme="https://netlover.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
-      <category term="工厂方法模式" scheme="https://netlover.cn/tags/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
+      <category term="抽象工厂模式" scheme="https://netlover.cn/tags/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
     
-      <category term="Factory Method Pattern" scheme="https://netlover.cn/tags/Factory-Method-Pattern/"/>
+      <category term="Abstract Factory Pattern" scheme="https://netlover.cn/tags/Abstract-Factory-Pattern/"/>
     
   </entry>
   
@@ -121,15 +121,15 @@
   </entry>
   
   <entry>
-    <title>C#设计模式(3) - 抽象工厂模式(Abstract Factory Pattern)</title>
-    <link href="https://netlover.cn/2018/08/18/csharp-abstract-factory-pattern.html"/>
-    <id>https://netlover.cn/2018/08/18/csharp-abstract-factory-pattern.html</id>
+    <title>C#设计模式(2) - 工厂方法模式(Factory Method Pattern)</title>
+    <link href="https://netlover.cn/2018/08/18/csharp-factory-method-pattern.html"/>
+    <id>https://netlover.cn/2018/08/18/csharp-factory-method-pattern.html</id>
     <published>2018-08-18T08:47:44.000Z</published>
-    <updated>2018-08-18T13:28:58.255Z</updated>
+    <updated>2018-08-18T13:21:21.163Z</updated>
     
     <summary type="html">
     
-      在软件系统中，经常面临着&quot;一系统相互依赖的对象&quot;的创建工作：同时，由于需求的变化，往往存在更多系列对象的创建工作。如何应对这种变化？如何绕过常规的对象创建方法（new)，提供一种&quot;封装机制&quot;来避免客户程序和这种&quot;多系列具体对象创建工作&quot;的紧耦合？
+      如果有新的需求就需要修改工厂类里面创建产品对象实例的那个方法的实现代码，在面向对象设计一个原则就是哪里有变化，我就封装哪里。还有另外两个大的原则，其一是：面向抽象编程，细节和高层实现都要依赖抽象，第二个原则是：多组合，少继承。这三个原则是最根本的原则，学习设计模式必须以这三个原则为基点，否则都是枉然。
     
     </summary>
     
@@ -140,9 +140,9 @@
     
       <category term="设计模式" scheme="https://netlover.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
-      <category term="抽象工厂模式" scheme="https://netlover.cn/tags/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+      <category term="工厂方法模式" scheme="https://netlover.cn/tags/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
     
-      <category term="Abstract Factory Pattern" scheme="https://netlover.cn/tags/Abstract-Factory-Pattern/"/>
+      <category term="Factory Method Pattern" scheme="https://netlover.cn/tags/Factory-Method-Pattern/"/>
     
   </entry>
   
