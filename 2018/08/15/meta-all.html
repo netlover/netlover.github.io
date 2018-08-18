@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Net Lover">
 <meta property="og:description" content="标签提供关于 HTML 文档的元数据。它不会显示在页面上，但是对于机器是可读的。可用于浏览器（如何显示内容或重新加载页面），搜索引擎（关键词），或其他 web 服务。meta里的数据是供机器解读的，告诉机器该如何解析这个页面，还有一个用途是可以添加服务器发送到浏览器的http头部内容。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-15T14:53:32.109Z">
+<meta property="og:updated_time" content="2018-08-18T15:05:21.969Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用meta标签的作用以及全面整理">
 <meta name="twitter:description" content="标签提供关于 HTML 文档的元数据。它不会显示在页面上，但是对于机器是可读的。可用于浏览器（如何显示内容或重新加载页面），搜索引擎（关键词），或其他 web 服务。meta里的数据是供机器解读的，告诉机器该如何解析这个页面，还有一个用途是可以添加服务器发送到浏览器的http头部内容。">
@@ -217,49 +217,37 @@
                                             
                                                         <h1 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h1><p><meta> 标签提供关于 HTML 文档的元数据。它不会显示在页面上，但是对于机器是可读的。可用于浏览器（如何显示内容或重新加载页面），搜索引擎（关键词），或其他 web 服务。</p>
 <h1 id="2、作用"><a href="#2、作用" class="headerlink" title="2、作用"></a>2、作用</h1><p>meta里的数据是供机器解读的，告诉机器该如何解析这个页面，还有一个用途是可以添加服务器发送到浏览器的http头部内容，例如我们为页面中添加如下meta标签：</p>
-<pre><code>&lt;meta http-equiv=&quot;charset&quot; content=&quot;iso-8859-1&quot;&gt;
-&lt;meta http-equiv=&quot;expires&quot; content=&quot;31 Dec 2008&quot;&gt;
-</code></pre><p>浏览器的头部就会包括这些:</p>
-<pre><code>charset:iso-8859-1
-expires:31 Dec 2008
-</code></pre><p>只有浏览器可以接受这些附加的头部字段，并能以适当的方式使用它们时，这些字段才有意义。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"charset"</span> <span class="attr">content</span>=<span class="string">"iso-8859-1"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"expires"</span> <span class="attr">content</span>=<span class="string">"31 Dec 2008"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>浏览器的头部就会包括这些:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">charset:iso-8859-1</span><br><span class="line">expires:31 Dec 2008</span><br></pre></td></tr></table></figure>
+<p>只有浏览器可以接受这些附加的头部字段，并能以适当的方式使用它们时，这些字段才有意义。</p>
 <h1 id="3、meta的必需属性和可选属性"><a href="#3、meta的必需属性和可选属性" class="headerlink" title="3、meta的必需属性和可选属性"></a>3、meta的必需属性和可选属性</h1><p>meta的必需属性是content，当然并不是说meta标签里一定要有content，而是当有http-equiv或name属性的时候，一定要有content属性对其进行说明。例如：</p>
-<h2 id="必需属性"><a href="#必需属性" class="headerlink" title="必需属性"></a>必需属性</h2><pre><code>&lt;meta name=&quot;keywords&quot; content=&quot;HTML,ASP,PHP,SQL&quot;&gt;
-</code></pre><p>这里面content里的属性就是对keywords进行的说明，所以呢也可以理解成一个键值对吧，就是{keywords:”HTML,ASP,PHP,SQL”}。</p>
+<h2 id="必需属性"><a href="#必需属性" class="headerlink" title="必需属性"></a>必需属性</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"keywords"</span> <span class="attr">content</span>=<span class="string">"HTML,ASP,PHP,SQL"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里面content里的属性就是对keywords进行的说明，所以呢也可以理解成一个键值对吧，就是{keywords:”HTML,ASP,PHP,SQL”}。</p>
 <h2 id="可选属性"><a href="#可选属性" class="headerlink" title="可选属性"></a>可选属性</h2><p>在W3school中，对于meta的可选属性说到了三个，分别是http-equiv、name和scheme。考虑到scheme不是很常用，所以就只说下前两个属性吧。</p>
 <p>http-equiv</p>
 <p>http-equiv属性是添加http头部内容，对一些自定义的，或者需要额外添加的http头部内容，需要发送到浏览器中，我们就可以是使用这个属性。在上面的meta作用中也有简单的说明，那么现在再举个例子。例如我们不想使用js来重定向，用http头部内容控制，那么就可以这样控制：</p>
-<pre><code>&lt;meta http-equiv=&quot;Refresh&quot; content=&quot;5;url=https://netlover.cn&quot; /&gt;
-</code></pre><p>在页面中加入这个后，5秒钟后就会跳转到指定页面啦，效果可看W3school的例子</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Refresh"</span> <span class="attr">content</span>=<span class="string">"5;url=https://netlover.cn"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在页面中加入这个后，5秒钟后就会跳转到指定页面啦，效果可看W3school的例子</p>
 <p>name</p>
 <p>第二个可选属性是name，这个属性是供浏览器进行解析，对于一些浏览器兼容性问题，name属性是最常用的，当然有个前提就是浏览器能够解析你写进去的name属性才可以，不然就是没有意义的。还是举个例子吧:</p>
-<pre><code>&lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt;
-</code></pre><p>这个meta标签的意思就是告诉浏览器，用webkit内核进行解析，当然前提是浏览器有webkit内核才可以，不然就是没有意义的啦。当然看到这个你可能会有疑问，这个renderer是从哪里冒出来的，我要怎么知道呢？这个就是在对应的浏览器的开发文档里就会有表明的，例如这个renderer是在360浏览器里说明的。360浏览器内核控制Meta标签说明文档</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"renderer"</span> <span class="attr">content</span>=<span class="string">"webkit"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这个meta标签的意思就是告诉浏览器，用webkit内核进行解析，当然前提是浏览器有webkit内核才可以，不然就是没有意义的啦。当然看到这个你可能会有疑问，这个renderer是从哪里冒出来的，我要怎么知道呢？这个就是在对应的浏览器的开发文档里就会有表明的，例如这个renderer是在360浏览器里说明的。360浏览器内核控制Meta标签说明文档</p>
 <h2 id="常用meta标签大总结"><a href="#常用meta标签大总结" class="headerlink" title="常用meta标签大总结"></a>常用meta标签大总结</h2><p>接下来就是常用的meta标签大总结啦，我会尽可能的做到全</p>
 <p><strong>charset</strong></p>
 <p>charset是声明文档使用的字符编码，解决乱码问题主要用的就是它，值得一提的是，这个<strong>charset一定要写第一行</strong>，不然就可能会产生乱码了。</p>
 <p>charset有两种写法</p>
-<pre><code>&lt;meta charset=&quot;utf-8&quot;&gt;
-&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
-</code></pre><p>两个都是等效的。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=utf-8"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>两个都是等效的。</p>
 <p><strong>百度禁止转码</strong></p>
 <p>百度会自动对网页进行转码，这个标签是禁止百度的自动转码</p>
-<pre><code>&lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-siteapp&quot; /&gt;
-</code></pre><p><strong>SEO 优化部分</strong></p>
-<pre><code>&lt;!-- 页面标题&lt;title&gt;标签(head 头部必须) --&gt;
-&lt;title&gt;your title&lt;/title&gt;
-&lt;!-- 页面关键词 keywords --&gt;
-&lt;meta name=&quot;keywords&quot; content=&quot;your keywords&quot;&gt;
-&lt;!-- 页面描述内容 description --&gt;
-&lt;meta name=&quot;description&quot; content=&quot;your description&quot;&gt;
-&lt;!-- 定义网页作者 author --&gt;
-&lt;meta name=&quot;author&quot; content=&quot;author,email address&quot;&gt;
-&lt;!-- 定义网页搜索引擎索引方式，robotterms 是一组使用英文逗号「,」分割的值，通常有如下几种取值：none，noindex，nofollow，all，index和follow。 --&gt;
-&lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot;&gt;
-</code></pre><p><strong>viewport</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Cache-Control"</span> <span class="attr">content</span>=<span class="string">"no-siteapp"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>SEO 优化部分</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 页面标题&lt;title&gt;标签(head 头部必须) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>your title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 页面关键词 keywords --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"keywords"</span> <span class="attr">content</span>=<span class="string">"your keywords"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 页面描述内容 description --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">content</span>=<span class="string">"your description"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 定义网页作者 author --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"author"</span> <span class="attr">content</span>=<span class="string">"author,email address"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 定义网页搜索引擎索引方式，robotterms 是一组使用英文逗号「,」分割的值，通常有如下几种取值：none，noindex，nofollow，all，index和follow。 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"robots"</span> <span class="attr">content</span>=<span class="string">"index,follow"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>viewport</strong></p>
 <p>viewport主要是影响移动端页面布局的，例如：</p>
-<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-</code></pre><p><strong>content 参数：</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>content 参数：</strong></p>
 <ul>
 <li>width viewport 宽度(数值/device-width)</li>
 <li>height viewport 高度(数值/device-height)</li>
@@ -269,93 +257,21 @@ expires:31 Dec 2008
 <li>user-scalable 是否允许用户缩放(yes/no)</li>
 </ul>
 <h2 id="各浏览器平台"><a href="#各浏览器平台" class="headerlink" title="各浏览器平台"></a>各浏览器平台</h2><p><strong>Microsoft Internet Explorer</strong></p>
-<pre><code>&lt;!-- 优先使用最新的ie版本 --&gt;
-&lt;meta http-equiv=&quot;x-ua-compatible&quot; content=&quot;ie=edge&quot;&gt;
-&lt;!-- 是否开启cleartype显示效果 --&gt;
-&lt;meta http-equiv=&quot;cleartype&quot; content=&quot;on&quot;&gt;
-&lt;meta name=&quot;skype_toolbar&quot; content=&quot;skype_toolbar_parser_compatible&quot;&gt;
-&lt;!-- Pinned Site --&gt;
-&lt;!-- IE 10 / Windows 8 --&gt;
-&lt;meta name=&quot;msapplication-TileImage&quot; content=&quot;pinned-tile-144.png&quot;&gt;
-&lt;meta name=&quot;msapplication-TileColor&quot; content=&quot;#009900&quot;&gt;
-&lt;!-- IE 11 / Windows 9.1 --&gt;
-&lt;meta name=&quot;msapplication-config&quot; content=&quot;ieconfig.xml&quot;&gt;
-</code></pre><p><strong>Google Chrome</strong></p>
-<pre><code>&lt;!-- 优先使用最新的chrome版本 --&gt;
-&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;chrome=1&quot; /&gt;
-&lt;!-- 禁止自动翻译 --&gt;
-&lt;meta name=&quot;google&quot; value=&quot;notranslate&quot;&gt;
-</code></pre><p><strong>360浏览器</strong></p>
-<pre><code>&lt;!-- 选择使用的浏览器解析内核 --&gt;
-&lt;meta name=&quot;renderer&quot; content=&quot;webkit|ie-comp|ie-stand&quot;&gt;
-</code></pre><p><strong>QQ手机浏览器</strong></p>
-<pre><code>&lt;!-- 锁定屏幕在特定方向 --&gt;
-&lt;meta name=&quot;x5-orientation&quot; content=&quot;landscape/portrait&quot;&gt;
-&lt;!-- 全屏显示 --&gt;
-&lt;meta name=&quot;x5-fullscreen&quot; content=&quot;true&quot;&gt;
-&lt;!-- 页面将以应用模式显示 --&gt;
-&lt;meta name=&quot;x5-page-mode&quot; content=&quot;app&quot;&gt;
-</code></pre><p><strong>Apple iOS</strong></p>
-<pre><code>&lt;!-- Smart App Banner --&gt;
-&lt;meta name=&quot;apple-itunes-app&quot; content=&quot;app-id=APP_ID,affiliate-data=AFFILIATE_ID,app-argument=SOME_TEXT&quot;&gt;
-&lt;!-- 禁止自动探测并格式化手机号码 --&gt;
-&lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot;&gt;
-&lt;!-- Add to Home Screen添加到主屏 --&gt;
-&lt;!-- 是否启用 WebApp 全屏模式 --&gt;
-&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
-&lt;!-- 设置状态栏的背景颜色,只有在 “apple-mobile-web-app-capable” content=”yes” 时生效 --&gt;
-&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot;&gt;
-&lt;!-- 添加到主屏后的标题 --&gt;
-&lt;meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;App Title&quot;&gt;
-</code></pre><p><strong>Google Android</strong></p>
-<pre><code>&lt;meta name=&quot;theme-color&quot; content=&quot;#E64545&quot;&gt;
-&lt;!-- 添加到主屏 --&gt;
-&lt;meta name=&quot;mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
-&lt;!-- More info: https://developer.chrome.com/multidevice/android/installtohomescreen --&gt;
-</code></pre><p><strong>App Links</strong></p>
-<pre><code>&lt;!-- iOS --&gt;
-&lt;meta property=&quot;al:ios:url&quot; content=&quot;applinks://docs&quot;&gt;
-&lt;meta property=&quot;al:ios:app_store_id&quot; content=&quot;12345&quot;&gt;
-&lt;meta property=&quot;al:ios:app_name&quot; content=&quot;App Links&quot;&gt;
-&lt;!-- Android --&gt;
-&lt;meta property=&quot;al:android:url&quot; content=&quot;applinks://docs&quot;&gt;
-&lt;meta property=&quot;al:android:app_name&quot; content=&quot;App Links&quot;&gt;
-&lt;meta property=&quot;al:android:package&quot; content=&quot;org.applinks&quot;&gt;
-&lt;!-- Web Fallback --&gt;
-&lt;meta property=&quot;al:web:url&quot; content=&quot;http://applinks.org/documentation&quot;&gt;
-&lt;!-- More info: http://applinks.org/documentation/ --&gt;
-</code></pre><h2 id="最后——移动端常用的meta"><a href="#最后——移动端常用的meta" class="headerlink" title="最后——移动端常用的meta"></a>最后——移动端常用的meta</h2><pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, user-scalable=no&quot; /&gt;
-&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;
-&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot; /&gt;
-&lt;meta name=&quot;format-detection&quot;content=&quot;telephone=no, email=no&quot; /&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, user-scalable=no&quot; /&gt;
-&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;&lt;!-- 删除苹果默认的工具栏和菜单栏 --&gt;
-&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot; /&gt;&lt;!-- 设置苹果工具栏颜色 --&gt;
-&lt;meta name=&quot;format-detection&quot; content=&quot;telphone=no, email=no&quot; /&gt;&lt;!-- 忽略页面中的数字识别为电话，忽略email识别 --&gt;
-&lt;!-- 启用360浏览器的极速模式(webkit) --&gt;
-&lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt;
-&lt;!-- 避免IE使用兼容模式 --&gt;
-&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
-&lt;!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 --&gt;
-&lt;meta name=&quot;HandheldFriendly&quot; content=&quot;true&quot;&gt;
-&lt;!-- 微软的老式浏览器 --&gt;
-&lt;meta name=&quot;MobileOptimized&quot; content=&quot;320&quot;&gt;
-&lt;!-- uc强制竖屏 --&gt;
-&lt;meta name=&quot;screen-orientation&quot; content=&quot;portrait&quot;&gt;
-&lt;!-- QQ强制竖屏 --&gt;
-&lt;meta name=&quot;x5-orientation&quot; content=&quot;portrait&quot;&gt;
-&lt;!-- UC强制全屏 --&gt;
-&lt;meta name=&quot;full-screen&quot; content=&quot;yes&quot;&gt;
-&lt;!-- QQ强制全屏 --&gt;
-&lt;meta name=&quot;x5-fullscreen&quot; content=&quot;true&quot;&gt;
-&lt;!-- UC应用模式 --&gt;
-&lt;meta name=&quot;browsermode&quot; content=&quot;application&quot;&gt;
-&lt;!-- QQ应用模式 --&gt;
-&lt;meta name=&quot;x5-page-mode&quot; content=&quot;app&quot;&gt;
-&lt;!-- windows phone 点击无高光 --&gt;
-&lt;meta name=&quot;msapplication-tap-highlight&quot; content=&quot;no&quot;&gt;
-&lt;!-- 适应移动端end --&gt;
-</code></pre>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 优先使用最新的ie版本 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"x-ua-compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 是否开启cleartype显示效果 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"cleartype"</span> <span class="attr">content</span>=<span class="string">"on"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"skype_toolbar"</span> <span class="attr">content</span>=<span class="string">"skype_toolbar_parser_compatible"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Pinned Site --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- IE 10 / Windows 8 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"msapplication-TileImage"</span> <span class="attr">content</span>=<span class="string">"pinned-tile-144.png"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"msapplication-TileColor"</span> <span class="attr">content</span>=<span class="string">"#009900"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- IE 11 / Windows 9.1 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"msapplication-config"</span> <span class="attr">content</span>=<span class="string">"ieconfig.xml"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Google Chrome</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 优先使用最新的chrome版本 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"chrome=1"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 禁止自动翻译 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"google"</span> <span class="attr">value</span>=<span class="string">"notranslate"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>360浏览器</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 选择使用的浏览器解析内核 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"renderer"</span> <span class="attr">content</span>=<span class="string">"webkit|ie-comp|ie-stand"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>QQ手机浏览器</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 锁定屏幕在特定方向 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"x5-orientation"</span> <span class="attr">content</span>=<span class="string">"landscape/portrait"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 全屏显示 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"x5-fullscreen"</span> <span class="attr">content</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 页面将以应用模式显示 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"x5-page-mode"</span> <span class="attr">content</span>=<span class="string">"app"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Apple iOS</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Smart App Banner --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-itunes-app"</span> <span class="attr">content</span>=<span class="string">"app-id=APP_ID,affiliate-data=AFFILIATE_ID,app-argument=SOME_TEXT"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 禁止自动探测并格式化手机号码 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"telephone=no"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Add to Home Screen添加到主屏 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 是否启用 WebApp 全屏模式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-capable"</span> <span class="attr">content</span>=<span class="string">"yes"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 设置状态栏的背景颜色,只有在 “apple-mobile-web-app-capable” content=”yes” 时生效 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-status-bar-style"</span> <span class="attr">content</span>=<span class="string">"black"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 添加到主屏后的标题 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-title"</span> <span class="attr">content</span>=<span class="string">"App Title"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Google Android</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"theme-color"</span> <span class="attr">content</span>=<span class="string">"#E64545"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 添加到主屏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"mobile-web-app-capable"</span> <span class="attr">content</span>=<span class="string">"yes"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- More info: https://developer.chrome.com/multidevice/android/installtohomescreen --&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>App Links</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- iOS --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"al:ios:url"</span> <span class="attr">content</span>=<span class="string">"applinks://docs"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"al:ios:app_store_id"</span> <span class="attr">content</span>=<span class="string">"12345"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"al:ios:app_name"</span> <span class="attr">content</span>=<span class="string">"App Links"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Android --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"al:android:url"</span> <span class="attr">content</span>=<span class="string">"applinks://docs"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"al:android:app_name"</span> <span class="attr">content</span>=<span class="string">"App Links"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"al:android:package"</span> <span class="attr">content</span>=<span class="string">"org.applinks"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Web Fallback --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"al:web:url"</span> <span class="attr">content</span>=<span class="string">"http://applinks.org/documentation"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- More info: http://applinks.org/documentation/ --&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="最后——移动端常用的meta"><a href="#最后——移动端常用的meta" class="headerlink" title="最后——移动端常用的meta"></a>最后——移动端常用的meta</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1, user-scalable=no"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-capable"</span> <span class="attr">content</span>=<span class="string">"yes"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-status-bar-style"</span> <span class="attr">content</span>=<span class="string">"black"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span><span class="attr">content</span>=<span class="string">"telephone=no, email=no"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1, user-scalable=no"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-capable"</span> <span class="attr">content</span>=<span class="string">"yes"</span> /&gt;</span><span class="comment">&lt;!-- 删除苹果默认的工具栏和菜单栏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-status-bar-style"</span> <span class="attr">content</span>=<span class="string">"black"</span> /&gt;</span><span class="comment">&lt;!-- 设置苹果工具栏颜色 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"telphone=no, email=no"</span> /&gt;</span><span class="comment">&lt;!-- 忽略页面中的数字识别为电话，忽略email识别 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 启用360浏览器的极速模式(webkit) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"renderer"</span> <span class="attr">content</span>=<span class="string">"webkit"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 避免IE使用兼容模式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"HandheldFriendly"</span> <span class="attr">content</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 微软的老式浏览器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"MobileOptimized"</span> <span class="attr">content</span>=<span class="string">"320"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- uc强制竖屏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"screen-orientation"</span> <span class="attr">content</span>=<span class="string">"portrait"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- QQ强制竖屏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"x5-orientation"</span> <span class="attr">content</span>=<span class="string">"portrait"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- UC强制全屏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"full-screen"</span> <span class="attr">content</span>=<span class="string">"yes"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- QQ强制全屏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"x5-fullscreen"</span> <span class="attr">content</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- UC应用模式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"browsermode"</span> <span class="attr">content</span>=<span class="string">"application"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- QQ应用模式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"x5-page-mode"</span> <span class="attr">content</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- windows phone 点击无高光 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"msapplication-tap-highlight"</span> <span class="attr">content</span>=<span class="string">"no"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 适应移动端end --&gt;</span></span><br></pre></td></tr></table></figure>
+
                                                             <p>本文链接：
                                                                 <a href="https://netlover.cn/2018/08/15/meta-all.html">
                                                                     https://netlover.cn/2018/08/15/meta-all.html

@@ -16,7 +16,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/9Kngv96.png">
 <meta property="og:image" content="https://i.imgur.com/g4qdssG.png">
-<meta property="og:updated_time" content="2018-08-18T10:48:28.362Z">
+<meta property="og:updated_time" content="2018-08-18T13:33:46.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C#设计模式(5) - 原型模式(Prototype Pattern)">
 <meta name="twitter:description" content="在软件系统中，经常面临着“某些结构复杂的对象”的创建工作；由于需求的变化，这些对象经常面临着剧烈的变化，但是它们却拥有比较稳定一致的接口。如何应对这种变化？如何向“客户程序（使用这些对象的程序）”隔离出“这些易变对象”，从而使得“依赖这些易变对象的客户程序”不随着需求改变而改变？">
@@ -230,100 +230,8 @@
 </ol>
 <p>在原型模式中，Prototype通常提供一个包含Clone方法的接口，具体的原型ConcretePrototype使用Clone方法完成对象的创建。</p>
 <h5 id="2-5-原型模式的具体实现"><a href="#2-5-原型模式的具体实现" class="headerlink" title="2.5 原型模式的具体实现"></a>2.5 原型模式的具体实现</h5><p>《大话西游之大圣娶亲》这部电影，没看过的人不多吧，里面有这样一个场景。牛魔王使用无敌牛虱大战至尊宝，至尊宝的应对之策就是，从脑后把下一撮猴毛，吹了口仙气，无数猴子猴孙现身，来大战牛魔王的无敌牛虱。至尊宝的猴子猴孙就是该原型模式的最好体现。至尊宝创建自己的一个副本，不用还要重新孕育五百年，然后出世，再学艺，最后来和老牛大战，估计黄花菜都凉了。他有3根救命猴毛，轻轻一吹，想要多少个自己就有多少个，方便，快捷。</p>
-<pre><code>/// &lt;summary&gt;
-/// 原型设计模式，每个具体原型是一类对象的原始对象，通过每个原型对象克隆出来的对象也可以进行设置，在原型的基础之上丰富克隆出来的对象，所以要设计好抽象原型的接口
-/// &lt;/summary&gt;
-namespace 设计模式之原型模式
-{
-    /// &lt;summary&gt;
-    /// 客户类
-    /// &lt;/summary&gt;
-    class Customer
-    {
-        static void Main(string[] args)
-        {
-            Prototype xingZheSun = new XingZheSunPrototype();
-            Prototype xingZheSun2 = xingZheSun.Clone();
-            Prototype xingZheSun3 = xingZheSun.Clone();
-
-            Prototype sunXingZhe = new SunXingZhePrototype();
-            Prototype sunXingZhe2 = sunXingZhe.Clone();
-            Prototype sunXingZhe3 = sunXingZhe.Clone();
-            Prototype sunXingZhe4 = sunXingZhe.Clone();
-            Prototype sunXingZhe5 = sunXingZhe.Clone();
-
-            //1号孙行者打妖怪
-            sunXingZhe.Fight();
-            //2号孙行者去化缘
-            sunXingZhe2.BegAlms();
-
-            //战斗和化缘也可以分类，比如化缘，可以分：水果类化缘，饭食类化缘；战斗可以分为：天界宠物下界成妖的战斗，自然修炼成妖的战斗，大家可以自己去想吧，原型模式还是很有用的
-
-            Console.Read();
-        }
-    }
-
-    /// &lt;summary&gt;
-    /// 抽象原型，定义了原型本身所具有特征和动作，该类型就是至尊宝
-    /// &lt;/summary&gt;
-    public abstract class Prototype
-    {
-        // 战斗--保护师傅
-        public abstract void Fight();
-        // 化缘--不要饿着师傅
-        public abstract void BegAlms();
-
-        // 吹口仙气--变化一个自己出来
-        public abstract Prototype Clone();
-    }
-
-    /// &lt;summary&gt;
-    /// 具体原型，例如：行者孙，他只负责化斋饭食和与天界宠物下界的妖怪的战斗
-    /// &lt;/summary&gt;
-    public sealed class XingZheSunPrototype:Prototype
-    {
-        // 战斗--保护师傅--与自然修炼成妖的战斗
-        public override void Fight()
-        {
-            Console.WriteLine(&quot;腾云驾雾，各种武艺&quot;);
-        }
-        // 化缘--不要饿着师傅--饭食类
-        public override void BegAlms()
-        {
-            Console.WriteLine(&quot;什么都能要来&quot;);
-        }
-
-        // 吹口仙气--变化一个自己出来
-        public override Prototype Clone()
-        {
-            return (XingZheSunPrototype)this.MemberwiseClone();
-        }
-    }
-
-    /// &lt;summary&gt;
-    /// 具体原型，例如：孙行者，他只负责与自然界修炼成妖的战斗和化斋水果
-    /// &lt;/summary&gt;
-    public sealed class SunXingZhePrototype : Prototype
-    {
-        // 战斗--保护师傅-与天界宠物战斗
-        public override void Fight()
-        {
-            Console.WriteLine(&quot;腾云驾雾，各种武艺&quot;);
-        }
-        // 化缘--不要饿着师傅---水果类
-        public override void BegAlms()
-        {
-            Console.WriteLine(&quot;什么都能要来&quot;);
-        }
-
-        // 吹口仙气--变化一个自己出来
-        public override Prototype Clone()
-        {
-            return (SunXingZhePrototype)this.MemberwiseClone();
-        }
-    }
-}
-</code></pre><p>上面代码中都有详细的注释代码，这里就不过多解释。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 原型设计模式，每个具体原型是一类对象的原始对象，通过每个原型对象克隆出来的对象也可以进行设置，在原型的基础之上丰富克隆出来的对象，所以要设计好抽象原型的接口</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">namespace 设计模式之原型模式</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 客户类</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">class</span> <span class="title">Customer</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            Prototype xingZheSun = <span class="keyword">new</span> XingZheSunPrototype();</span><br><span class="line">            Prototype xingZheSun2 = xingZheSun.Clone();</span><br><span class="line">            Prototype xingZheSun3 = xingZheSun.Clone();</span><br><span class="line">	</span><br><span class="line">            Prototype sunXingZhe = <span class="keyword">new</span> SunXingZhePrototype();</span><br><span class="line">            Prototype sunXingZhe2 = sunXingZhe.Clone();</span><br><span class="line">            Prototype sunXingZhe3 = sunXingZhe.Clone();</span><br><span class="line">            Prototype sunXingZhe4 = sunXingZhe.Clone();</span><br><span class="line">            Prototype sunXingZhe5 = sunXingZhe.Clone();</span><br><span class="line">	</span><br><span class="line">            <span class="comment">//1号孙行者打妖怪</span></span><br><span class="line">            sunXingZhe.Fight();</span><br><span class="line">            <span class="comment">//2号孙行者去化缘</span></span><br><span class="line">            sunXingZhe2.BegAlms();</span><br><span class="line">	</span><br><span class="line">            <span class="comment">//战斗和化缘也可以分类，比如化缘，可以分：水果类化缘，饭食类化缘；战斗可以分为：天界宠物下界成妖的战斗，自然修炼成妖的战斗，大家可以自己去想吧，原型模式还是很有用的</span></span><br><span class="line">	</span><br><span class="line">            Console.Read();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 抽象原型，定义了原型本身所具有特征和动作，该类型就是至尊宝</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Prototype</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 战斗--保护师傅</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Fight</span>(<span class="params"></span>)</span>;</span><br><span class="line">        <span class="comment">// 化缘--不要饿着师傅</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">BegAlms</span>(<span class="params"></span>)</span>;</span><br><span class="line">	</span><br><span class="line">        <span class="comment">// 吹口仙气--变化一个自己出来</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> Prototype <span class="title">Clone</span>(<span class="params"></span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 具体原型，例如：行者孙，他只负责化斋饭食和与天界宠物下界的妖怪的战斗</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">sealed</span> <span class="keyword">class</span> <span class="title">XingZheSunPrototype</span>:<span class="title">Prototype</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 战斗--保护师傅--与自然修炼成妖的战斗</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Fight</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"腾云驾雾，各种武艺"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 化缘--不要饿着师傅--饭食类</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">BegAlms</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"什么都能要来"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">	</span><br><span class="line">        <span class="comment">// 吹口仙气--变化一个自己出来</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> Prototype <span class="title">Clone</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> (XingZheSunPrototype)<span class="keyword">this</span>.MemberwiseClone();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 具体原型，例如：孙行者，他只负责与自然界修炼成妖的战斗和化斋水果</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">sealed</span> <span class="keyword">class</span> <span class="title">SunXingZhePrototype</span> : <span class="title">Prototype</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 战斗--保护师傅-与天界宠物战斗</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Fight</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"腾云驾雾，各种武艺"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 化缘--不要饿着师傅---水果类</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">BegAlms</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"什么都能要来"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">	</span><br><span class="line">        <span class="comment">// 吹口仙气--变化一个自己出来</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> Prototype <span class="title">Clone</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> (SunXingZhePrototype)<span class="keyword">this</span>.MemberwiseClone();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中都有详细的注释代码，这里就不过多解释。</p>
 <h2 id="三、原型模式的实现要点："><a href="#三、原型模式的实现要点：" class="headerlink" title="三、原型模式的实现要点："></a>三、原型模式的实现要点：</h2><p>Prototype模式同样用于隔离类对象的使用者和具体类型（易变类）之间的耦合关系，它同样要求这些“易变类”拥有“稳定的接口”。 </p>
 <p>Prototype模式对于“如何创建易变类的实体对象”（创建型模式除了Singleton模式以外，都是用于解决创建易变类的实体对象的问题的）采用“原型克隆”的方法来做，它使得我们可以非常灵活地动态创建“拥有某些稳定接口”的新对象——所需工作仅仅是注册一个新类的对象（即原型），然后在任何需要的地方不断地Clone。 </p>
 <p>Prototype模式中的Clone方法可以利用.NET中的Object类的MemberwiseClone()方法或者序列化来实现深拷贝。</p>
@@ -347,15 +255,8 @@ namespace 设计模式之原型模式
 </ol>
 <p>在实际项目中，原型模式很少单独出现，一般是和工厂方法模式一起出现，通过clone的方法创建一个对象，然后由工厂方法提供给调用者。</p>
 <h2 id="四、-NET-中原型模式的实现"><a href="#四、-NET-中原型模式的实现" class="headerlink" title="四、.NET 中原型模式的实现"></a>四、.NET 中原型模式的实现</h2><p>在.NET中，微软已经为我们提供了原型模式的接口实现，该接口就是ICloneable，其实这个接口就是抽象原型，提供克隆方法，相当于与上面代码中Prototype抽象类，其中的Clone()方法来实现原型模式，如果我们想我们自定义的类具有克隆的功能，首先定义类实现ICloneable接口的Clone方法。其实在.NET中实现了ICloneable接口的类有很多，如下图所示（图中只截取了部分，可以用ILSpy反编译工具进行查看）：</p>
-<pre><code>namespace System
-{
-    [ComVisible(true)]
-    public interface ICloneable
-    {
-        object Clone();
-    }
-}
-</code></pre><p>在Net的FCL里面实现ICloneable接口的类如图，自己可以去查看每个类自己的实现，在此就不贴出来了。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">System</span></span><br><span class="line">&#123;</span><br><span class="line">    [<span class="meta">ComVisible(true)</span>]</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">ICloneable</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">object</span> <span class="title">Clone</span>(<span class="params"></span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在Net的FCL里面实现ICloneable接口的类如图，自己可以去查看每个类自己的实现，在此就不贴出来了。</p>
 <p><img src="https://i.imgur.com/g4qdssG.png" alt=""></p>
 <h2 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h2><p>到今天为止，所有的创建型设计模式就写完了。学习设计模式应该是有一个循序渐进的过程，当我们写代码的时候不要一上来就用什么设计模式，而是通过重构来使用设计模式。创建型的设计模式写完了，我们就总结一下。Singleton单件模式解决的是实体对象个数的问题。除了Singleton之外，其他创建型模式解决的都是new所带来的耦合关系。　Factory Method，Abstract Factory，Builder都需要一个额外的工厂类来负责实例化“易变对象”，而Prototype则是通过原型（一个特殊的工厂类）来克隆“易变对象”。（其实原型就是一个特殊的工厂类，它只是把工厂和实体对象耦合在一起了）。如果遇到“易变类”，起初的设计通常从Factory Method开始，当遇到更多的复杂变化时，再考虑重构为其他三种工厂模式（Abstract Factory，Builder，Prototype）。</p>
 <p>一般来说，如果可以使用Factory Method，那么一定可以使用Prototype。但是Prototype的使用情况一般是在类比较容易克隆的条件之上，如果是每个类实现比较简单，都可以只用实现MemberwiseClone，没有引用类型的深拷贝，那么就更适合了。</p>

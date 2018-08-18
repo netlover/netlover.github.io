@@ -15,7 +15,7 @@
 <meta property="og:description" content="看了李建忠老师的讲的设计模式已经有一段时间了（这段时间大概有一年多了），自己还没有写过自己的、有关设计模式的文章。这次想写一些关于设计模式的文章，用自己的理解和代码来写，算是复习一遍。写作的过程中也会多看看其他大牛的文章，争取让自己的理解正确，否则把大家带跑偏了，就是我的过错了。今天就开始我们第一个设计模式，该模式是：【单例模式】，英文名称：Singleton Pattern，这个模式很简单，一个">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/WLCxSzO.png">
-<meta property="og:updated_time" content="2018-08-18T09:14:59.428Z">
+<meta property="og:updated_time" content="2018-08-18T13:18:32.547Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C#设计模式(1) - 单例模式(Singleton Pattern)">
 <meta name="twitter:description" content="看了李建忠老师的讲的设计模式已经有一段时间了（这段时间大概有一年多了），自己还没有写过自己的、有关设计模式的文章。这次想写一些关于设计模式的文章，用自己的理解和代码来写，算是复习一遍。写作的过程中也会多看看其他大牛的文章，争取让自己的理解正确，否则把大家带跑偏了，就是我的过错了。今天就开始我们第一个设计模式，该模式是：【单例模式】，英文名称：Singleton Pattern，这个模式很简单，一个">
@@ -237,34 +237,8 @@
 <h5 id="2-3、结构图（Structure）"><a href="#2-3、结构图（Structure）" class="headerlink" title="2.3、结构图（Structure）"></a>2.3、结构图（Structure）</h5><p><img src="https://i.imgur.com/WLCxSzO.png" alt=""></p>
 <h5 id="2-4、模式的组成"><a href="#2-4、模式的组成" class="headerlink" title="2.4、模式的组成"></a>2.4、模式的组成</h5><p>单件实例（Singleton）：这个模式里面只有一个类型，就是Singleton类型，并且这个类只有一个实例，可以通过Instance()方法获取该类型的实例。</p>
 <h5 id="2-5、单件模式的代码实现"><a href="#2-5、单件模式的代码实现" class="headerlink" title="2.5、单件模式的代码实现"></a>2.5、单件模式的代码实现</h5><p>既然是单实例，肯定会涉及到多线程的问题，我们就一步一步的来写代码，<strong>我们先看看单线程Singleton模式的实现</strong>，代码如下：</p>
-<pre><code>/// &lt;summary&gt;
-/// 单例模式的实现
-/// &lt;/summary&gt;
-public sealed class Singleton
-{
-    // 定义一个静态变量来保存类的实例
-    private static Singleton uniqueInstance;
-
-    // 定义私有构造函数，使外界不能创建该类实例
-    private Singleton()
-    {
-    }
-
-    /// &lt;summary&gt;
-    /// 定义公有方法提供一个全局访问点,同时你也可以定义公有属性来提供全局访问点
-    /// &lt;/summary&gt;
-    /// &lt;returns&gt;&lt;/returns&gt;
-    public static Singleton GetInstance()
-    {
-        // 如果类的实例不存在则创建，否则直接返回
-        if (uniqueInstance == null)
-        {
-            uniqueInstance = new Singleton();
-        }
-        return uniqueInstance;
-    }
-}
-</code></pre><p>私有的实例构造器是屏蔽外界的调用，上面的单例模式的实现在单线程下确实是完美的，也很好的满足了我们单线程环境的需求。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 单例模式的实现</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">sealed</span> <span class="keyword">class</span> <span class="title">Singleton</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 定义一个静态变量来保存类的实例</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton uniqueInstance;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 定义私有构造函数，使外界不能创建该类实例</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">	 </span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 定义公有方法提供一个全局访问点,同时你也可以定义公有属性来提供全局访问点</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">GetInstance</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 如果类的实例不存在则创建，否则直接返回</span></span><br><span class="line">        <span class="keyword">if</span> (uniqueInstance == <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            uniqueInstance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> uniqueInstance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>私有的实例构造器是屏蔽外界的调用，上面的单例模式的实现在单线程下确实是完美的，也很好的满足了我们单线程环境的需求。</p>
 <p><strong>单线程单例模式的几个要点：</strong></p>
 <ol>
 <li>Singleton模式中的实例构造器可以设置为protected以允许子类派生。</li>
@@ -274,108 +248,13 @@ public sealed class Singleton
 <li>不能应对多线程环境：在多线程环境下，使用Singleton模式仍然有可能得到Singleton类的多个实例对象</li>
 </ol>
 <p>如果放在多线程环境下，问题就出来了。因为在两个线程同时运行GetInstance方法时，此时两个线程判断(uniqueInstance ==null)这个条件时都返回真，此时两个线程就都会创建Singleton的实例，这样就违背了我们单例模式初衷了。要想解决这个问题，只要让GetInstance方法在同一时间只运行一个线程运行就好了，让我们看看<strong>多线程Singleton模式</strong>的实现，代码如下：</p>
-<pre><code>/// &lt;summary&gt;
-/// 单例模式的实现
-/// &lt;/summary&gt;
-public sealed class Singleton
-{
-    // 定义一个静态变量来保存类的实例
-    private static volatile Singleton uniqueInstance;
-
-    // 定义一个标识确保线程同步
-    private static readonly object locker = new object();
-
-    // 定义私有构造函数，使外界不能创建该类实例
-    private Singleton()
-    {
-    }
-
-    /// &lt;summary&gt;
-    /// 定义公有方法提供一个全局访问点,同时你也可以定义公有属性来提供全局访问点
-    /// &lt;/summary&gt;
-    /// &lt;returns&gt;&lt;/returns&gt;
-    public static Singleton GetInstance()
-    {
-        // 当第一个线程运行到这里时，此时会对locker对象 &quot;加锁&quot;，
-        // 当第二个线程运行该方法时，首先检测到locker对象为&quot;加锁&quot;状态，该线程就会挂起等待第一个线程解锁
-        // lock语句运行完之后（即线程运行完之后）会对该对象&quot;解锁&quot;
-        lock (locker)
-        {
-            // 如果类的实例不存在则创建，否则直接返回
-            if (uniqueInstance == null)
-            {
-                uniqueInstance = new Singleton();
-            }
-        }
-
-        return uniqueInstance;
-    }
-}
-</code></pre><p>上面这种解决方案确实可以解决多线程的问题，但是上面代码对于每个线程都会对线程辅助对象locker加锁之后再判断实例是否存在，对于这个操作完全没有必要的，因为当第一个线程创建了该类的实例之后，后面的线程此时只需要直接判断（uniqueInstance==null）为假，此时完全没必要对线程辅助对象加锁之后再去判断，所以上面的实现方式增加了额外的开销，损失了性能，为了改进上面实现方式的缺陷，我们只需要在lock语句前面加一句（uniqueInstance==null）的判断就可以避免锁所增加的额外开销，这种实现方式我们就叫它 “<strong>双重锁定（Double Check）</strong>”，下面具体看看实现代码的：</p>
-<pre><code>/// &lt;summary&gt;
-/// 单例模式的实现
-/// &lt;/summary&gt;
-public sealed class Singleton
-{
-    // 定义一个静态变量来保存类的实例
-    private static volatile Singleton uniqueInstance;
-
-    // 定义一个标识确保线程同步
-    private static readonly object locker = new object();
-
-    // 定义私有构造函数，使外界不能创建该类实例
-    private Singleton()
-    {
-    }
-
-    /// &lt;summary&gt;
-    /// 定义公有方法提供一个全局访问点,同时你也可以定义公有属性来提供全局访问点
-    /// &lt;/summary&gt;
-    /// &lt;returns&gt;&lt;/returns&gt;
-    public static Singleton GetInstance()
-    {
-        // 当第一个线程运行到这里时，此时会对locker对象 &quot;加锁&quot;，
-        // 当第二个线程运行该方法时，首先检测到locker对象为&quot;加锁&quot;状态，该线程就会挂起等待第一个线程解锁
-        // lock语句运行完之后（即线程运行完之后）会对该对象&quot;解锁&quot;
-        // 双重锁定只需要一句判断就可以了
-        if (uniqueInstance == null)
-        {
-            lock (locker)
-            {
-                // 如果类的实例不存在则创建，否则直接返回
-                if (uniqueInstance == null)
-                {
-                    uniqueInstance = new Singleton();
-                }
-            }
-        }
-        return uniqueInstance;
-    }
-}
-</code></pre><p><strong>volatile修饰：</strong>编译器在编译代码的时候会对代码的顺序进行微调，用volatile修饰保证了严格意义的顺序。一个定义为volatile的变量是说这变量可能会被意想不到地改变，这样，编译器就不会去假设这个变量的值了。精确地说就是，优化器在用到这个变量时必须每次都小心地重新读取这个变量的值，而不是使用保存在寄存器里的备份。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 单例模式的实现</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">sealed</span> <span class="keyword">class</span> <span class="title">Singleton</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 定义一个静态变量来保存类的实例</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> Singleton uniqueInstance;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定义一个标识确保线程同步</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">object</span> locker = <span class="keyword">new</span> <span class="keyword">object</span>();</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 定义私有构造函数，使外界不能创建该类实例</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 定义公有方法提供一个全局访问点,同时你也可以定义公有属性来提供全局访问点</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">GetInstance</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 当第一个线程运行到这里时，此时会对locker对象 "加锁"，</span></span><br><span class="line">        <span class="comment">// 当第二个线程运行该方法时，首先检测到locker对象为"加锁"状态，该线程就会挂起等待第一个线程解锁</span></span><br><span class="line">        <span class="comment">// lock语句运行完之后（即线程运行完之后）会对该对象"解锁"</span></span><br><span class="line">        <span class="keyword">lock</span> (locker)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 如果类的实例不存在则创建，否则直接返回</span></span><br><span class="line">            <span class="keyword">if</span> (uniqueInstance == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                uniqueInstance = <span class="keyword">new</span> Singleton();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">return</span> uniqueInstance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面这种解决方案确实可以解决多线程的问题，但是上面代码对于每个线程都会对线程辅助对象locker加锁之后再判断实例是否存在，对于这个操作完全没有必要的，因为当第一个线程创建了该类的实例之后，后面的线程此时只需要直接判断（uniqueInstance==null）为假，此时完全没必要对线程辅助对象加锁之后再去判断，所以上面的实现方式增加了额外的开销，损失了性能，为了改进上面实现方式的缺陷，我们只需要在lock语句前面加一句（uniqueInstance==null）的判断就可以避免锁所增加的额外开销，这种实现方式我们就叫它 “<strong>双重锁定（Double Check）</strong>”，下面具体看看实现代码的：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 单例模式的实现</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">sealed</span> <span class="keyword">class</span> <span class="title">Singleton</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 定义一个静态变量来保存类的实例</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> Singleton uniqueInstance;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 定义一个标识确保线程同步</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">object</span> locker = <span class="keyword">new</span> <span class="keyword">object</span>();</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 定义私有构造函数，使外界不能创建该类实例</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 定义公有方法提供一个全局访问点,同时你也可以定义公有属性来提供全局访问点</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">GetInstance</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 当第一个线程运行到这里时，此时会对locker对象 "加锁"，</span></span><br><span class="line">        <span class="comment">// 当第二个线程运行该方法时，首先检测到locker对象为"加锁"状态，该线程就会挂起等待第一个线程解锁</span></span><br><span class="line">        <span class="comment">// lock语句运行完之后（即线程运行完之后）会对该对象"解锁"</span></span><br><span class="line">        <span class="comment">// 双重锁定只需要一句判断就可以了</span></span><br><span class="line">        <span class="keyword">if</span> (uniqueInstance == <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">lock</span> (locker)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 如果类的实例不存在则创建，否则直接返回</span></span><br><span class="line">                <span class="keyword">if</span> (uniqueInstance == <span class="literal">null</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    uniqueInstance = <span class="keyword">new</span> Singleton();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> uniqueInstance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>volatile修饰：</strong>编译器在编译代码的时候会对代码的顺序进行微调，用volatile修饰保证了严格意义的顺序。一个定义为volatile的变量是说这变量可能会被意想不到地改变，这样，编译器就不会去假设这个变量的值了。精确地说就是，优化器在用到这个变量时必须每次都小心地重新读取这个变量的值，而不是使用保存在寄存器里的备份。</p>
 <h2 id="三、C-中实现了单例模式的类"><a href="#三、C-中实现了单例模式的类" class="headerlink" title="三、C#中实现了单例模式的类"></a>三、C#中实现了单例模式的类</h2><p>现在我们看看，如何使用C#语言的特性来实现单例的Singleton模式。</p>
-<pre><code>//Singleton模式的实现
-public sealed class Singleton
-{
-   public static readonly Singleton instance=new Singleton();
-
-   private Singleton(){}
-}
-</code></pre><p>以上是内联初始化（生成的同时进行初始化）的单例模式，它等同于：</p>
-<pre><code>public sealed class Singleton
-{
-    public static readonly Singleton instance;
-
-    //静态构造函数，CLR只执行一次
-    static Singleton()
-    {
-       instance=new Singleton();
-    }
-
-   //私有构造函数，防止外界调用
-   private Singleton(){}
-}
-</code></pre><p>内联初始化其实是把静态的字段放到静态构造器去初始化。只要想访问静态字段，必定已经在之前执行了静态构造器。这样也能够精确地保证使用的时候一定能拿到实例，如果不使用也不会实例化对象，也就是延时加载的功能。他同样能够支持多线程环境，因为只可能有一个线程执行静态构造器，不可能有多个线程去执行静态构造器，感觉就是程序已经自动为我们加锁了。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Singleton模式的实现</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">sealed</span> <span class="keyword">class</span> <span class="title">Singleton</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">readonly</span> Singleton instance=<span class="keyword">new</span> Singleton();</span><br><span class="line">	</span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">以上是内联初始化（生成的同时进行初始化）的单例模式，它等同于：</span><br><span class="line"></span><br><span class="line">```csharp</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">sealed</span> <span class="keyword">class</span> <span class="title">Singleton</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">readonly</span> Singleton instance;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//静态构造函数，CLR只执行一次</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="title">Singleton</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">       instance=<span class="keyword">new</span> Singleton();</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">   <span class="comment">//私有构造函数，防止外界调用</span></span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>内联初始化其实是把静态的字段放到静态构造器去初始化。只要想访问静态字段，必定已经在之前执行了静态构造器。这样也能够精确地保证使用的时候一定能拿到实例，如果不使用也不会实例化对象，也就是延时加载的功能。他同样能够支持多线程环境，因为只可能有一个线程执行静态构造器，不可能有多个线程去执行静态构造器，感觉就是程序已经自动为我们加锁了。</p>
 <p>它的一点弊端就是它不支持参数化的实例化方法。在.NET里静态构造器只能声明一个，而且必须是无参数的，私有的。因此这种方式只适用于无参数的构造器。</p>
 <p>需要说明的是：HttpContext.Current就是一个单例，他们是通过Singleton的扩展方式实现的，他们的单例也并不是覆盖所有领域，只是针对某些局部领域中，是单例的，不同的领域中还是会有不同的实例。</p>
 <h2 id="四、Singleton模式的扩展"><a href="#四、Singleton模式的扩展" class="headerlink" title="四、Singleton模式的扩展"></a>四、Singleton模式的扩展</h2><ol>

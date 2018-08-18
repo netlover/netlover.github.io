@@ -16,7 +16,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/OydX8mx.png">
 <meta property="og:image" content="https://i.imgur.com/9oQmDee.jpg">
-<meta property="og:updated_time" content="2018-08-18T10:45:22.543Z">
+<meta property="og:updated_time" content="2018-08-18T13:21:21.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C#设计模式(2) - 工厂方法模式(Factory Method Pattern)">
 <meta name="twitter:description" content="如果有新的需求就需要修改工厂类里面创建产品对象实例的那个方法的实现代码，在面向对象设计一个原则就是哪里有变化，我就封装哪里。还有另外两个大的原则，其一是：面向抽象编程，细节和高层实现都要依赖抽象，第二个原则是：多组合，少继承。这三个原则是最根本的原则，学习设计模式必须以这三个原则为基点，否则都是枉然。">
@@ -231,151 +231,10 @@
 <li>具体产品角色（ConcreteProduct）：充当具体产品角色，实现抽象产品类对定义的抽象方法，由具体工厂类创建，它们之间有一一对应的关系。</li>
 </ol>
 <h5 id="2-5、工厂方法模式的代码实现"><a href="#2-5、工厂方法模式的代码实现" class="headerlink" title="2.5、工厂方法模式的代码实现"></a>2.5、工厂方法模式的代码实现</h5><p>【简单工厂模式】的问题是：如果有新的需求就需要修改工厂类里面创建产品对象实例的那个方法的实现代码，在面向对象设计一个原则就是哪里有变化，我就封装哪里。还有另外两个大的原则，其一是：面向抽象编程，细节和高层实现都要依赖抽象，第二个原则是：多组合，少继承。这三个原则是最根本的原则，学习设计模式必须以这三个原则为基点，否则都是枉然。根据这三大原则又衍生出来6个具体的原则，分别是【单一职责原则】，【里氏替换原则】，【依赖倒置原则】，【接口隔离原则】、【迪米特法则】和【开闭原则】，既然工厂类有变化，我们就封装它，面向抽象编程，我们先抽象出一个工厂基类，然后，每个需求就实现一个具体的工厂类，这样我们就符合了【开闭原则OCP】，让一个工厂生产一款产品，并一一对应。我们把具体产品的创建推迟到子类中，此时工厂类（这类是基类了）不再负责所有产品的创建，而只是给出具体工厂必须实现的接口，这样工厂方法模式就可以允许系统不修改工厂类逻辑的情况下来添加新产品，这样也就克服了简单工厂模式中缺点。下面就是工厂方法模式的实现代码：</p>
-<pre><code>namespace 设计模式之工厂方法模式
-{
-    /// &lt;summary&gt;
-    /// 汽车抽象类
-    /// &lt;/summary&gt;
-    public abstract class Car
-    {
-        // 开始行驶
-        public abstract void Go();
-    }
-
-    /// &lt;summary&gt;
-    /// 红旗汽车
-    /// &lt;/summary&gt;
-    public class HongQiCar : Car
-    {
-        public override void Go()
-        {
-            Console.WriteLine(&quot;红旗汽车开始行驶了！&quot;);
-        }
-    }
-
-    /// &lt;summary&gt;
-    /// 奥迪汽车
-    /// &lt;/summary&gt;
-    public class AoDiCar : Car
-    {
-        public override void Go()
-        {
-            Console.WriteLine(&quot;奥迪汽车开始行驶了&quot;);
-        }
-    }
-
-    /// &lt;summary&gt;
-    /// 抽象工厂类
-    /// &lt;/summary&gt;
-    public abstract class Factory
-    {
-        // 工厂方法
-        public abstract Car CreateCar();
-    }
-
-    /// &lt;summary&gt;
-    /// 红旗汽车工厂类
-    /// &lt;/summary&gt;
-    public class HongQiCarFactory:Factory
-    {
-        /// &lt;summary&gt;
-        /// 负责生产红旗汽车
-        /// &lt;/summary&gt;
-        /// &lt;returns&gt;&lt;/returns&gt;
-        public override Car CreateCar()
-        {
-            return new HongQiCar();
-        }
-    }
-
-    /// &lt;summary&gt;
-    /// 奥迪汽车工厂类
-    /// &lt;/summary&gt;
-    public class AoDiCarFactory:Factory
-    {
-        /// &lt;summary&gt;
-        /// 负责创建奥迪汽车
-        /// &lt;/summary&gt;
-        /// &lt;returns&gt;&lt;/returns&gt;
-        public override Car CreateCar()
-        {
-            return new AoDiCar();
-        }
-    }
-
-    /// &lt;summary&gt;
-    /// 客户端调用
-    /// &lt;/summary&gt;
-    class Client
-    {
-        static void Main(string[] args)
-        {
-            // 初始化创建汽车的两个工厂
-            Factory hongQiCarFactory = new HongQiCarFactory();
-            Factory aoDiCarFactory = new AoDiCarFactory();
-
-            // 生产一辆红旗汽车
-            Car hongQi = hongQiCarFactory.CreateCar();
-            hongQi.Go();
-
-            //生产一辆奥迪汽车
-            Car aoDi = aoDiCarFactory.CreateCar();
-            aoDi.Go();
-
-            Console.Read();
-        }
-    }  
-}
-</code></pre><p>在【工厂方法模式】中，我们同样也把汽车的类抽象出来一个抽象的基类，这里正好符合了【面向抽象编程】，客户端在使用的时候不会依赖具体的什么汽车。使用工厂方法实现的系统，如果系统需要添加新产品时，我们可以利用多态性来完成系统的扩展，对于抽象工厂类和具体工厂中的代码都不需要做任何改动。例如，我们想增加一辆奔驰车，我们只需从Car抽象类下继承一个BenChiCar类，同时在从Factory抽象基类下继承一个“奔驰”的工厂类BenChinaCarFactory就可以了，这样扩展符合OCP的原则。具体代码为：</p>
-<pre><code>/// &lt;summary&gt;
-/// 奔驰车
-/// &lt;/summary&gt;
-public class BenChiCar : Car
-{
-    /// &lt;summary&gt;
-    /// 重写抽象类中的方法
-    /// &lt;/summary&gt;
-    public override void Go()
-    {
-        Console.WriteLine(&quot;奔驰车开始行驶了！&quot;);
-    }
-}
-
-/// &lt;summary&gt;
-/// 奔驰车的工厂类
-/// &lt;/summary&gt;
-public class BenChiCarFactory : Factory
-{
-    /// &lt;summary&gt;
-    /// 负责生产奔驰车
-    /// &lt;/summary&gt;
-    /// &lt;returns&gt;&lt;/returns&gt;
-    public override Car CreateCar()
-    {
-        return new BenChiCar();
-    }
-}
-
-/// &lt;summary&gt;
-/// 客户端调用
-/// &lt;/summary&gt;
-class Client
-{
-    static void Main(string[] args)
-    {
-
-        // 如果客户又生产一辆奔驰车
-        // 再另外初始化一个奔驰车的工厂
-        Factory benChiCarFactory = new BenChiCarFactory();
-
-        // 利用奔驰车的工厂生产奔驰车
-        Car benChi = benChiCarFactory.CreateCar();
-        benChi.Go();
-
-        Console.Read();
-    }
-}
-</code></pre><p>三、Factory Method模式的几个要点</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">namespace 设计模式之工厂方法模式</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 汽车抽象类</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Car</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 开始行驶</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Go</span>(<span class="params"></span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 红旗汽车</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">HongQiCar</span> : <span class="title">Car</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Go</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"红旗汽车开始行驶了！"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 奥迪汽车</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AoDiCar</span> : <span class="title">Car</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Go</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"奥迪汽车开始行驶了"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 抽象工厂类</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Factory</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 工厂方法</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> Car <span class="title">CreateCar</span>(<span class="params"></span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 红旗汽车工厂类</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">HongQiCarFactory</span>:<span class="title">Factory</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 负责生产红旗汽车</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> Car <span class="title">CreateCar</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> HongQiCar();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 奥迪汽车工厂类</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AoDiCarFactory</span>:<span class="title">Factory</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 负责创建奥迪汽车</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> Car <span class="title">CreateCar</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> AoDiCar();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 客户端调用</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">class</span> <span class="title">Client</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="comment">// 初始化创建汽车的两个工厂</span></span><br><span class="line">            Factory hongQiCarFactory = <span class="keyword">new</span> HongQiCarFactory();</span><br><span class="line">            Factory aoDiCarFactory = <span class="keyword">new</span> AoDiCarFactory();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 生产一辆红旗汽车</span></span><br><span class="line">            Car hongQi = hongQiCarFactory.CreateCar();</span><br><span class="line">            hongQi.Go();</span><br><span class="line">	</span><br><span class="line">            <span class="comment">//生产一辆奥迪汽车</span></span><br><span class="line">            Car aoDi = aoDiCarFactory.CreateCar();</span><br><span class="line">            aoDi.Go();</span><br><span class="line">	</span><br><span class="line">            Console.Read();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在【工厂方法模式】中，我们同样也把汽车的类抽象出来一个抽象的基类，这里正好符合了【面向抽象编程】，客户端在使用的时候不会依赖具体的什么汽车。使用工厂方法实现的系统，如果系统需要添加新产品时，我们可以利用多态性来完成系统的扩展，对于抽象工厂类和具体工厂中的代码都不需要做任何改动。例如，我们想增加一辆奔驰车，我们只需从Car抽象类下继承一个BenChiCar类，同时在从Factory抽象基类下继承一个“奔驰”的工厂类BenChinaCarFactory就可以了，这样扩展符合OCP的原则。具体代码为：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 奔驰车</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BenChiCar</span> : <span class="title">Car</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 重写抽象类中的方法</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Go</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Console.WriteLine(<span class="string">"奔驰车开始行驶了！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 奔驰车的工厂类</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BenChiCarFactory</span> : <span class="title">Factory</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 负责生产奔驰车</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> Car <span class="title">CreateCar</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> BenChiCar();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 客户端调用</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">class</span> <span class="title">Client</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果客户又生产一辆奔驰车</span></span><br><span class="line">        <span class="comment">// 再另外初始化一个奔驰车的工厂</span></span><br><span class="line">        Factory benChiCarFactory = <span class="keyword">new</span> BenChiCarFactory();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 利用奔驰车的工厂生产奔驰车</span></span><br><span class="line">        Car benChi = benChiCarFactory.CreateCar();</span><br><span class="line">        benChi.Go();</span><br><span class="line"></span><br><span class="line">        Console.Read();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>三、Factory Method模式的几个要点</p>
 <p>Factory Method模式主要用于隔离类对象的使用者和具体类型之间的耦合关系。面对一个经常变化的具体类型，紧耦合关系会导致软件的脆弱。</p>
 <p>Factory Method模式通过面向对象的手法，将所要创建的具体对象工作延迟到子类，从而实现一种扩展（而非更改）的策略，较好地解决了这种紧耦合关系。</p>
 <ul>
@@ -398,10 +257,8 @@ class Client
 </ol>
 <p>四、.NET中实现了工厂方法的类</p>
 <p>.NET 类库中也有很多实现了工厂方法的类，例如Asp.net中，处理程序对象是具体用来处理请求，当我们请求一个<em>.aspx的文件时，此时会映射到System.Web.UI.PageHandlerFactory类上进行处理，而对</em>.ashx的请求将映射到System.Web.UI.SimpleHandlerFactory类中（这两个类都是继承于IHttpHandlerFactory接口的），关于这点说明我们可以在“C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\Web.Config”文件中找到相关定义，具体定义如下：</p>
-<pre><code>&lt;add path=&quot;*.axd&quot; verb=&quot;*&quot; type=&quot;System.Web.HttpNotFoundHandler&quot; validate=&quot;True&quot;/&gt;
-&lt;add path=&quot;*.aspx&quot; verb=&quot;*&quot; type=&quot;System.Web.UI.PageHandlerFactory&quot; validate=&quot;True&quot;/&gt;
-&lt;add path=&quot;*.ashx&quot; verb=&quot;*&quot; type=&quot;System.Web.UI.SimpleHandlerFactory&quot; validate=&quot;True&quot;/&gt;
-</code></pre><p>配置文件截图了一部分，有时间大家可以自己去研究一下。<br>下面我们就具体看下工厂方法模式在Asp.net中是如何实现的，如果对一个Index.aspx页面发出请求时，将会调用PageHandlerFactory中GetHandler方法来创建一个Index.aspx对象，它们之间的类图关系如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">add</span> <span class="attr">path</span>=<span class="string">"*.axd"</span> <span class="attr">verb</span>=<span class="string">"*"</span> <span class="attr">type</span>=<span class="string">"System.Web.HttpNotFoundHandler"</span> <span class="attr">validate</span>=<span class="string">"True"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">add</span> <span class="attr">path</span>=<span class="string">"*.aspx"</span> <span class="attr">verb</span>=<span class="string">"*"</span> <span class="attr">type</span>=<span class="string">"System.Web.UI.PageHandlerFactory"</span> <span class="attr">validate</span>=<span class="string">"True"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">add</span> <span class="attr">path</span>=<span class="string">"*.ashx"</span> <span class="attr">verb</span>=<span class="string">"*"</span> <span class="attr">type</span>=<span class="string">"System.Web.UI.SimpleHandlerFactory"</span> <span class="attr">validate</span>=<span class="string">"True"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>配置文件截图了一部分，有时间大家可以自己去研究一下。<br>下面我们就具体看下工厂方法模式在Asp.net中是如何实现的，如果对一个Index.aspx页面发出请求时，将会调用PageHandlerFactory中GetHandler方法来创建一个Index.aspx对象，它们之间的类图关系如下：</p>
 <p><img src="https://i.imgur.com/9oQmDee.jpg" alt=""></p>
 <h2 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h2><p>每种模式都有自己的使用场合，切记，如果使用错误，还不如不用。工厂方法模式通过面向对象编程中的多态性来将对象的创建延迟到具体工厂中，从而解决了简单工厂模式中存在的问题，也很好地符合了开放封闭原则（即对扩展开发，对修改封闭）。</p>
 <blockquote>

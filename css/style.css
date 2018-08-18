@@ -1175,6 +1175,11 @@ td {
 .article-title:hover {
   color: #657b83;
 }
+.article-title span.number {
+  font-weight: 600;
+  color: #f01;
+  font-size: 30px;
+}
 .article-inner {
   position: relative;
   margin-bottom: 20px;
@@ -1407,7 +1412,8 @@ td {
   margin: 15px 25px 0 0;
   line-height: 1.5;
   color: #999;
-  background: #f7f7f9;
+  background: #fafafa;
+  border: 1px solid #eee;
   border-radius: 5px;
   padding: 10px;
 }
@@ -1680,16 +1686,18 @@ td {
 }
 .article-entry pre,
 .article-entry .highlight {
-  background: #eee;
-  margin: 0 0;
+  background: #fafafa;
+  margin: 10px 0;
   padding: 15px 20px;
   overflow: auto;
-  color: #4d4d4c;
+  color: #666;
   line-height: 22.400000000000002px;
+  border-radius: 8px;
+  border: 1px solid #eee;
 }
 .article-entry .highlight .gutter pre,
 .article-entry .gist .gist-file .gist-data .line-numbers {
-  color: #666;
+  color: #a4a9a1;
   font-size: 0.85em;
 }
 .article-entry pre,
@@ -1698,11 +1706,13 @@ td {
 }
 .article-entry code {
   background: #eee;
+  text-shadow: 0 1px #fff;
   padding: 0 0.3em;
   border: none;
 }
 .article-entry pre code {
   background: none;
+  text-shadow: none;
   padding: 0;
 }
 .article-entry .highlight pre {
@@ -1720,7 +1730,7 @@ td {
 }
 .article-entry .highlight figcaption {
   font-size: 0.85em;
-  color: #a6e22e;
+  color: #2b91af;
   line-height: 1em;
   margin-bottom: 1em;
 }
@@ -1748,7 +1758,7 @@ td {
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
-  background: #eee;
+  background: #fafafa;
   padding: 15px 20px 15px 0;
 }
 .article-entry .gist .gist-file {
@@ -1774,9 +1784,10 @@ td {
   border: none;
 }
 .article-entry .gist .gist-file .gist-meta {
-  background: #eee;
-  color: #a6e22e;
+  background: #fafafa;
+  color: #2b91af;
   font: 0.85em "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-shadow: 0 0;
   padding: 0;
   margin-top: 1em;
   margin-left: 20px;
@@ -1789,10 +1800,13 @@ td {
   text-decoration: underline;
 }
 pre .comment {
-  color: #666;
+  color: #999;
+}
+pre .comment .doctag {
+  color: #999;
 }
 pre .title {
-  color: #a6e22e;
+  color: #2b91af;
 }
 pre .variable,
 pre .attribute,
@@ -1806,7 +1820,10 @@ pre .html .doctype,
 pre .css .id,
 pre .css .class,
 pre .css .pseudo {
-  color: #f2777a;
+  color: #00f;
+}
+pre .tag .attr {
+  color: #f00;
 }
 pre .number,
 pre .preprocessor,
@@ -1814,12 +1831,12 @@ pre .built_in,
 pre .literal,
 pre .params,
 pre .constant {
-  color: #f5871f;
+  color: #66d9ef;
 }
 pre .class,
 pre .ruby .class .title,
 pre .css .rules .attribute {
-  color: #718c00;
+  color: #a31515;
 }
 pre .string,
 pre .value,
@@ -1827,12 +1844,17 @@ pre .inheritance,
 pre .header,
 pre .ruby .symbol,
 pre .xml .cdata {
-  color: #718c00;
+  color: #a31515;
 }
 pre .css .hexcolor {
   color: #6cc;
 }
-pre .function,
+pre .function {
+  color: #69c;
+}
+pre .function .title {
+  color: #2b91af;
+}
 pre .python .decorator,
 pre .python .title,
 pre .ruby .function .title,
@@ -1844,7 +1866,13 @@ pre .coffeescript .title {
 }
 pre .keyword,
 pre .javascript .function {
-  color: #f92672;
+  color: #00f;
+}
+pre .params {
+  color: #aaa;
+}
+pre .params .keyword {
+  color: #2b91af;
 }
 #footer {
   font-size: 12px;

@@ -2,37 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://netlover.cn/2018/08/18/csharp-prototype-pattern.html</loc>
+    <loc>https://netlover.cn/2018/08/15/meta-all.html</loc>
     
-    <lastmod>2018-08-18T10:48:28.362Z</lastmod>
+    <lastmod>2018-08-18T15:05:21.969Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://netlover.cn/2018/08/18/csharp-factory-method-pattern.html</loc>
+    <loc>https://netlover.cn/2018/08/18/csharp-prototype-pattern.html</loc>
     
-    <lastmod>2018-08-18T10:45:22.543Z</lastmod>
+    <lastmod>2018-08-18T13:33:46.922Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://netlover.cn/2018/08/18/csharp-builder-pattern.html</loc>
     
-    <lastmod>2018-08-18T10:36:09.468Z</lastmod>
+    <lastmod>2018-08-18T13:31:58.310Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://netlover.cn/2018/08/18/csharp-abstract-factory-pattern.html</loc>
     
-    <lastmod>2018-08-18T10:30:36.122Z</lastmod>
+    <lastmod>2018-08-18T13:28:58.255Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://netlover.cn/2018/08/18/csharp-factory-method-pattern.html</loc>
+    
+    <lastmod>2018-08-18T13:21:21.163Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://netlover.cn/2018/08/18/csharp-singleton-pattern.html</loc>
     
-    <lastmod>2018-08-18T09:14:59.428Z</lastmod>
+    <lastmod>2018-08-18T13:18:32.547Z</lastmod>
     
   </url>
   
@@ -68,13 +75,6 @@
     <loc>https://netlover.cn/2018/08/16/vue-ui-recommend.html</loc>
     
     <lastmod>2018-08-16T13:44:30.938Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://netlover.cn/2018/08/15/meta-all.html</loc>
-    
-    <lastmod>2018-08-15T14:53:32.109Z</lastmod>
     
   </url>
   
