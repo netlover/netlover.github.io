@@ -321,28 +321,6 @@
   </entry>
   
   <entry>
-    <title>如何成为一个合格的架构师？</title>
-    <link href="https://netlover.cn/2018/08/16/do-jiagoushi.html"/>
-    <id>https://netlover.cn/2018/08/16/do-jiagoushi.html</id>
-    <published>2018-08-16T15:12:44.000Z</published>
-    <updated>2018-08-17T14:13:14.512Z</updated>
-    
-    <summary type="html">
-    
-      在互联网圈，架构师这个名号的火热程度堪比产品经理，它在产品经理没火之前就已经风生水起。
-    
-    </summary>
-    
-      <category term="架构" scheme="https://netlover.cn/categories/%E6%9E%B6%E6%9E%84/"/>
-    
-    
-      <category term="架构" scheme="https://netlover.cn/tags/%E6%9E%B6%E6%9E%84/"/>
-    
-      <category term="架构师" scheme="https://netlover.cn/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
-    
-  </entry>
-  
-  <entry>
     <title>ExceptionLess本地部署</title>
     <link href="https://netlover.cn/2018/08/16/ExceptionLess-local.html"/>
     <id>https://netlover.cn/2018/08/16/ExceptionLess-local.html</id>
@@ -363,6 +341,28 @@
       <category term="本地部署" scheme="https://netlover.cn/tags/%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2/"/>
     
       <category term="日志框架" scheme="https://netlover.cn/tags/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何成为一个合格的架构师？</title>
+    <link href="https://netlover.cn/2018/08/16/do-jiagoushi.html"/>
+    <id>https://netlover.cn/2018/08/16/do-jiagoushi.html</id>
+    <published>2018-08-16T15:12:44.000Z</published>
+    <updated>2018-08-17T14:13:14.512Z</updated>
+    
+    <summary type="html">
+    
+      在互联网圈，架构师这个名号的火热程度堪比产品经理，它在产品经理没火之前就已经风生水起。
+    
+    </summary>
+    
+      <category term="架构" scheme="https://netlover.cn/categories/%E6%9E%B6%E6%9E%84/"/>
+    
+    
+      <category term="架构" scheme="https://netlover.cn/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+      <category term="架构师" scheme="https://netlover.cn/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
     
   </entry>
   
