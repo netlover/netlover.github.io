@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="/css/github.css?2018.08.01">
 
-<title>C#设计模式(1) - 单例模式(Singleton Pattern) | Net Lover</title>
+<title>C#设计模式(01) - 单例模式(Singleton Pattern) | Net Lover</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="看了李建忠老师的讲的设计模式已经有一段时间了（这段时间大概有一年多了），自己还没有写过自己的、有关设计模式的文章。这次想写一些关于设计模式的文章，用自己的理解和代码来写，算是复习一遍。写作的过程中也会多看看其他大牛的文章，争取让自己的理解正确，否则把大家带跑偏了，就是我的过错了。今天就开始我们第一个设计模式，该模式是：【单例模式】，英文名称：Singleton Pattern，这个模式很简单，一个">
 <meta name="keywords" content="C#,设计模式,单例模式,Singleton Pattern">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C#设计模式(1) - 单例模式(Singleton Pattern)">
+<meta property="og:title" content="C#设计模式(01) - 单例模式(Singleton Pattern)">
 <meta property="og:url" content="https://netlover.cn/2018/08/18/csharp-singleton-pattern.html">
 <meta property="og:site_name" content="Net Lover">
 <meta property="og:description" content="看了李建忠老师的讲的设计模式已经有一段时间了（这段时间大概有一年多了），自己还没有写过自己的、有关设计模式的文章。这次想写一些关于设计模式的文章，用自己的理解和代码来写，算是复习一遍。写作的过程中也会多看看其他大牛的文章，争取让自己的理解正确，否则把大家带跑偏了，就是我的过错了。今天就开始我们第一个设计模式，该模式是：【单例模式】，英文名称：Singleton Pattern，这个模式很简单，一个">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/WLCxSzO.png">
-<meta property="og:updated_time" content="2018-08-18T13:18:32.547Z">
+<meta property="og:updated_time" content="2018-08-19T02:46:13.068Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C#设计模式(1) - 单例模式(Singleton Pattern)">
+<meta name="twitter:title" content="C#设计模式(01) - 单例模式(Singleton Pattern)">
 <meta name="twitter:description" content="看了李建忠老师的讲的设计模式已经有一段时间了（这段时间大概有一年多了），自己还没有写过自己的、有关设计模式的文章。这次想写一些关于设计模式的文章，用自己的理解和代码来写，算是复习一遍。写作的过程中也会多看看其他大牛的文章，争取让自己的理解正确，否则把大家带跑偏了，就是我的过错了。今天就开始我们第一个设计模式，该模式是：【单例模式】，英文名称：Singleton Pattern，这个模式很简单，一个">
 <meta name="twitter:image" content="https://i.imgur.com/WLCxSzO.png">
 
@@ -70,7 +70,7 @@
 					<nav class="site-state motion-element">
 						<div class="site-state-item site-state-posts">
 							<a href="/archives">
-							<span class="site-state-item-count">12</span>
+							<span class="site-state-item-count">17</span>
 							<span class="site-state-item-name">日志</span>
 							</a>
 						</div>
@@ -82,7 +82,7 @@
 						</div>
 						<div class="site-state-item site-state-tags">
 							<a href="/tags/index.html">
-							<span class="site-state-item-count">29</span>
+							<span class="site-state-item-count">39</span>
 							<span class="site-state-item-name">标签</span>
 							</a>
 						</div>
@@ -178,7 +178,7 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-C#设计模式/C#设计模式(1) - 单例模式(Singleton Pattern)" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-C#设计模式/C#设计模式(01) - 单例模式(Singleton Pattern)" class="article article-type-post" itemscope itemprop="blogPost">
     
         <div class="article-meta">
             <a href="/2018/08/18/csharp-singleton-pattern.html" class="article-date">
@@ -196,7 +196,7 @@
                                 
   
     <h1 class="article-title" itemprop="name">
-      C#设计模式(1) - 单例模式(Singleton Pattern)
+      C#设计模式(01) - 单例模式(Singleton Pattern)
     </h1>
   
 
@@ -352,18 +352,18 @@
                                 
 <nav id="article-nav">
   
-    <a href="/2018/08/18/csharp-prototype-pattern.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/08/18/csharp-factory-method-pattern.html" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          C#设计模式(5) - 原型模式(Prototype Pattern)
+          C#设计模式(02) - 工厂方法模式(Factory Method Pattern)
         
       </div>
     </a>
   
   
-    <a href="/2018/08/18/csharp-abstract-factory-pattern.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C#设计模式(3) - 抽象工厂模式(Abstract Factory Pattern)</div>
+    <a href="/2018/08/18/csharp-bridge-pattern.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C#设计模式(07) - 桥接模式(Bridge Pattern)</div>
       <strong class="article-nav-caption">></strong>
     </a>
   

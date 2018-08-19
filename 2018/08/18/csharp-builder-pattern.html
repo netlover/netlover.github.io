@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="/css/github.css?2018.08.01">
 
-<title>C#设计模式(4) - 建造者模式(Builder Pattern) | Net Lover</title>
+<title>C#设计模式(04) - 建造者模式(Builder Pattern) | Net Lover</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="今天我们要讲讲Builder模式，也就是建造者模式，当然也有叫生成器模式的，英文名称是Builder Pattern。在现实生活中，我们经常会遇到一些构成比较复杂的物品，比如：电脑，它就是一个复杂的物品，它主要是由CPU、主板、硬盘、显卡、机箱等组装而成的。手机当然也是复杂物品，由主板，各种芯片，RAM 和ROM  摄像头之类的东西组成。但是无论是电脑还是手机，他们的组装过程是固定的，就拿手机来说">
 <meta name="keywords" content="C#,设计模式,建造者模式,Builder Pattern">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C#设计模式(4) - 建造者模式(Builder Pattern)">
+<meta property="og:title" content="C#设计模式(04) - 建造者模式(Builder Pattern)">
 <meta property="og:url" content="https://netlover.cn/2018/08/18/csharp-builder-pattern.html">
 <meta property="og:site_name" content="Net Lover">
 <meta property="og:description" content="今天我们要讲讲Builder模式，也就是建造者模式，当然也有叫生成器模式的，英文名称是Builder Pattern。在现实生活中，我们经常会遇到一些构成比较复杂的物品，比如：电脑，它就是一个复杂的物品，它主要是由CPU、主板、硬盘、显卡、机箱等组装而成的。手机当然也是复杂物品，由主板，各种芯片，RAM 和ROM  摄像头之类的东西组成。但是无论是电脑还是手机，他们的组装过程是固定的，就拿手机来说">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/sKhVRs1.jpg">
-<meta property="og:updated_time" content="2018-08-18T13:31:58.310Z">
+<meta property="og:updated_time" content="2018-08-19T02:46:13.069Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C#设计模式(4) - 建造者模式(Builder Pattern)">
+<meta name="twitter:title" content="C#设计模式(04) - 建造者模式(Builder Pattern)">
 <meta name="twitter:description" content="今天我们要讲讲Builder模式，也就是建造者模式，当然也有叫生成器模式的，英文名称是Builder Pattern。在现实生活中，我们经常会遇到一些构成比较复杂的物品，比如：电脑，它就是一个复杂的物品，它主要是由CPU、主板、硬盘、显卡、机箱等组装而成的。手机当然也是复杂物品，由主板，各种芯片，RAM 和ROM  摄像头之类的东西组成。但是无论是电脑还是手机，他们的组装过程是固定的，就拿手机来说">
 <meta name="twitter:image" content="https://i.imgur.com/sKhVRs1.jpg">
 
@@ -70,7 +70,7 @@
 					<nav class="site-state motion-element">
 						<div class="site-state-item site-state-posts">
 							<a href="/archives">
-							<span class="site-state-item-count">12</span>
+							<span class="site-state-item-count">17</span>
 							<span class="site-state-item-name">日志</span>
 							</a>
 						</div>
@@ -82,7 +82,7 @@
 						</div>
 						<div class="site-state-item site-state-tags">
 							<a href="/tags/index.html">
-							<span class="site-state-item-count">29</span>
+							<span class="site-state-item-count">39</span>
 							<span class="site-state-item-name">标签</span>
 							</a>
 						</div>
@@ -178,7 +178,7 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-C#设计模式/C#设计模式(4) - 建造者模式(Builder Pattern)" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-C#设计模式/C#设计模式(04) - 建造者模式(Builder Pattern)" class="article article-type-post" itemscope itemprop="blogPost">
     
         <div class="article-meta">
             <a href="/2018/08/18/csharp-builder-pattern.html" class="article-date">
@@ -196,7 +196,7 @@
                                 
   
     <h1 class="article-title" itemprop="name">
-      C#设计模式(4) - 建造者模式(Builder Pattern)
+      C#设计模式(04) - 建造者模式(Builder Pattern)
     </h1>
   
 
@@ -320,9 +320,18 @@
                                 
 <nav id="article-nav">
   
+    <a href="/2018/08/18/csharp-prototype-pattern.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          C#设计模式(05) - 原型模式(Prototype Pattern)
+        
+      </div>
+    </a>
   
-    <a href="/2018/08/18/csharp-prototype-pattern.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C#设计模式(5) - 原型模式(Prototype Pattern)</div>
+  
+    <a href="/2018/08/18/csharp-abstract-factory-pattern.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C#设计模式(03) - 抽象工厂模式(Abstract Factory Pattern)</div>
       <strong class="article-nav-caption">></strong>
     </a>
   

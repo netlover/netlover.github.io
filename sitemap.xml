@@ -2,44 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://netlover.cn/2018/08/15/meta-all.html</loc>
+    <loc>https://netlover.cn/2018/08/19/csharp-composite-pattern.html</loc>
     
-    <lastmod>2018-08-18T15:05:21.969Z</lastmod>
+    <lastmod>2018-08-19T02:46:13.072Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://netlover.cn/2018/08/19/csharp-decorator-pattern.html</loc>
+    
+    <lastmod>2018-08-19T02:46:13.072Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://netlover.cn/2018/08/18/csharp-bridge-pattern.html</loc>
+    
+    <lastmod>2018-08-19T02:46:13.070Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://netlover.cn/2018/08/19/csharp-adapter-pattern.html</loc>
+    
+    <lastmod>2018-08-19T02:46:13.070Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://netlover.cn/2018/08/18/csharp-prototype-pattern.html</loc>
     
-    <lastmod>2018-08-18T13:33:46.922Z</lastmod>
+    <lastmod>2018-08-19T02:46:13.070Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://netlover.cn/2018/08/18/csharp-builder-pattern.html</loc>
     
-    <lastmod>2018-08-18T13:31:58.310Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://netlover.cn/2018/08/18/csharp-abstract-factory-pattern.html</loc>
-    
-    <lastmod>2018-08-18T13:28:58.255Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://netlover.cn/2018/08/18/csharp-factory-method-pattern.html</loc>
-    
-    <lastmod>2018-08-18T13:21:21.163Z</lastmod>
+    <lastmod>2018-08-19T02:46:13.069Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://netlover.cn/2018/08/18/csharp-singleton-pattern.html</loc>
     
-    <lastmod>2018-08-18T13:18:32.547Z</lastmod>
+    <lastmod>2018-08-19T02:46:13.068Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://netlover.cn/2018/08/18/csharp-abstract-factory-pattern.html</loc>
+    
+    <lastmod>2018-08-19T02:46:13.067Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://netlover.cn/2018/08/18/csharp-factory-method-pattern.html</loc>
+    
+    <lastmod>2018-08-19T02:46:13.067Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://netlover.cn/2018/08/19/csharp-facade-pattern.html</loc>
+    
+    <lastmod>2018-08-19T02:43:37.869Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://netlover.cn/2018/08/15/meta-all.html</loc>
+    
+    <lastmod>2018-08-18T15:05:21.969Z</lastmod>
     
   </url>
   

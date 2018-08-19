@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/css/github.css?2018.08.01">
+
+<title>C#设计模式(08) - 装饰模式(Decorator Pattern) | Net Lover</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="动态地给一个对象增加一些额外的职责。就增加功能而言，Decorator模式比生成子类更为灵活。">
+<meta name="keywords" content="C#,设计模式,装饰模式,Decorator Pattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#设计模式(08) - 装饰模式(Decorator Pattern)">
+<meta property="og:url" content="https://netlover.cn/2018/08/19/csharp-decorator-pattern.html">
+<meta property="og:site_name" content="Net Lover">
+<meta property="og:description" content="动态地给一个对象增加一些额外的职责。就增加功能而言，Decorator模式比生成子类更为灵活。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/7r9yyti.png">
+<meta property="og:image" content="https://i.imgur.com/Gn6vO9d.png">
+<meta property="og:updated_time" content="2018-08-19T02:46:13.072Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C#设计模式(08) - 装饰模式(Decorator Pattern)">
+<meta name="twitter:description" content="动态地给一个对象增加一些额外的职责。就增加功能而言，Decorator模式比生成子类更为灵活。">
+<meta name="twitter:image" content="https://i.imgur.com/7r9yyti.png">
+
+<link rel="alternative" href="/atom.xml" title="Net Lover" type="application/atom+xml">
+
+
+<link rel="icon" href="/img/netlover.ico?2018.08.01">
+
+<link rel="stylesheet" href="/css/style.css?2018.08.01">
+<script src="/js/jquery1.8.2.min.js?2018.08.01"></script>
+<script src="/js/jquery.qrcode.min.js?2018.08.01"></script>
+<script src="/js/ug-theme-default.js?2018.08.01"></script>
+<script src="/js/unitegallery.js?2018.08.01"></script>
+<script src="/js/gitment.browser.js?2018.08.01"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/img/netlover.jpg" class="js-avatar">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Net Lover</a></h1>
+		</hgroup>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/categories">分类</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/tags">标签</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="site-state motion-element">
+						<div class="site-state-item site-state-posts">
+							<a href="/archives">
+							<span class="site-state-item-count">17</span>
+							<span class="site-state-item-name">日志</span>
+							</a>
+						</div>
+						<div class="site-state-item site-state-categories">
+							<a href="/categories/index.html">
+							<span class="site-state-item-count">8</span>
+							<span class="site-state-item-name">分类</span>
+							</a>
+						</div>
+						<div class="site-state-item site-state-tags">
+							<a href="/tags/index.html">
+							<span class="site-state-item-count">39</span>
+							<span class="site-state-item-name">标签</span>
+							</a>
+						</div>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								
+									<a class="github" target="_blank" href="https://github.com/Netlover" title="github">github</a>
+								
+					        
+								
+									<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+								
+					        
+								
+									<a class="zhihu" target="_blank" href="https://zhuanlan.zhihu.com/netlover" title="zhihu">zhihu</a>
+								
+					        
+								
+									<a class="jianshu" target="_blank" href="https://www.jianshu.com/u/c86d7c57dd6d" title="jianshu">jianshu</a>
+								
+					        
+						</div>
+						<div class="gongzhonghao"><img src="/img/gongzhonghao.jpg"></div>
+					</nav>
+				</section>
+
+				
+
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">网络爱好者，.Net爱好者...</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Net Lover</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/img/netlover.jpg" class="js-avatar">
+				<hgroup>
+				  <h1 class="header-author">Net Lover</h1>
+				</hgroup>
+			</div>
+			
+			<p class="header-subtitle">.Net Lover &amp; Net Lover</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/categories">分类</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/tags">标签</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Netlover" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://zhuanlan.zhihu.com/netlover" title="zhihu">zhihu</a>
+			        
+						<a class="jianshu" target="_blank" href="https://www.jianshu.com/u/c86d7c57dd6d" title="jianshu">jianshu</a>
+			        
+				</div>
+			</nav>
+		</header>
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-C#设计模式/C#设计模式(08) - 装饰模式(Decorator Pattern)" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <div class="article-meta">
+            <a href="/2018/08/19/csharp-decorator-pattern.html" class="article-date">
+  	<time datetime="2018-08-19T08:47:44.000Z" itemprop="datePublished">2018-08-19 16:47</time>
+</a>
+
+        </div>
+        
+            <div class="article-inner">
+                
+                    <input type="hidden" class="isFancy" />
+                    
+                        
+                            <header class="article-header">
+                                
+  
+    <h1 class="article-title" itemprop="name">
+      C#设计模式(08) - 装饰模式(Decorator Pattern)
+    </h1>
+  
+
+
+                            </header>
+                            <div class="article-info article-info-post">
+                                    
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/C-设计模式/">C#设计模式</a>
+	</div>
+
+
+                                    <div class="clearfix"></div>
+                                </div>
+                                    
+                                        <div class="article-entry" itemprop="articleBody">
+                                            
+                                            
+                                            
+                                                        <h2 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h2><p>今天我们要讲【结构型】设计模式的第三个模式，该模式是【装饰模式】，英文名称：Decorator Pattern。我第一次看到这个名称想到的是另外一个词语“装修”，我就说说我对“装修”的理解吧，大家一定要看清楚，是“装修”,不是“装饰”。我们长大了，就要结婚，要结婚就涉及到要买房子，买的精装修或者简单装修就可以住的，暂时不谈。我们就谈谈我们购买的是毛坯房。如果我想要房子的内饰是大理石风格的，我们只要在毛坯房的基础之上用大理石风格的材料装修就可以，我们当然不可能为了要一个装修风格，就把刚刚盖好的房子拆了在重新来过。房子装修好了，我们就住了进来，很开心。过了段时间，我们发现我们的房子在冬季比较冷，于是我就想给我们的房子增加保暖的功能，装修好的房子我们可以继续居住，我们只是在房子外面加一层保护层就可以了。又过了一段时间，总是有陌生人光顾，所以我们想让房子更安全，于是我们在外墙和房顶加装安全摄像头，同时门窗也增加安全系统。随着时间的流逝，我们可能会根据我们的需求增加相应的功能，期间，我们的房子可以正常使用，加上什么设施就有了相应的功能。从这一方面来讲，“装修”和“装饰”有类似的概念，接下来就让我们看看装饰模式具体是什么吧！</p>
+<h2 id="二、装饰模式的详细介绍"><a href="#二、装饰模式的详细介绍" class="headerlink" title="二、装饰模式的详细介绍"></a>二、装饰模式的详细介绍</h2><h5 id="2-1、动机（Motivate）"><a href="#2-1、动机（Motivate）" class="headerlink" title="2.1、动机（Motivate）"></a>2.1、动机（Motivate）</h5><p>在房子装修的过程中，各种功能可以相互组合，来增加房子的功用。类似的，如果我们在软件系统中，要给某个类型或者对象增加功能，如果使用“继承”的方案来写代码，就会出现子类暴涨的情况。比如：IMarbleStyle是大理石风格的一个功能，IKeepWarm是保温的一个接口定义，IHouseSecurity是房子安全的一个接口，就三个接口来说，House是我们房子，我们的房子要什么功能就实现什么接口，如果房子要的是复合功能，接口不同的组合就有不同的结果，这样就导致我们子类膨胀严重，如果需要在增加功能，子类会成指数增长。这个问题的根源在于我们“过度地使用了继承来扩展对象的功能”，由于继承为类型引入的静态特质（所谓静态特质，就是说如果想要某种功能，我们必须在编译的时候就要定义这个类，这也是强类型语言的特点。静态，就是指在编译的时候要确定的东西；动态，是指运行时确定的东西），使得这种扩展方式缺乏灵活性；并且随着子类的增多（扩展功能的增多），各种子类的组合（扩展功能的组合）会导致更多子类的膨胀（多继承）。如何使“对象功能的扩展”能够根据需要来动态（即运行时）地实现？同时避免“扩展功能的增多”带来的子类膨胀问题？从而使得任何“功能扩展变化”所导致的影响降为最低？</p>
+<h5 id="2-2、意图（Intent）"><a href="#2-2、意图（Intent）" class="headerlink" title="2.2、意图（Intent）"></a>2.2、意图（Intent）</h5><blockquote>
+<p>动态地给一个对象增加一些额外的职责。就增加功能而言，Decorator模式比生成子类更为灵活。　　       ——  《设计模式》GoF</p>
+</blockquote>
+<h5 id="2-3、结构图（Structure）"><a href="#2-3、结构图（Structure）" class="headerlink" title="2.3、结构图（Structure）"></a>2.3、结构图（Structure）</h5><p><img src="https://i.imgur.com/7r9yyti.png" alt="">       </p>
+<h5 id="2-4、模式的组成"><a href="#2-4、模式的组成" class="headerlink" title="2.4、模式的组成"></a>2.4、模式的组成</h5><p>在装饰模式中的各个角色有：</p>
+<ol>
+<li>抽象构件角色（Component）：给出一个抽象接口，以规范准备接收附加责任的对象。</li>
+<li>具体构件角色（Concrete Component）：定义一个将要接收附加责任的类。</li>
+<li>装饰角色（Decorator）：持有一个构件（Component）对象的实例，并实现一个与抽象构件接口一致的接口。</li>
+<li>具体装饰角色（Concrete Decorator）：负责给构件对象添加上附加的责任。</li>
+</ol>
+<h5 id="2-5-、装饰模式的具体代码实现"><a href="#2-5-、装饰模式的具体代码实现" class="headerlink" title="2.5 、装饰模式的具体代码实现"></a>2.5 、装饰模式的具体代码实现</h5><p>刚开始一看这个“装饰模式”是有点不太好理解，既然这个模式是面向对象的设计模式，那在现实生活中一定有事例和其对应，其实这种例子也不少，大家好好的挖掘吧，也可以提高我们对面向对象的理解。我继续拿盖房子来说事吧。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">namespace 装饰模式的实现</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 该抽象类就是房子抽象接口的定义，该类型就相当于是Component类型，是饺子馅，需要装饰的，需要包装的</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">House</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//房子的装修方法--该操作相当于Component类型的Operation方法</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Renovation</span>(<span class="params"></span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 该抽象类就是装饰接口的定义，该类型就相当于是Decorator类型，如果需要具体的功能，可以子类化该类型</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">DecorationStrategy</span>:<span class="title">House</span> <span class="comment">//关键点之二，体现关系为Is-a，有这这个关系，装饰的类也可以继续装饰了</span></span><br><span class="line">    &#123;</span><br><span class="line">       <span class="comment">//通过组合方式引用Decorator类型，该类型实施具体功能的增加</span></span><br><span class="line">        <span class="comment">//这是关键点之一，包含关系，体现为Has-a</span></span><br><span class="line">        <span class="keyword">protected</span> House _house;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//通过构造器注入，初始化平台实现</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="title">DecorationStrategy</span>(<span class="params">House house</span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">           <span class="keyword">this</span>._house=house;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">       <span class="comment">//该方法就相当于Decorator类型的Operation方法</span></span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Renovation</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">       </span>&#123;</span><br><span class="line">           <span class="keyword">if</span>(<span class="keyword">this</span>._house!=<span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">this</span>._house.Renovation();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> PatrickLiu的房子，我要按我的要求做房子，相当于ConcreteComponent类型，这就是我们具体的饺子馅，我个人比较喜欢韭菜馅</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">sealed</span> <span class="keyword">class</span> <span class="title">PatrickLiuHouse</span>:<span class="title">House</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Renovation</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"装修PatrickLiu的房子"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">   <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 具有安全功能的设备，可以提供监视和报警功能，相当于ConcreteDecoratorA类型</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">sealed</span> <span class="keyword">class</span> <span class="title">HouseSecurityDecorator</span>:<span class="title">DecorationStrategy</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span>  <span class="title">HouseSecurityDecorator</span>(<span class="params">House house</span>):<span class="title">base</span>(<span class="params">house</span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Renovation</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">base</span>.Renovation();</span><br><span class="line">            Console.WriteLine(<span class="string">"增加安全系统"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 具有保温接口的材料，提供保温功能，相当于ConcreteDecoratorB类型</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">sealed</span> <span class="keyword">class</span> <span class="title">KeepWarmDecorator</span>:<span class="title">DecorationStrategy</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span>  <span class="title">KeepWarmDecorator</span>(<span class="params">House house</span>):<span class="title">base</span>(<span class="params">house</span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Renovation</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">base</span>.Renovation();</span><br><span class="line">            Console.WriteLine(<span class="string">"增加保温的功能"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">   &#123;</span><br><span class="line">      <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">         <span class="comment">//这就是我们的饺子馅，需要装饰的房子</span></span><br><span class="line">         House myselfHouse=<span class="keyword">new</span> PatrickLiuHouse();</span><br><span class="line"></span><br><span class="line">         DecorationStrategy securityHouse=<span class="keyword">new</span> HouseSecurityDecorator(myselfHouse);</span><br><span class="line">         securityHouse.Renovation();</span><br><span class="line">         <span class="comment">//房子就有了安全系统了</span></span><br><span class="line"></span><br><span class="line">         <span class="comment">//如果我既要安全系统又要保暖呢，继续装饰就行</span></span><br><span class="line">         DecorationStrategy securityAndWarmHouse=<span class="keyword">new</span> HouseSecurityDecorator(securityHouse);</span><br><span class="line">         securityAndWarmHouse.Renovation();</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>写了很多备注，大家好好体会一下，里面有两个关键点，仔细把握。</p>
+<h2 id="三、装饰模式的实现要点："><a href="#三、装饰模式的实现要点：" class="headerlink" title="三、装饰模式的实现要点："></a>三、装饰模式的实现要点：</h2><ol>
+<li>通过采用组合、而非继承的手法，Decorator模式实现了在运行时动态地扩展对象功能的能力，而且可以根据需要扩展多个功能。避免了单独使用继承带来的“灵活性差”和“多子类衍生问题”。</li>
+<li>Component类在Decorator模式中充当抽象接口的角色，不应该去实现具体的行为。而且Decorator类对于Component类应该透明——换言之Component类无需知道Decorator类，Decorator类是从外部来扩展Component类的功能。</li>
+<li>Decorator类在接口上表现为is-a Component的继承关系，即Decorator类继承了Component类所具有的接口。但在实现上又表现为has-a Component的组合关系，即Decorator类又使用了另外一个Component类。我们可以使用一个或者多个Decorator对象来“装饰”一个Component对象，且装饰后的对象仍然是一个Component对象。</li>
+<li>Decorator模式并非解决“多子类衍生的多继承”问题，Decorator模式应用的要点在于解决“主体类在多个方向上的扩展功能”——是为“装饰”的含义。</li>
+</ol>
+<p><strong>装饰模式的优点：</strong></p>
+<ol>
+<li>把抽象接口与其实现解耦。</li>
+<li>抽象和实现可以独立扩展，不会影响到对方。</li>
+<li>实现细节对客户透明，对用于隐藏了具体实现细节。</li>
+</ol>
+<p><strong>装饰模式的缺点：</strong></p>
+<ol>
+<li>增加了系统的复杂度</li>
+</ol>
+<p><strong>在以下情况下应当使用桥接模式：</strong></p>
+<ol>
+<li>如果一个系统需要在构件的抽象化角色和具体化角色之间添加更多的灵活性，避免在两个层次之间建立静态的联系。</li>
+<li>设计要求实现化角色的任何改变不应当影响客户端，或者实现化角色的改变对客户端是完全透明的。</li>
+<li>需要跨越多个平台的图形和窗口系统上。</li>
+<li>一个类存在两个独立变化的维度，且两个维度都需要进行扩展。</li>
+</ol>
+<h2 id="四、-NET-中装饰模式的实现"><a href="#四、-NET-中装饰模式的实现" class="headerlink" title="四、.NET 中装饰模式的实现"></a>四、.NET 中装饰模式的实现</h2><p>在Net框架中，有一个类型很明显的使用了“装饰模式”，这个类型就是Stream。Stream类型是一个抽象接口，它在System.IO命名空间里面，它其实就是Component。FileStream、NetworkStream、MemoryStream都是实体类ConcreteComponent。右边的BufferedStream、CryptoStream是装饰对象，它们都是继承了Stream接口的。</p>
+<p>如图：</p>
+<p><img src="https://i.imgur.com/Gn6vO9d.png" alt="">      </p>
+<p>Stream就相当于Component，定义装饰的对象，FileStream就是要装饰的对象，BufferedStream是装饰对象。我们看看BufferedStream的定义，部分定义了。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">sealed</span> <span class="keyword">class</span> <span class="title">BufferedStream</span> : <span class="title">Stream</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">const</span> <span class="keyword">int</span> _DefaultBufferSize = <span class="number">4096</span>;</span><br><span class="line"> </span><br><span class="line">	<span class="keyword">private</span> Stream _stream;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结构很简单，对比结构图看吧，没什么可说的了。</p>
+<h2 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h2><p>今天的文章就写到这里了，总结一下我对这个模式的看法，这个模式有点像包饺子，ConcreteComponent其实是饺子馅，Decorator就像饺子皮一样，包什么皮就有什么的样子，皮和皮也可以嵌套，当然我们生活中的饺子只是包一层。其实手机也是一个装饰模式使用的好例子，以前我们的手机只是接打电话，然后可以发短信和彩信，我在装饰一个就可以拍照了。我们现在的手机功能很丰富，其结果也类似装饰的结果。随着社会的进步，技术发展，模块化的手机也出现了，其设计原理也和“装饰模式”就更接近了。不光手机，还有我们身边其他很多家用电器也有类似的发展经历，我们努力发现生活中的真理吧，然后再在软件环境中慢慢体会吧。</p>
+
+                                                            <p>本文链接：
+                                                                <a href="https://netlover.cn/2018/08/19/csharp-decorator-pattern.html">
+                                                                    https://netlover.cn/2018/08/19/csharp-decorator-pattern.html
+                                                                </a>
+                                                            </p>
+                                                            
+                                        </div>
+                                        <div class="article-info article-info-index">
+                                                
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Decorator-Pattern/">Decorator Pattern</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/装饰模式/">装饰模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+	</div>
+
+
+                                                    
+                                                        
+                                                                <div class="clearfix"></div>
+                                            </div>
+            </div>
+            
+                <div id="socialShare" style="margin-left:10px;display:none;">
+                </div>
+                <script>
+                    $(function() {
+                        var width = document.body.scrollWidth;
+                        if (width > 550) {
+                            $("#socialShare").css("display", "block");
+                            $("#socialShare").socialShare({
+                                content: 'Nice!不错的资源...',
+                                url: window.location.href,
+                                titile: ''
+                            });
+                        }
+                    });
+                </script>
+                
+                    
+                        <div class="donateContainer">
+                            <span id="donate" class="donate" onclick="donate()">打赏</span>
+                            <div id="QR" style="display: none;">
+                                <div id="alipay" style="display: inline-block">
+                                    <a href="/img/weixin.jpg" target="_blank" class="fancybox fancybox.image" rel="group">
+                                        <img id="alipay_qr" src="/img/weixin.jpg">
+                                    </a>
+                                </div>
+                                <div id="wechat" style="display: inline-block">
+                                    <a href="/img/zhifubao.jpg" target="_blank" class="fancybox fancybox.image" rel="group">
+                                        <img id="wechat_qr" src="/img/zhifubao.jpg">
+                                    </a>
+                                </div>
+                            </div>
+                            <script>
+                                function donate() {
+                                    var qr = document.getElementById('QR');
+                                    if (qr.style.display === 'none') {
+                                        qr.style.display = 'block';
+                                    } else {
+                                        qr.style.display = 'none'
+                                    }
+                                };
+                            </script>
+                        </div>
+                        
+                            
+                                
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/19/csharp-adapter-pattern.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C#设计模式(06) - 适配器模式(Adapter Pattern)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+                            
+                                        
+</article>
+</div>
+    </div>
+    <div class="aside">
+      <a href="javascript:;" class="open"></a>
+      <a href="javascript:;" class="close"></a>
+    </div>
+    <div class="hide"><script src="https://s22.cnzz.com/z_stat.php?id=1274486711&web_id=1274486711" language="JavaScript"></script></div>
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css?2018.08.01">
+<script src="/fancybox/jquery.fancybox.pack.js?2018.08.01"></script>
+
+<script src="/js/mobile.js?2018.08.01"></script>
+<script src="/js/main.js?2018.08.01"></script>
+<script src="/js/prefixfree.js?2018.08.01"></script>
+
+<div id="totop">
+    <a title="返回顶部">
+        <img src="/img/gotop.png" />
+    </a>
+</div>
+
+<script src="/js/totop.js?2018.08.01"></script>
+<script src="/js/share.js?2018.08.01"></script>
+  </div>
+</body>
+</html>
