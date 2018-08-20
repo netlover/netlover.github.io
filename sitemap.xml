@@ -2,14 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://netlover.cn/2018/08/19/csharp-decorator-pattern.html</loc>
+    <loc>https://netlover.cn/2018/08/20/10pattern.html</loc>
+    
+    <lastmod>2018-08-20T15:21:55.375Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://netlover.cn/2018/08/19/csharp-composite-pattern.html</loc>
     
     <lastmod>2018-08-19T02:46:13.072Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://netlover.cn/2018/08/19/csharp-composite-pattern.html</loc>
+    <loc>https://netlover.cn/2018/08/19/csharp-decorator-pattern.html</loc>
     
     <lastmod>2018-08-19T02:46:13.072Z</lastmod>
     

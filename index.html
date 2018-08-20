@@ -67,7 +67,7 @@
 					<nav class="site-state motion-element">
 						<div class="site-state-item site-state-posts">
 							<a href="/archives">
-							<span class="site-state-item-count">17</span>
+							<span class="site-state-item-count">18</span>
 							<span class="site-state-item-name">日志</span>
 							</a>
 						</div>
@@ -79,7 +79,7 @@
 						</div>
 						<div class="site-state-item site-state-tags">
 							<a href="/tags/index.html">
-							<span class="site-state-item-count">39</span>
+							<span class="site-state-item-count">40</span>
 							<span class="site-state-item-name">标签</span>
 							</a>
 						</div>
@@ -178,6 +178,244 @@
       <div class="body-wrap">
 
 
+  
+    <article id="post-十种常见的软件架构模式" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <div class="article-meta">
+            <a href="/2018/08/20/10pattern.html" class="article-date">
+  	<time datetime="2018-08-20T15:35:44.000Z" itemprop="datePublished">2018-08-20</time>
+</a>
+
+        </div>
+        
+            <div class="article-inner">
+                
+                    <input type="hidden" class="isFancy" />
+                    
+                        
+                            <header class="article-header">
+                                
+  
+    <h1 class="article-title" itemprop="name">
+      <a href="/2018/08/20/10pattern.html">十种常见的软件架构模式</a>
+    </h1>
+  
+
+
+                            </header>
+                            <div class="article-info article-info-post">
+                                    
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/架构/">架构</a>
+	</div>
+
+
+                                    <div class="clearfix"></div>
+                                </div>
+                                    
+                                        <div class="article-entry" itemprop="articleBody">
+                                            
+                                            
+                                            
+                                                        <blockquote>
+<p>有没有想过要设计多大的企业规模系统？在主要的软件开发开始之前，我们必须选择一个合适的体系结构，它将为我们提供所需的功能和质量属性。因此，在将它们应用到我们的设计之前，我们应该了解不同的体系结构。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/QZe8ilM.png" alt=""></p>
+<h2 id="什么是架构模式？"><a href="#什么是架构模式？" class="headerlink" title="什么是架构模式？"></a>什么是架构模式？</h2><p><strong>根据维基百科中的定义：</strong></p>
+<blockquote>
+<p>架构模式是一个通用的、可重用的解决方案，用于在给定上下文中的软件体系结构中经常出现的问题。架构模式与软件设计模式类似，但具有更广泛的范围。</p>
+</blockquote>
+<p>在本文中，将简要地解释以下10种常见的体系架构模式，以及它们的用法、优缺点。</p>
+<ol>
+<li>分层模式</li>
+<li>客户端-服务器模式</li>
+<li>主从设备模式</li>
+<li>管道-过滤器模式</li>
+<li>代理模式</li>
+<li>点对点模式</li>
+<li>事件总线模式</li>
+<li>模型-视图-控制器模式</li>
+<li>黑板模式</li>
+<li>解释器模式</li>
+</ol>
+<h2 id="一-分层模式"><a href="#一-分层模式" class="headerlink" title="一. 分层模式"></a>一. 分层模式</h2><p>这种模式也称为多层体系架构模式。它可以用来构造可以分解为子任务组的程序，每个子任务都处于一个特定的抽象级别。每个层都为下一个提供更高层次服务。</p>
+<p>一般信息系统中最常见的是如下所列的4层。</p>
+<ul>
+<li>表示层(也称为UI层)</li>
+<li>应用层(也称为服务层)</li>
+<li>业务逻辑层(也称为领域层)</li>
+<li>数据访问层(也称为持久化层)</li>
+</ul>
+<p><strong>使用场景：</strong></p>
+<ul>
+<li>一般的桌面应用程序</li>
+<li>电子商务Web应用程序</li>
+</ul>
+<p><img src="https://i.imgur.com/UGdkG97.png" alt=""></p>
+<h2 id="二-客户端-服务器模式"><a href="#二-客户端-服务器模式" class="headerlink" title="二. 客户端-服务器模式"></a>二. 客户端-服务器模式</h2><p>这种模式由两部分组成：一个服务器和多个客户端。服务器组件将为多个客户端组件提供服务。客户端从服务器请求服务，服务器为这些客户端提供相关服务。此外，服务器持续侦听客户机请求。</p>
+<p><strong>使用场景：</strong></p>
+<ul>
+<li>电子邮件，文件共享和银行等在线应用程序</li>
+</ul>
+<p><img src="https://i.imgur.com/MFgffP7.png" alt=""></p>
+<h2 id="三-主从设备模式"><a href="#三-主从设备模式" class="headerlink" title="三. 主从设备模式"></a>三. 主从设备模式</h2><p>这种模式由两方组成;主设备和从设备。主设备组件在相同的从设备组件中分配工作，并计算最终结果，这些结果是由从设备返回的结果。</p>
+<p><strong>使用场景：</strong></p>
+<ul>
+<li>在数据库复制中，主数据库被认为是权威的来源，并且要与之同步</li>
+<li>在计算机系统中与总线连接的外围设备(主和从驱动器)</li>
+</ul>
+<p><img src="https://i.imgur.com/GvSUpG8.png" alt=""></p>
+<h2 id="四-管道-过滤器模式"><a href="#四-管道-过滤器模式" class="headerlink" title="四. 管道-过滤器模式"></a>四. 管道-过滤器模式</h2><p>此模式可用于构造生成和处理数据流的系统。每个处理步骤都封装在一个过滤器组件内。要处理的数据是通过管道传递的。这些管道可以用于缓冲或用于同步。</p>
+<p><strong>使用场景：</strong></p>
+<ul>
+<li>编译器。连续的过滤器执行词法分析、解析、语义分析和代码生成</li>
+<li>生物信息学的工作流</li>
+</ul>
+<p><img src="https://i.imgur.com/tl5aOmU.png" alt=""></p>
+<h2 id="五-代理模式"><a href="#五-代理模式" class="headerlink" title="五. 代理模式"></a>五. 代理模式</h2><p>此模式用于构造具有解耦组件的分布式系统。这些组件可以通过远程服务调用彼此交互。代理组件负责组件之间的通信协调。</p>
+<p>服务器将其功能(服务和特征)发布给代理。客户端从代理请求服务，然后代理将客户端重定向到其注册中心的适当服务。</p>
+<p><strong>使用场景：</strong></p>
+<ul>
+<li>消息代理软件，如Apache ActiveMQ，Apache Kafka，RabbitMQ和JBoss Messaging</li>
+</ul>
+<p><img src="https://i.imgur.com/vlIi8vu.png" alt=""></p>
+<h2 id="六-点对点模式"><a href="#六-点对点模式" class="headerlink" title="六. 点对点模式"></a>六. 点对点模式</h2><p>在这种模式中，单个组件被称为对等点。对等点可以作为客户端，从其他对等点请求服务，作为服务器，为其他对等点提供服务。对等点可以充当客户端或服务器或两者的角色，并且可以随时间动态地更改其角色。</p>
+<p><strong>使用场景：</strong></p>
+<ul>
+<li>像Gnutella和G2这样的文件共享网络</li>
+<li>多媒体协议，如P2PTV和PDTP</li>
+<li>像Spotify这样的专有多媒体应用程序</li>
+</ul>
+<p><img src="https://i.imgur.com/JDRb7w1.png" alt=""></p>
+<h2 id="七-事件总线模式"><a href="#七-事件总线模式" class="headerlink" title="七. 事件总线模式"></a>七. 事件总线模式</h2><p>这种模式主要是处理事件，包括4个主要组件：事件源、事件监听器、通道和事件总线。消息源将消息发布到事件总线上的特定通道上。侦听器订阅特定的通道。侦听器会被通知消息，这些消息被发布到它们之前订阅的一个通道上。</p>
+<p><strong>使用场景：</strong></p>
+<ul>
+<li>安卓开发</li>
+<li>通知服务</li>
+</ul>
+<p><img src="https://i.imgur.com/iLK9CLd.png" alt=""></p>
+<h2 id="八-模型-视图-控制器模式"><a href="#八-模型-视图-控制器模式" class="headerlink" title="八. 模型-视图-控制器模式"></a>八. 模型-视图-控制器模式</h2><p>这种模式，也称为MVC模式，把一个交互式应用程序划分为3个部分，</p>
+<ul>
+<li>模型：包含核心功能和数据</li>
+<li>视图：将信息显示给用户(可以定义多个视图)</li>
+<li>控制器：处理用户输入的信息</li>
+</ul>
+<p>这样做是为了将信息的内部表示与信息的呈现方式分离开来，并接受用户的请求。它分离了组件，并允许有效的代码重用。</p>
+<p><strong>使用场景</strong>：</p>
+<ul>
+<li>在主要编程语言中互联网应用程序的体系架构</li>
+<li>像Django和Rails这样的Web框架</li>
+</ul>
+<p><img src="https://i.imgur.com/kXfNV9U.png" alt=""></p>
+<h2 id="九-黑板模式"><a href="#九-黑板模式" class="headerlink" title="九. 黑板模式"></a>九. 黑板模式</h2><p>这种模式对于没有确定解决方案策略的问题是有用的。黑板模式由3个主要组成部分组成。</p>
+<ul>
+<li>黑板——包含来自解决方案空间的对象的结构化全局内存</li>
+<li>知识源——专门的模块和它们自己的表示</li>
+<li>控制组件——选择、配置和执行模块</li>
+</ul>
+<p>所有的组件都可以访问黑板。组件可以生成添加到黑板上的新数据对象。组件在黑板上查找特定类型的数据，并通过与现有知识源的模式匹配来查找这些数据。</p>
+<p><strong>使用场景：</strong></p>
+<ul>
+<li>语音识别</li>
+<li>车辆识别和跟踪</li>
+<li>蛋白质结构识别</li>
+<li>声纳信号的解释</li>
+</ul>
+<p><img src="https://i.imgur.com/I2mjBOF.png" alt=""></p>
+<h2 id="十-解释器模式"><a href="#十-解释器模式" class="headerlink" title="十. 解释器模式"></a>十. 解释器模式</h2><p>这个模式用于设计一个解释用专用语言编写的程序的组件。它主要指定如何评估程序的行数，即以特定的语言编写的句子或表达式。其基本思想是为每种语言的符号都有一个分类。</p>
+<p><strong>使用场景：</strong></p>
+<ul>
+<li>数据库查询语言，比如SQL</li>
+<li>用于描述通信协议的语言</li>
+</ul>
+<p><img src="https://i.imgur.com/hQsXzpc.png" alt=""></p>
+<h2 id="体系架构模式的比较"><a href="#体系架构模式的比较" class="headerlink" title="体系架构模式的比较"></a>体系架构模式的比较</h2><p>下面给出的表格总结了每种体系架构模式的优缺点。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分层模式</td>
+<td>一个较低的层可以被不同的层所使用。层使标准化更容易，因为我们可以清楚地定义级别。可以在层内进行更改，而不会影响其他层。</td>
+<td>不是普遍适用的。在某些情况下，某些层可能会被跳过。</td>
+</tr>
+<tr>
+<td>客户端-服务器模式</td>
+<td>很好地建立一组服务，用户可以请求他们的服务。</td>
+<td>请求通常在服务器上的单独线程中处理。由于不同的客户端具有不同的表示，进程间通信会导致额外开销。</td>
+</tr>
+<tr>
+<td>主从设备模式</td>
+<td>准确性——将服务的执行委托给不同的从设备，具有不同的实现。</td>
+<td>从设备是孤立的：没有共享的状态。主-从通信中的延迟可能是一个问题，例如在实时系统中。这种模式只能应用于可以分解的问题。</td>
+</tr>
+<tr>
+<td>管道-过滤器模式</td>
+<td>展示并发处理。当输入和输出由流组成时，过滤器在接收数据时开始计算。轻松添加过滤器，系统可以轻松扩展。过滤器可重复使用。</td>
+<td>可以通过重新组合一组给定的过滤器来构建不同的管道。    效率受到最慢的过滤过程的限制。从一个过滤器移动到另一个过滤器时的数据转换开销。</td>
+</tr>
+<tr>
+<td>代理模式</td>
+<td>允许动态更改、添加、删除和重新定位对象，这使开发人员的发布变得透明。</td>
+<td>要求对服务描述进行标准化。</td>
+</tr>
+<tr>
+<td>点对点模式</td>
+<td>支持分散式计算。对任何给定节点的故障处理具有强大的健壮性。在资源和计算能力方面具有很高的可扩展性。</td>
+<td>服务质量没有保证，因为节点是自愿合作的。安全是很难得到保证的。性能取决于节点的数量。</td>
+</tr>
+<tr>
+<td>事件总线模式</td>
+<td>新的发布者、订阅者和连接可以很容易地添加。对高度分布式的应用程序有效。</td>
+<td>可伸缩性可能是一个问题，因为所有消息都是通过同一事件总线进行的。</td>
+</tr>
+<tr>
+<td>模型-视图-控制器模式</td>
+<td>可以轻松地拥有同一个模型的多个视图，这些视图可以在运行时连接和断开。</td>
+<td>增加复杂性。可能导致许多不必要的用户操作更新。</td>
+</tr>
+<tr>
+<td>黑板模式</td>
+<td>很容易添加新的应用程序。扩展数据空间的结构很简单。</td>
+<td>修改数据空间的结构非常困难，因为所有应用程序都受到了影响。可能需要同步和访问控制。</td>
+</tr>
+<tr>
+<td>解释器模式</td>
+<td>高度动态的行为是可行的。对终端用户编程性提供好处。提高灵活性，因为替换一个解释程序很容易。</td>
+<td>由于解释语言通常比编译后的语言慢，因此性能可能是一个问题。</td>
+</tr>
+</tbody>
+</table>
+
+                                                            <p>本文链接：
+                                                                <a href="https://netlover.cn/2018/08/20/10pattern.html">
+                                                                    https://netlover.cn/2018/08/20/10pattern.html
+                                                                </a>
+                                                            </p>
+                                                            
+                                        </div>
+                                        <div class="article-info article-info-index">
+                                                
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/架构/">架构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件/">软件</a></li></ul>
+	</div>
+
+
+                                                    
+                                                        
+                                                                <div class="clearfix"></div>
+                                            </div>
+            </div>
+            
+                    
+                            
+                                        
+</article>
   
     <article id="post-C#设计模式/C#设计模式(08) - 装饰模式(Decorator Pattern)" class="article article-type-post" itemscope itemprop="blogPost">
     
@@ -1173,113 +1411,6 @@
                                                 
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Singleton-Pattern/">Singleton Pattern</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/单例模式/">单例模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-	</div>
-
-
-                                                    
-                                                        
-                                                                <div class="clearfix"></div>
-                                            </div>
-            </div>
-            
-                    
-                            
-                                        
-</article>
-  
-    <article id="post-C#设计模式/C#设计模式(07) - 桥接模式(Bridge Pattern)" class="article article-type-post" itemscope itemprop="blogPost">
-    
-        <div class="article-meta">
-            <a href="/2018/08/18/csharp-bridge-pattern.html" class="article-date">
-  	<time datetime="2018-08-18T02:54:44.000Z" itemprop="datePublished">2018-08-18</time>
-</a>
-
-        </div>
-        
-            <div class="article-inner">
-                
-                    <input type="hidden" class="isFancy" />
-                    
-                        
-                            <header class="article-header">
-                                
-  
-    <h1 class="article-title" itemprop="name">
-      <a href="/2018/08/18/csharp-bridge-pattern.html">C#设计模式(07) - 桥接模式(Bridge Pattern)</a>
-    </h1>
-  
-
-
-                            </header>
-                            <div class="article-info article-info-post">
-                                    
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/C-设计模式/">C#设计模式</a>
-	</div>
-
-
-                                    <div class="clearfix"></div>
-                                </div>
-                                    
-                                        <div class="article-entry" itemprop="articleBody">
-                                            
-                                            
-                                            
-                                                        <h2 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h2><p>今天我们要讲【结构型】设计模式的第二个模式，该模式是【桥接模式】，也有叫【桥模式】的，英文名称：Bridge Pattern。大家第一次看到这个名称会想到什么呢？我第一次看到这个模式根据名称猜肯定是连接什么东西的。因为桥在我们现实生活中经常是连接着A地和B地，再往后来发展，桥引申为一种纽带，比如：丝绸之路是连接亚洲和欧洲的桥梁。有了桥，我们出行方便了，从一个地方到另一个地方在有桥的情况更方便了（此处不许抬杠，当然是需要桥的情况）。桥是针对桥的使用环境来说的，解决了跨越和衔接的问题。在设计模式中的【桥模式】也有类似的概念，是连接了两个不同维度的东西，而且这两个维度又有强烈的变化，什么叫强烈呢，经常变化，什么是经常呢？哈哈，自己理解吧。</p>
-<h2 id="二、桥接模式的详细介绍"><a href="#二、桥接模式的详细介绍" class="headerlink" title="二、桥接模式的详细介绍"></a>二、桥接模式的详细介绍</h2><h5 id="2-1、动机（Motivate）"><a href="#2-1、动机（Motivate）" class="headerlink" title="2.1、动机（Motivate）"></a>2.1、动机（Motivate）</h5><p>在很多游戏场景中，会有这样的情况：【装备】本身会有的自己固有的逻辑，比如枪支，会有型号的问题，同时现在很多的游戏又在不同的介质平台上运行和使用，这样就使得游戏的【装备】具有了两个变化的维度——一个变化的维度为“平台的变化”，另一个变化的维度为“型号的变化”。如果我们要写代码实现这款游戏，难道我们针对每种平台都实现一套独立的【装备】吗？复用在哪里？如何应对这种“多维度的变化”？如何利用面向对象技术来使得【装备】可以轻松地沿着“平台”和“型号”两个方向变化，而不引入额外的复杂度？</p>
-<h5 id="2-2、意图（Intent）"><a href="#2-2、意图（Intent）" class="headerlink" title="2.2、意图（Intent）"></a>2.2、意图（Intent）</h5><blockquote>
-<p>将抽象部分与实现部分分离，使它们都可以独立地变化。                                                                  –《设计模式》Gof</p>
-</blockquote>
-<p>桥模式不能只是认为是抽象和实现的分离，它其实并不仅限于此。其实两个都是抽象的部分，更确切的理解，应该是将一个事物中多个维度的变化分离。</p>
-<h5 id="2-3、结构图（Structure）"><a href="#2-3、结构图（Structure）" class="headerlink" title="2.3、结构图（Structure）"></a>2.3、结构图（Structure）</h5><p><img src="https://i.imgur.com/Vrktxe5.png" alt="">       </p>
-<h5 id="2-4、模式的组成"><a href="#2-4、模式的组成" class="headerlink" title="2.4、模式的组成"></a>2.4、模式的组成</h5><p>桥接模式的结构包括Abstraction、RefinedAbstraction、Implementor、ConcreteImplementorA和ConcreteImplementorB五个部分，其中：</p>
-<ol>
-<li>抽象化角色(Abstraction)：抽象化给出的定义，并保存一个对实现化对象（Implementor）的引用。</li>
-<li>修正抽象化角色(Refined Abstraction)：扩展抽象化角色，改变和修正父类对抽象化的定义。</li>
-<li>实现化角色(Implementor)：这个角色给出实现化角色的接口，但不给出具体的实现。必须指出的是，这个接口不一定和抽象化角色的接口定义相同，实际上，这两个接口可以非常不一样。实现化角色应当只给出底层操作，而抽象化角色应当只给出基于底层操作的更高一层的操作。</li>
-<li>具体实现化角色(Concrete Implementor)：这个角色给出实现化角色接口的具体实现。</li>
-</ol>
-<p>在桥接模式中，两个类Abstraction和Implementor分别定义了抽象与行为类型的接口，通过调用两接口的子类实现抽象与行为的动态组合。</p>
-<h5 id="2-5-、桥接模式的具体代码实现"><a href="#2-5-、桥接模式的具体代码实现" class="headerlink" title="2.5 、桥接模式的具体代码实现"></a>2.5 、桥接模式的具体代码实现</h5><p>今天我们就以数据库为例来写该模式的实现。每种数据库都有自己的版本，但是每种数据库在不同的平台上实现又是不一样的。比如：微软的SqlServer数据库，该数据库它有2000版本、2005版本、2006版本、2008版本，后面还会有更新的版本。并且这些版本都是运行在Windows操作系统下的，如果要提供Lunix操作系统下的SqlServer怎么办呢？如果又要提供IOS操作系统下的SqlServer数据库该怎么办呢？这个情况就可以使用桥接模式，也就是Brige模式。我们就来看看具体的实现吧！ </p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">namespace 桥接模式的实现</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 该抽象类就是抽象接口的定义，该类型就相当于是Abstraction类型</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Database</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//通过组合方式引用平台接口，此处就是桥梁，该类型相当于Implementor类型</span></span><br><span class="line">        <span class="keyword">protected</span> PlatformImplementor _implementor;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//通过构造器注入，初始化平台实现</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="title">Database</span>(<span class="params">PlatformImplementor implementor</span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>._implementor = implementor;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建数据库--该操作相当于Abstraction类型的Operation方法</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Create</span>(<span class="params"></span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 该抽象类就是实现接口的定义，该类型就相当于是Implementor类型</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">PlatformImplementor</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//该方法就相当于Implementor类型的OperationImpl方法</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Process</span>(<span class="params"></span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> SqlServer2000版本的数据库，相当于RefinedAbstraction类型</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SqlServer2000</span> : <span class="title">Database</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//构造函数初始化</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">SqlServer2000</span>(<span class="params">PlatformImplementor implementor</span>) : <span class="title">base</span>(<span class="params">implementor</span>) </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Create</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>._implementor.Process();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> SqlServer2005版本的数据库，相当于RefinedAbstraction类型</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SqlServer2005</span> : <span class="title">Database</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//构造函数初始化</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">SqlServer2005</span>(<span class="params">PlatformImplementor implementor</span>) : <span class="title">base</span>(<span class="params">implementor</span>) </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Create</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>._implementor.Process();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> SqlServer2000版本的数据库针对Unix操作系统具体的实现，相当于ConcreteImplementorA类型</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SqlServer2000UnixImplementor</span> : <span class="title">PlatformImplementor</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Process</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"SqlServer2000针对Unix的具体实现"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> SqlServer2005版本的数据库针对Unix操作系统的具体实现，相当于ConcreteImplementorB类型</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">sealed</span> <span class="keyword">class</span> <span class="title">SqlServer2005UnixImplementor</span> : <span class="title">PlatformImplementor</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Process</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"SqlServer2005针对Unix的具体实现"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            PlatformImplementor SqlServer2000UnixImp = <span class="keyword">new</span> SqlServer2000UnixImplementor();</span><br><span class="line">            <span class="comment">//还可以针对不同平台进行扩展，也就是子类化，这个是独立变化的</span></span><br><span class="line"></span><br><span class="line">            Database SqlServer2000Unix = <span class="keyword">new</span> SqlServer2000(SqlServer2000UnixImp);</span><br><span class="line">            <span class="comment">//数据库版本也可以进行扩展和升级，也进行独立的变化。</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//以上就是两个维度的变化。</span></span><br><span class="line"></span><br><span class="line">         <span class="comment">//就可以针对Unix执行操作了</span></span><br><span class="line">         SqlServer2000Unix.Create();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>代码都很简单，也有详细的备注，就不多说了。</p>
-<h2 id="三、桥接模式的实现要点："><a href="#三、桥接模式的实现要点：" class="headerlink" title="三、桥接模式的实现要点："></a>三、桥接模式的实现要点：</h2><ol>
-<li>Bridge模式使用“对象间的组合关系”解耦了抽象和实现之间固有的绑定关系，使得抽象和实现可以沿着各自的维度来变化。</li>
-<li>所谓抽象和实现沿着各自维度的变化，即“子类化”它们，得到各个子类之后，便可以任意组合它们，从而获得不同平台上的不同型号。</li>
-<li>Bridge模式有时候类似于多继承方案，但是多继承方案往往违背了类的单一职责原则（即一个类只有一个变化的原因），复用性比较差。Bridge模式是比多继承方案更好的解决方法。</li>
-<li>Bridge模式的应用一般在“两个非常强的变化维度”，有时候即使有两个变化的维度，但是某个方向的变化维度并不剧烈——换言之两个变化不会导致纵横交错的结果，并不一定要使用Bridge模式。</li>
-</ol>
-<p><strong>桥接模式的优点：</strong></p>
-<ol>
-<li>把抽象接口与其实现解耦。</li>
-<li>抽象和实现可以独立扩展，不会影响到对方。</li>
-<li>实现细节对客户透明，对用于隐藏了具体实现细节。</li>
-</ol>
-<p><strong>桥接模式的缺点：</strong></p>
-<ol>
-<li>增加了系统的复杂度</li>
-</ol>
-<p><strong>桥接模式的使用场景：</strong></p>
-<ol>
-<li>如果一个系统需要在构件的抽象化角色和具体化角色之间添加更多的灵活性，避免在两个层次之间建立静态的联系。</li>
-<li>设计要求实现化角色的任何改变不应当影响客户端，或者实现化角色的改变对客户端是完全透明的。</li>
-<li>需要跨越多个平台的图形和窗口系统上。</li>
-<li>一个类存在两个独立变化的维度，且两个维度都需要进行扩展。</li>
-</ol>
-<h2 id="四、-NET-中桥接模式的实现"><a href="#四、-NET-中桥接模式的实现" class="headerlink" title="四、.NET 中桥接模式的实现"></a>四、.NET 中桥接模式的实现</h2><p>学习中。。。，如果谁有好的代码分享，也可以贴出来。</p>
-<h2 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h2><p>今天的文章就写到这里了，现在小结一下。桥接模式它是连接客户端代码和具体实现代码的一座桥梁，同时它也隔离了实现代码的改变对客户代码的影响。在【意图】中所说的抽象和实现，这两个部分其实都是高度抽象的，前面“抽象”是指定义的针对客户端的接口，客户端其实使用的是Abstract类型或者是RefinedAbstract类型，这两个类型只是接口，具体的实现委托给了Implementor类型了，Abstract类型子类化的扩展也演变成Implementor子类化的变化。我个人的理解，Abstract类型和其子类型在客户端代码和真正实现的代码之间起到了桥梁的作用，隔离了Implementor实现代码的变化，让客户端更稳定，所以【意图】才说是讲抽象部分和它的实现部分隔离。大家好好理解一下吧，刚开始有点绕。</p>
-
-                                                            <p>本文链接：
-                                                                <a href="https://netlover.cn/2018/08/18/csharp-bridge-pattern.html">
-                                                                    https://netlover.cn/2018/08/18/csharp-bridge-pattern.html
-                                                                </a>
-                                                            </p>
-                                                            
-                                        </div>
-                                        <div class="article-info article-info-index">
-                                                
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bridge-Pattern/">Bridge Pattern</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/桥接模式/">桥接模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 	</div>
 
 

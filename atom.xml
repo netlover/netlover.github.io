@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://netlover.cn/"/>
-  <updated>2018-08-19T02:46:13.072Z</updated>
+  <updated>2018-08-20T15:21:55.375Z</updated>
   <id>https://netlover.cn/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>十种常见的软件架构模式</title>
+    <link href="https://netlover.cn/2018/08/20/10pattern.html"/>
+    <id>https://netlover.cn/2018/08/20/10pattern.html</id>
+    <published>2018-08-20T15:35:44.000Z</published>
+    <updated>2018-08-20T15:21:55.375Z</updated>
+    
+    <summary type="html">
+    
+      有没有想过要设计多大的企业规模系统？在主要的软件开发开始之前，我们必须选择一个合适的体系结构，它将为我们提供所需的功能和质量属性。因此，在将它们应用到我们的设计之前，我们应该了解不同的体系结构。架构模式是一个通用的、可重用的解决方案，用于在给定上下文中的软件体系结构中经常出现的问题。架构模式与软件设计模式类似，但具有更广泛的范围。
+    
+    </summary>
+    
+      <category term="架构" scheme="https://netlover.cn/categories/%E6%9E%B6%E6%9E%84/"/>
+    
+    
+      <category term="架构" scheme="https://netlover.cn/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+      <category term="软件" scheme="https://netlover.cn/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>C#设计模式(08) - 装饰模式(Decorator Pattern)</title>
@@ -321,6 +343,28 @@
   </entry>
   
   <entry>
+    <title>如何成为一个合格的架构师？</title>
+    <link href="https://netlover.cn/2018/08/16/do-jiagoushi.html"/>
+    <id>https://netlover.cn/2018/08/16/do-jiagoushi.html</id>
+    <published>2018-08-16T15:12:44.000Z</published>
+    <updated>2018-08-17T14:13:14.512Z</updated>
+    
+    <summary type="html">
+    
+      在互联网圈，架构师这个名号的火热程度堪比产品经理，它在产品经理没火之前就已经风生水起。
+    
+    </summary>
+    
+      <category term="架构" scheme="https://netlover.cn/categories/%E6%9E%B6%E6%9E%84/"/>
+    
+    
+      <category term="架构" scheme="https://netlover.cn/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+      <category term="架构师" scheme="https://netlover.cn/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ExceptionLess本地部署</title>
     <link href="https://netlover.cn/2018/08/16/ExceptionLess-local.html"/>
     <id>https://netlover.cn/2018/08/16/ExceptionLess-local.html</id>
@@ -341,28 +385,6 @@
       <category term="本地部署" scheme="https://netlover.cn/tags/%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2/"/>
     
       <category term="日志框架" scheme="https://netlover.cn/tags/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何成为一个合格的架构师？</title>
-    <link href="https://netlover.cn/2018/08/16/do-jiagoushi.html"/>
-    <id>https://netlover.cn/2018/08/16/do-jiagoushi.html</id>
-    <published>2018-08-16T15:12:44.000Z</published>
-    <updated>2018-08-17T14:13:14.512Z</updated>
-    
-    <summary type="html">
-    
-      在互联网圈，架构师这个名号的火热程度堪比产品经理，它在产品经理没火之前就已经风生水起。
-    
-    </summary>
-    
-      <category term="架构" scheme="https://netlover.cn/categories/%E6%9E%B6%E6%9E%84/"/>
-    
-    
-      <category term="架构" scheme="https://netlover.cn/tags/%E6%9E%B6%E6%9E%84/"/>
-    
-      <category term="架构师" scheme="https://netlover.cn/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
     
   </entry>
   
