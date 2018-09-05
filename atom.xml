@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://netlover.cn/"/>
-  <updated>2018-08-20T15:21:55.375Z</updated>
+  <updated>2018-09-05T15:01:26.720Z</updated>
   <id>https://netlover.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端预处理技术（Less、Sass、CoffeeScript、TypeScript）</title>
+    <link href="https://netlover.cn/2018/09/05/qianduanyuchuli.html"/>
+    <id>https://netlover.cn/2018/09/05/qianduanyuchuli.html</id>
+    <published>2018-09-05T13:35:44.000Z</published>
+    <updated>2018-09-05T15:01:26.720Z</updated>
+    
+    <summary type="html">
+    
+      CSS不像其它高级语言一样支持算术运算、变量、流程控制与面向对象特性，所以CSS样式较多时会引起一些问题，如修改复杂，冗余，某些别的语言很简单的功能实现不了等。而javascript则是一种半面向对象的动态语言，有java的影子，有C的味道，中间有比其它语言多的糟粕，使用预处理办法可以解决这些问题。其中Less[les]与Sass是CSS的预处理技术，而CoffeeScript、TypeScript则是javascript的预处理技术。
+    
+    </summary>
+    
+      <category term="前端" scheme="https://netlover.cn/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="前端" scheme="https://netlover.cn/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="预处理" scheme="https://netlover.cn/tags/%E9%A2%84%E5%A4%84%E7%90%86/"/>
+    
+      <category term="Less" scheme="https://netlover.cn/tags/Less/"/>
+    
+      <category term="Sass" scheme="https://netlover.cn/tags/Sass/"/>
+    
+      <category term="TypeScript" scheme="https://netlover.cn/tags/TypeScript/"/>
+    
+  </entry>
   
   <entry>
     <title>十种常见的软件架构模式</title>
